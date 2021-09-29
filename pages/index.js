@@ -44,7 +44,11 @@ export default function Home({
           // Hero Statement
         }
         <Section>
-          <div className="w-100 p-20 bg-wall-100 dark:bg-antiwall-100 rounded-xl port-hero-image-height flex items-center">
+          <div
+            className="w-100 p-20 bg-black dark:bg-yellow-300 rounded-xl hero-image-height flex items-center"
+            style={{backgroundBlendMode:'exclusion', backgroundImage: 'url(/imagery/hero-img.png)', backgroundPosition: 'center center', backgroundSize: 'cover'}}
+            >
+            
             <div>
               <h1>Guides for Urbit Operators </h1>
               <h1>and Community Leaders</h1>

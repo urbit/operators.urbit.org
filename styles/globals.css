@@ -127,15 +127,16 @@ a:hover {
 
 /* BEM Classes - Use sparingly */
 
-.port-hero-card-height {
+
+.hero-card-height {
   height: 36em;
 }
 
-.port-hero-image-height {
+.hero-image-height {
   height: 32em;
 }
 
-.port-hero-image {
+.hero-image {
   transform: translateX(8%);
   background-image: linear-gradient(
       to right,
