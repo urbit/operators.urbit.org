@@ -2,8 +2,6 @@ import { useRouter } from "next/router";
 import {
   getPostBySlug,
   getAllPosts,
-  getNextPost,
-  getPreviousPost,
   formatDate,
   generateDisplayDate,
 } from "../../lib/lib";
@@ -17,8 +15,7 @@ import Footer from "../../components/Footer";
 import SingleColumn from "../../components/SingleColumn";
 import Section from "../../components/Section";
 import Contact from "../../components/Contact";
-import PostPreview from "../../components/PostPreview";
-import TwoUp from "../../components/TwoUp";
+
 import { decode } from "html-entities";
 
 export default function Post({
@@ -36,43 +33,22 @@ export default function Post({
   return (
     <Container>
       <Head>
-        <title>{post.title} • Blog • urbit.org</title>
+        <title>{post.title} • Updates • operators.urbit.org</title>
         {Meta(post)}
       </Head>
       <SingleColumn>
-        <Header search={search} />
+        <Header />
         <Section short narrow>
           <h1>{post.title}</h1>
-          <h3 className=" mt-6">{post.description}</h3>
-          <div className="flex items-baseline mt-6">
-            {post.extra.author ? (
-              <div className="type-sub-bold mr-2">{post.extra.author}</div>
-            ) : null}
-            {post.extra.ship ? (
-              <div className="type-sub-bold text-wall-500 font-mono">
-                {post.extra.ship}
-              </div>
-            ) : null}
-          </div>
-          <div className="text-wall-500 type-sub">{formatDate(date)}</div>
+          <h2>{post.description}</h2>
         </Section>
-        <Section short narrow className="markdown">
+        <Section narrow className="markdown">
           <article
             dangerouslySetInnerHTML={{ __html: decode(markdown) }}
           ></article>
         </Section>
         <Section narrow>
           <Contact />
-        </Section>
-        <Section wide className="flex">
-          <TwoUp>
-            {nextPost ? (
-              <PostPreview title="Next Post" post={nextPost} />
-            ) : null}
-            {previousPost ? (
-              <PostPreview title="Previous Post" post={previousPost} />
-            ) : null}
-          </TwoUp>
         </Section>
       </SingleColumn>
       <Footer />
@@ -82,24 +58,11 @@ export default function Post({
 
 //
 export async function getStaticProps({ params }) {
-  const nextPost =
-    getNextPost(
-      params.slug,
-      ["title", "slug", "date", "description", "extra"],
-      "blog"
-    ) || null;
-
-  const previousPost =
-    getPreviousPost(
-      params.slug,
-      ["title", "slug", "date", "description", "extra"],
-      "blog"
-    ) || null;
 
   const post = getPostBySlug(
     params.slug,
-    ["title", "slug", "date", "description", "content", "extra"],
-    "blog"
+    ["title", "slug", "date", "description", "content", "author", "ship"],
+    "guies"
   );
 
   const markdown = await Markdown({ post });
@@ -110,7 +73,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug", "date"], "blog");
+  const posts = getAllPosts(["slug", "date"], "guides");
 
   return {
     paths: posts.map((post) => {
