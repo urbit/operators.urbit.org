@@ -1,0 +1,47 @@
+{
+  "name": "urbit.org-2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run cache-posts && npm run rss && next dev",
+    "build": "npm run cache-posts && npm run rss && next build",
+    "export": "npm run cache-posts && npm run rss && next build && next export",
+    "start": "next start",
+    "prepare": "husky install",
+    "cache-posts": "node lib/cache.js",
+    "rss": "node lib/rss.js"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "autoprefixer": "^10.2.6",
+    "classnames": "^2.3.1",
+    "downshift": "^6.1.5",
+    "feed": "^4.2.2",
+    "fuzzy-search": "^3.2.1",
+    "gray-matter": "^4.0.3",
+    "html-entities": "^2.3.2",
+    "luxon": "^2.0.2",
+    "next": "10.2.3",
+    "patch-package": "^6.4.7",
+    "postcss": "^8.3.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hotkeys": "^2.0.0",
+    "react-swipeable": "^6.1.2",
+    "react-use-localstorage": "^3.5.3",
+    "remark": "^13.0.0",
+    "remark-gfm": "^1.0.0",
+    "remark-heading-id": "^1.0.0",
+    "remark-html": "^13.0.1",
+    "remark-prism": "^1.3.6",
+    "remark-slug": "^6.0.0",
+    "tailwindcss": "^2.1.4",
+    "unified": "^9.2.1"
+  },
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.0"
+  }
+}
