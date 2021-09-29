@@ -44,7 +44,7 @@
 }
 
 .markdown hr {
-  @apply my-16 border-t-2 border-wall-300;
+  @apply my-16 border-t-2 border-wall-300 dark:border-antiwall-300;
 }
 
 .markdown iframe {
@@ -100,7 +100,7 @@
 
 .markdown code,
 .markdown code[class*="language-"] {
-  @apply px-2 py-0.5 bg-wall-100 rounded-md;
+  @apply px-2 py-0.5 bg-wall-100 dark:bg-antiwall-100 rounded-md;
 }
 
 .markdown a code,
@@ -130,7 +130,7 @@
 }
 
 .markdown blockquote {
-  @apply border-l-4 border-wall-300 pl-6 italic;
+  @apply border-l-4 border-wall-300 dark:border-antiwall-300 pl-6 italic;
 }
 .markdown blockquote cite {
   @apply not-italic font-semibold;
@@ -149,14 +149,14 @@
   border-bottom-width: 2px;
   border-bottom-style: solid;
   padding: 8px !important;
-  @apply border-wall-100;
+  @apply border-wall-100 dark:border-antiwall-100;
 }
 
 .markdown table tr th:first-child,
 .markdown table tr td:first-child {
   border-left-width: 2px;
   border-left-style: solid;
-  @apply border-wall-100;
+  @apply border-wall-100 dark:border-antiwall-100;
 }
 
 .markdown table tr th {
@@ -165,7 +165,7 @@
   border-top-style: solid;
   text-align: left;
   vertical-align: middle;
-  @apply border-wall-100;
+  @apply border-wall-100 dark:border-antiwall-100;
 }
 
 /* top-left border-radius */

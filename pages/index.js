@@ -15,7 +15,7 @@ import BubbleLink from "../components/BubbleLink";
 
 function GuideCard({ guide }) {
   return (
-    <div className="bg-wall-100 rounded-xl cursor-pointer aspect-w-4 aspect-h-5 md:aspect-w-5 md:aspect-h-4">
+    <div className="bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-4 aspect-h-5 md:aspect-w-5 md:aspect-h-4">
       <Link href={`/guides/${guide.slug}`}>
         <div className="p-8">
           <h4 className="mb-4">{guide.title}</h4>
@@ -44,7 +44,7 @@ export default function Home({
           // Hero Statement
         }
         <Section>
-          <div className="w-100 p-20 bg-wall-100 rounded-xl port-hero-image-height flex items-center">
+          <div className="w-100 p-20 bg-wall-100 dark:bg-antiwall-100 rounded-xl port-hero-image-height flex items-center">
             <div>
               <h1>Guides for Urbit Operators </h1>
               <h1>and Community Leaders</h1>

@@ -9,7 +9,8 @@ body {
   padding: 0;
   margin: 0;
   /* Make all text wall-600 by default */
-  @apply text-wall-600;
+  @apply text-wall-600 dark:text-antiwall-600 bg-white dark:bg-black;
+  
 }
 
 /* Reset a tags */
@@ -34,7 +35,7 @@ strong {
 
 h1,
 .type-h1 {
-  @apply text-4xl lg:text-5xl font-extrabold leading-tight text-wall-600;
+  @apply text-4xl lg:text-5xl font-extrabold leading-tight;
 }
 
 h2,

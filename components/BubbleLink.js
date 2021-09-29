@@ -1,15 +1,17 @@
 export default function BubbleLink(props) {
     return (
         <li className={'list-none ' + props.className}>
-            <a className={'flex items-center'} href={props.href} target={props.target}>
+            <a className={'flex'} href={props.href} target={props.target}>
+            <div>
             {
                 props.children
             }
+            </div>
             <div className="flex flex-col ml-4">
-                <p className="text-black font-bold">
+                <p className="font-bold">
                     {props.title}
                 </p>
-                <p className="text-wall-400 font-bold">
+                <p className="text-wall-400 dark:text-antiwall-400 font-bold">
                     {props.caption}
                 </p>
             </div>
@@ -22,6 +24,6 @@ BubbleLink.defaultProps = {
     className: '',
     title: '',
     caption: '',
-    children: <div className="w-12 h-12 bg-wall-500 rounded-full" />,
+    children: <div className="w-12 h-12 bg-wall-500 dark:bg-antiwall-500 rounded-full" />,
     target: '_blank'
 }

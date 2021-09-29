@@ -1,16 +1,23 @@
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     colors: {
       // Wall
-      "wall-100": "#F3F2F0", // Primary
+      "wall-100": "#F3F2F0",
       "wall-200": "#E3E0DB",
       "wall-300": "#C8C4BD",
       "wall-400": "#918C84",
       "wall-500": "#5A564F",
       "wall-600": "#24221E",
       washedWall: "rgba(240, 239, 236, .8)", // for overlays
+      // AntiWall for darkmode
+      "antiwall-100": '#0C0D0F',
+      "antiwall-200": '#1C1F24',
+      "antiwall-300": '#373B42',
+      "antiwall-400": '#6E737B',
+      "antiwall-500": '#A5A9B0',
+      "antiwall-600": '#DBDDE1',
       // Greens (Theme Primary Color)
       "green-100": "#E5F7F1",
       "green-200": "#BFEBDB",
