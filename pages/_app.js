@@ -1,6 +1,4 @@
 import "tailwindcss/tailwind.css";
-import { useState, useEffect } from "react";
-import { configure, GlobalHotKeys } from "react-hotkeys";
 import "../styles/globals.css";
 import "../styles/markdown.css";
 import "../styles/prism.css";

@@ -1,10 +1,8 @@
 import { useRouter } from "next/router";
 import {
   getPostBySlug,
-  getAllPosts,
-  formatDate,
-  generateDisplayDate,
-} from "../../lib/lib";
+  getAllPosts
+} from '../../lib/lib'
 import Head from "next/head";
 import Meta from "../../components/Meta";
 import ErrorPage from "../404";
@@ -14,22 +12,17 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import SingleColumn from "../../components/SingleColumn";
 import Section from "../../components/Section";
-import Contact from "../../components/Contact";
 
 import { decode } from "html-entities";
 
 export default function Post({
   post,
-  nextPost,
-  previousPost,
   markdown,
-  search,
 }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage />;
   }
-  const date = generateDisplayDate(post.date);
   return (
     <Container>
       <Head>
@@ -39,16 +32,13 @@ export default function Post({
       <SingleColumn>
         <Header />
         <Section short narrow>
-          <h1>{post.title}</h1>
-          <h2>{post.description}</h2>
+        <h1>{post.title}</h1>
+          <h3 className=" mt-6">{post.description}</h3>
         </Section>
         <Section narrow className="markdown">
           <article
             dangerouslySetInnerHTML={{ __html: decode(markdown) }}
           ></article>
-        </Section>
-        <Section narrow>
-          <Contact />
         </Section>
       </SingleColumn>
       <Footer />
@@ -61,19 +51,19 @@ export async function getStaticProps({ params }) {
 
   const post = getPostBySlug(
     params.slug,
-    ["title", "slug", "date", "description", "content", "author", "ship"],
-    "guies"
+    ["title", "slug",  "description", "content"],
+    "guides"
   );
 
   const markdown = await Markdown({ post });
 
   return {
-    props: { post, markdown, nextPost, previousPost },
+    props: { post, markdown },
   };
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug", "date"], "guides");
+  const posts = getAllPosts(["slug"], "guides");
 
   return {
     paths: posts.map((post) => {
