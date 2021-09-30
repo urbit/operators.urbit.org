@@ -53,12 +53,12 @@ const useHeadingsData = (noh3s) => {
 const Headings = ({ headings, activeId }) => (
   <ul>
     {headings.map((heading, index) => (
-      <li key={heading.id}>
+      <li key={heading.id} className="mb-4">
         <a
-          className={index === 0 ? "font-bold" : "font-medium"}
+          className={"font-medium"}
           href={`#${heading.id}`}
         >
-          {heading.title}
+          <p className="leading-tight">{heading.title}</p>
         </a>
         {heading.items.length > 0 && (
           <ul className="pl-2">
@@ -69,7 +69,7 @@ const Headings = ({ headings, activeId }) => (
                   child.id === activeId ? "text-green-400" : "text-wall-500"
                 }
               >
-                <a href={`#${child.id}`}>{child.title}</a>
+                <a href={`#${child.id}`}><p>{child.title}</p></a>
               </li>
             ))}
           </ul>

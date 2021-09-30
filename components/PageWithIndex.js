@@ -10,7 +10,7 @@ import Section from "./Section";
 import { decode } from "html-entities";
 import { TableOfContents } from "./TableOfContents";
 
-export default function PageWithIndex({ post, markdown, search }) {
+export default function PageWithIndex({ post, markdown }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage />;
@@ -22,12 +22,13 @@ export default function PageWithIndex({ post, markdown, search }) {
         {Meta(post)}
       </Head>
       <SingleColumn>
-        <Header search={search} />
-        <Section narrow>
+        <Header/>
+        <Section>
           <h1>{post.title}</h1>
+          <h3 className=" mt-6">{post.description}</h3>
         </Section>
-        <Section narrow>
-          <div className="flex sidebar">
+        <Section>
+          <div className="flex">
             <article
               className={"markdown pr-0 lg:pr-16"}
               dangerouslySetInnerHTML={{ __html: decode(markdown) }}
@@ -35,8 +36,8 @@ export default function PageWithIndex({ post, markdown, search }) {
             <TableOfContents />
           </div>
         </Section>
+        <Footer />
       </SingleColumn>
-      <Footer />
     </Container>
   );
 }

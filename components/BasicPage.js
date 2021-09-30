@@ -24,14 +24,15 @@ export default function BasicPage({ post, markdown, search }) {
         <Header search={search} />
         <Section narrow>
           <h1>{post.title}</h1>
+          <h3 className=" mt-6">{post.description}</h3>
         </Section>
         <Section narrow className="markdown">
           <article
             dangerouslySetInnerHTML={{ __html: decode(markdown) }}
           ></article>
         </Section>
+        <Footer />
       </SingleColumn>
-      <Footer />
     </Container>
   );
 }

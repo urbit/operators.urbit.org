@@ -1,9 +1,9 @@
 import { getPostBySlug } from "../lib/lib";
-import BasicPage from "../components/BasicPage";
+import PageWithIndex from "../components/PageWithIndex";
 import Markdown from "../components/Markdown";
 
-export default function Post({ post, markdown, search }) {
-  return <BasicPage post={post} markdown={markdown} search={search} />;
+export default function Faq({ post, markdown }) {
+  return <PageWithIndex post={post} markdown={markdown}/>;
 }
 
 export async function getStaticProps() {

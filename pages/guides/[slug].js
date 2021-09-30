@@ -32,7 +32,7 @@ export default function Post({
       <SingleColumn>
         <Header />
         <Section short narrow>
-        <h1>{post.title}</h1>
+          <h1>{post.title}</h1>
           <h3 className=" mt-6">{post.description}</h3>
         </Section>
         <Section narrow className="markdown">
@@ -40,8 +40,8 @@ export default function Post({
             dangerouslySetInnerHTML={{ __html: decode(markdown) }}
           ></article>
         </Section>
+        <Footer />
       </SingleColumn>
-      <Footer />
     </Container>
   );
 }

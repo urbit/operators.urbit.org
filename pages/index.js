@@ -13,13 +13,26 @@ import {
 } from "../lib/lib";
 import BubbleLink from "../components/BubbleLink";
 
-function GuideCard({ guide }) {
+function GuideCard({ guide, className }) {
   return (
-    <div className="bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-4 aspect-h-5 md:aspect-w-5 md:aspect-h-4">
+    <div className={"bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-4 aspect-h-5 md:aspect-w-5 md:aspect-h-4 " + className}>
       <Link href={`/guides/${guide.slug}`}>
-        <div className="p-8">
+        <div className="p-8 measure">
           <h4 className="mb-4">{guide.title}</h4>
           <p>{guide.description}</p>
+        </div>
+      </Link>
+    </div>
+  )
+}
+
+function FaqCard({ faq, className }) {
+  return (
+    <div className={"bg-green-100 dark:bg-antiwall-100 rounded-xl cursor-pointer h-96 " + className}>
+      <Link href={`/faq`}>
+        <div className="p-8 measure">
+          <h4 className="mb-4">{faq.title}</h4>
+          <p>{faq.description}</p>
         </div>
       </Link>
     </div>
@@ -31,6 +44,7 @@ export default function Home({
   whichId,
   runningStar,
   runningGalaxy,
+  faq,
 }) {
   
   return (
@@ -45,10 +59,9 @@ export default function Home({
         }
         <Section>
           <div
-            className="w-100 p-20 bg-black dark:bg-yellow-300 rounded-xl hero-image-height flex items-center"
+            className="w-100 p-20 bg-black dark:bg-yellow-300 rounded-2xl hero-image-height flex items-center"
             style={{backgroundBlendMode:'exclusion', backgroundImage: 'url(/imagery/hero-img.png)', backgroundPosition: 'center center', backgroundSize: 'cover'}}
             >
-            
             <div>
               <h1>Guides for Urbit Operators </h1>
               <h1>and Community Leaders</h1>
@@ -102,11 +115,10 @@ export default function Home({
 
         <Section>
           <h2 className="m-0 p-0 mr-4">FAQ</h2>
+          <FaqCard faq={faq} className="mt-8" />
         </Section>
-
+        <Footer />
       </SingleColumn>
-
-      <Footer />
     </Container>
   );
 }
@@ -119,12 +131,15 @@ export async function getStaticProps() {
   const runningStar = getPostBySlug('running-a-star', ['slug', 'title', 'description'], 'guides')
   const runningGalaxy = getPostBySlug('running-a-galaxy', ['slug', 'title', 'description'], 'guides')
 
+  const faq = getPostBySlug('faq', ['slug', 'title', 'description'], '/')
+
   return {
     props: { 
       inspectId,
       whichId,
       runningStar,
       runningGalaxy,
+      faq,
     },
   };
 }
