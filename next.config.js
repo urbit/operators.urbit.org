@@ -1,5 +1,8 @@
 module.exports = {
   reactStrictMode: false,
+  env: {
+    PUBLIC_URL: '/',
+  },
   // target: 'serverless',
   webpack: (config, { isServer }) => {
     // Fixes npm packages that depend on `fs` module

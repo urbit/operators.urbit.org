@@ -60,7 +60,12 @@ export default function Home({
         <Section>
           <div
             className="w-100 p-20 bg-black dark:bg-yellow-300 rounded-2xl hero-image-height flex items-center"
-            style={{backgroundBlendMode:'exclusion', backgroundImage: 'url(/static/hero-img.png)', backgroundPosition: 'center center', backgroundSize: 'cover'}}
+            style={{
+              backgroundBlendMode:'exclusion', 
+              backgroundImage: `url(/images/hero-img.png)`, 
+              backgroundPosition: 'center center', 
+              backgroundSize: 'cover'
+            }}
             >
             <div>
               <h1>Guides for Urbit Operators </h1>
