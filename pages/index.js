@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image"
 
 import Container from "../components/Container";
 import Section from "../components/Section";
@@ -58,20 +59,19 @@ export default function Home({
           // Hero Statement
         }
         <Section>
-          <div
-            className="w-100 p-20 bg-black dark:bg-yellow-300 rounded-2xl hero-image-height flex items-center"
-            style={{
-              backgroundBlendMode:'exclusion', 
-              backgroundImage: `url(/images/hero-img.png)`, 
-              backgroundPosition: 'center center', 
-              backgroundSize: 'cover'
-            }}
-            >
-            <div>
-              <h1>Guides for Urbit Operators </h1>
-              <h1>and Community Leaders</h1>
+          <div className="relative w-full bg-black dark:bg-yellow-300 rounded-2xl hero-image-height overflow-hidden">
+            <div style={{ mixBlendMode:'exclusion' }}>
+              <Image  src="/images/hero-img.png" layout="fill" objectFit='cover' alt="Guide hero image gradient"/>
             </div>
+            <div className="absolute flex w-full h-full items-center p-4 md:p-8 lg:p-12">
+              <div>
+                <h1>Guides for Urbit Operators </h1>
+                <h1>and Community Leaders</h1>
+              </div>
+            </div>
+
           </div>
+
         </Section>
 
         <Section>
