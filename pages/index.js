@@ -61,9 +61,9 @@ export default function Home({
         <Section>
           <div className="relative w-full bg-black dark:bg-yellow-300 rounded-2xl hero-image-height overflow-hidden">
             <div style={{ mixBlendMode:'exclusion' }}>
-              <Image unoptimized={true} loading='eager' src="/images/hero-img.png" layout="fill" objectFit='cover' alt="Guide hero image gradient"/>
+              <img className="absolute" src="https://storage.googleapis.com/media.urbit.org/site/operators/hero-img.png"  alt="Guide hero image gradient"/>
             </div>
-            <div className="absolute flex w-full h-full items-center p-4 md:p-8 lg:p-12">
+            <div className="absolute text-black dark:text-white flex w-full h-full items-center p-4 md:p-8 lg:p-12">
               <div>
                 <h1>Guides for Urbit Operators </h1>
                 <h1>and Community Leaders</h1>
