@@ -61,7 +61,7 @@ export default function Home({
         <Section>
           <div className="relative w-full bg-black dark:bg-yellow-300 rounded-2xl hero-image-height overflow-hidden">
             <div style={{ mixBlendMode:'exclusion' }}>
-              <Image  src="/images/hero-img.png" layout="fill" objectFit='cover' alt="Guide hero image gradient"/>
+              <Image unoptimized={true} loading='eager' src="/images/hero-img.png" layout="fill" objectFit='cover' alt="Guide hero image gradient"/>
             </div>
             <div className="absolute flex w-full h-full items-center p-4 md:p-8 lg:p-12">
               <div>
