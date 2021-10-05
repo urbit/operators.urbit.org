@@ -11,7 +11,7 @@ export default function BubbleLink(props) {
                 <p className="font-bold">
                     {props.title}
                 </p>
-                <p className="text-wall-400 dark:text-antiwall-400 font-bold">
+                <p className="text-wall-400 dark:text-antiwall-400 font-bold leading-snug">
                     {props.caption}
                 </p>
             </div>

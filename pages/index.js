@@ -16,7 +16,7 @@ import BubbleLink from "../components/BubbleLink";
 
 function GuideCard({ guide, className }) {
   return (
-    <div className={"bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-4 aspect-h-5 md:aspect-w-5 md:aspect-h-4 " + className}>
+    <div className={"bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-4 aspect-h-2 md:aspect-w-5 md:aspect-h-4 " + className}>
       <Link href={`/guides/${guide.slug}`}>
         <div className="p-8 measure">
           <h4 className="mb-4">{guide.title}</h4>
@@ -61,7 +61,7 @@ export default function Home({
         <Section>
           <div className="relative w-full bg-black dark:bg-yellow-300 rounded-2xl hero-image-height overflow-hidden">
             <div style={{ mixBlendMode:'exclusion' }}>
-              <img className="absolute" src="https://storage.googleapis.com/media.urbit.org/site/operators/hero-img.png"  alt="Guide hero image gradient"/>
+              <img className="absolute w-full h-full" src="https://storage.googleapis.com/media.urbit.org/site/operators/hero-img.png"  alt="Guide hero image gradient"/>
             </div>
             <div className="absolute text-black dark:text-white flex w-full h-full items-center p-4 md:p-8 lg:p-12">
               <div>
@@ -86,27 +86,33 @@ export default function Home({
           <h2 className="m-0 p-0 mr-4">Marketplaces</h2>
           <TwoUp className="mt-8">
             <BubbleLink
-              href="https://starketplace.urbit.org"
-              title="Starketplace"
-              caption="DEX for stars"
-            />
+              href="https://star.market"
+              title="Star Market"
+              caption="DEX for Urbit stars"
+            >
+              <img alt="star market logo" className="max-w-none w-12 h-12 rounded-full" src="/images/star-market-logo.png" />
+            </BubbleLink>
             <BubbleLink
-              href="https://opensea.io/"
+              href="https://opensea.io/assets/urbit-id"
               title="OpenSea"
-              caption="Discover, collect, and sell extraordinary NFTs"
-            />
+              caption="A large, general NFT marketplace">
+              <img alt="opensea logo" className="max-w-none w-12 h-12 rounded-full" src="https://opensea.io/static/images/logos/opensea.svg" />
+            </BubbleLink>
           </TwoUp>
           <TwoUp className="mt-0">
             <BubbleLink
-              href="https://starketplace.urbit.org"
-              title="Starketplace"
-              caption="DEX for stars"
-            />
+              href="https://urbit.live"
+              title="Urbit.live"
+              caption="A specialized market for Urbit planets"
+              >
+              <img alt="urbitlive logo" className="max-w-none w-12 h-12 rounded-full" src="https://urbit.live/static/media/urbit-live-logo-png-400.6ec9a92b.png" />
+            </BubbleLink>
             <BubbleLink
-              href="https://opensea.io/"
-              title="OpenSea"
-              caption="Discover, collect, and sell extraordinary NFTs"
-            />
+              href="web+urbitgraph://group/~tirrel/the-marketplace"
+              title="The Marketplace"
+              caption="One of the largest exchange groups on Urbit">
+                <img alt="Marketplace logo" className="max-w-none w-12 h-12 rounded-full" src="https://urbit.live/static/media/urbit-live-logo-png-400.6ec9a92b.png" />
+            </BubbleLink>
           </TwoUp>
         </Section>
 
@@ -122,6 +128,19 @@ export default function Home({
           <h2 className="m-0 p-0 mr-4">FAQ</h2>
           <FaqCard faq={faq} className="mt-8" />
         </Section>
+
+        <Section>
+          <h2 className="m-0 p-0 mr-4 measure">Help and Support</h2>
+          <p className="pb-12 mt-8 measure">
+            It solves the hard problems of implementing a peer-to-peer network
+            (including identity, NAT traversal, and exactly-once delivery) in
+            the kernel so app developers can focus on business logic.
+          </p>
+          <button className="button-lg type-ui text-white bg-wall-600">
+            Contact Us
+          </button>
+        </Section>
+
         <Footer />
       </SingleColumn>
     </Container>
