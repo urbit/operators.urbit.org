@@ -20,7 +20,7 @@
     "gray-matter": "^4.0.3",
     "html-entities": "^2.3.2",
     "luxon": "^2.0.2",
-    "next": "^10.2.3",
+    "next": "latest",
     "patch-package": "^6.4.7",
     "postcss": "^8.3.0",
     "react": "^17.0.2",

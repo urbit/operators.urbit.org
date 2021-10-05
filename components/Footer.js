@@ -10,7 +10,7 @@ export default function Footer() {
           <a className="type-ui">The Urbit Guidebook</a>
         </Link>
 
-        <a className="type-ui flex" href="urbit.org" target="_blank">Urbit.org <div className="font-sans w-8 h-8 rounded-full bg-wall-600 dark:bg-antiwall-600 ml-2 text-wall-100 dark:text-antiwall-100 flex items-center justify-center"><p className="leading-none pt-0.5">{'↗'}</p></div></a>
+        <a className="type-ui flex" href="https://urbit.org" target="_blank">Urbit.org <div className="font-sans w-8 h-8 rounded-full bg-wall-600 dark:bg-antiwall-600 ml-2 text-wall-100 dark:text-antiwall-100 flex items-center justify-center"><p className="leading-none pt-0.5">{'↗'}</p></div></a>
     </footer>
   );
 }
