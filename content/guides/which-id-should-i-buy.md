@@ -11,10 +11,10 @@ Urbit ID is a decentralized addressing system and public key infrastructure desi
 
 There are 5 types of Urbit IDs, each with a different role in the network:
 Galaxies are likely candidates for large organizations, countries, or anything that wants to have complete control over their own networking. They spawn and sponsor stars, perform peer discovery and NAT traversal similar to DNS, provide provider-style services, and vote.  There are 2^8 (256) galaxies and each can spawn 256 stars.
-Stars are for businesses, communities, or metropolises. Stars spawn and sponsor planets, moderate their peers, provide hosting, L2, or object storage services, and swap for $WSTR. (You can swap stars for $WSTR here.) There are 2^16 (~65K) stars and each can sponsor ~65K planets.
+Stars are for businesses, communities, or metropolises. Stars spawn and sponsor planets, moderate their peers, provide hosting, L2, or object storage services, and swap for $WSTR. (You can swap stars for $WSTR [here](https://star.market/).) There are 2^16 (~65K) stars and each can sponsor ~65K planets.
 Planets are for people. They are your username, domain name, and crypto wallet address all wrapped into one. They can spawn moons and distribute software applications.
 
-NEVER BUY:
+**NEVER BUY**:
 
 Moons are for devices. They are the IoT of Urbit. These are not independent identities. They cannot change sponsors.
 Comets are free identities. Anyone can boot one. They are for trying out Urbit, bots and spammers. 
@@ -26,7 +26,7 @@ Technically, Urbit ID is a decentralized addressing and public key infrastructur
 
 Urbit ID was designed as the PKI, networking system and pseudonymous addressing system for Urbit OS. For Urbit OS to succeed as a decentralized network, we needed a simple mechanism for distributing address space. Urbit ID was designed as a simple, mechanical system where addresses have value (because they’re scarce) and can be distributed in blocks (to distribute authority and authentication). You can think of Urbit ID a bit like digital land—except smaller parcels (stars and planets) can always move to other regions by simply changing sponsors.
 
-Each Urbit ID is really just a number. From that number, we generate a pronounceable name and a visually identifiable sigil. ~dalwel-fadrun is 3,509,632,436, for example. This number is a place in our Urbit ID registry which gives you access to and ownership of the network. Urbit IDs are scarce so they cost something. There are 2^32 (~4B). Since they cost something, people are less likely to spam or abuse the network. The internet died five years ago, Urbit lives on. 
+Each Urbit ID is really just a number. From that number, we generate a pronounceable name and a visually identifiable sigil. ~dalwel-fadrun is 3,509,632,436, for example. This number is a place in our Urbit ID registry which gives you access to and ownership of the network. Urbit IDs are scarce so they cost something. There are 2^32 (~4B). Since they cost something, people are less likely to spam or abuse the network. [The internet died five years ago](https://forum.agoraroad.com/index.php?threads/dead-internet-theory-most-of-the-internet-is-fake.3011/), Urbit lives on. 
 
 Urbit ID is a pseudonymous and reputation-based identity system. There are ways to mask your username with a nickname or dox yourself on the network if you wish.
 
@@ -47,7 +47,7 @@ The sections below will detail the role of each type of Urbit ID in the network.
 
 Example name: ~zod
 Spawns: 2^8 Stars
-Type: governance
+Type: Governance
 
 Galaxies are likely candidates for large organizations, countries, or anything that wants to have complete control over their own networking.  
 
@@ -66,9 +66,9 @@ Galaxy holders form a senate that can upgrade the logic of the Urbit ID system b
 
 ### Star
 
-Example name: ~sampel
-Spawns: 2^16 Planets
-Type: Infrastructure
+- Example name: ~sampel
+- Spawns: 2^16 Planets
+- Type: Infrastructure
 
 Stars are for businesses, communities, DAOs, or metropolises. 
 
@@ -82,22 +82,22 @@ To a degree, a star is responsible for all the planets they host. If a planet yo
 
 Stars currently can provide several services. 
 
-Hosting: Not every person can be expected to set up their Digital Ocean instance using terminal. Some examples of hosting services are UrbitHost, Escape Pod Store, and Tlon Corp.
+Hosting: Not every person can be expected to set up their Digital Ocean instance using terminal. Some examples of hosting services are [UrbitHost](https://urbithost.com/), [Escape Pod Store](https://www.escapepod.store/), and [Tlon Corp](https://tlon.io/).
 
-L2 Rollers: All stars are capable of operating as a roller. Tlon currently operates a roller which submits batches once a day, and covers the cost of submissions. Read about the naive rollup here.
+L2 Rollers: All stars are capable of operating as a roller. Tlon currently operates a roller which submits batches once a day, and covers the cost of submissions. Read about the [naive rollup here](https://urbit.org/blog/rollups).
 
 Object Storage: It doesn’t make sense to store large media inside of a planet’s files system. Stars can provide these services via connectors that allow you to automatically upload media to a file storage service such as AWS or LFS. 
 
 
-All unbooted stars can be swapped for Wrapped Stars ($WSTR). This means that your star must remain unbooted and have not spawned any of its planets. You can swap your stars here.
+All unbooted stars can be swapped for Wrapped Stars ($WSTR). This means that your star must remain unbooted and have not spawned any of its planets. You can swap your stars [here](http://star.market/).
 
 
 
 ### Planet
 
-Example name: ~sampel-palnet
-Spawns: 2^32 Moons
-Type: Personal
+- Example name: ~sampel-palnet
+- Spawns: 2^32 Moons
+- Type: Personal
 
 Planets are for you. They are personal and durable. You can pass your planet onto your children, your children’s children, and so forth.
 
@@ -109,9 +109,9 @@ Planets can issue 2^32 moons. We’ll read more about moons in the next section,
 
 ###Moon
 
-Example name: ~doznec-salfun-naptul-habrys
-Spawns: N/A
-Type: Device
+- Example name: ~doznec-salfun-naptul-habrys
+- Spawns: N/A
+- Type: Device
 
 
 Moons are for devices and bots.
@@ -125,11 +125,11 @@ Ultimately, moons are the IoT of Urbit.
 
 ###Comet
 
-Example name: ~doznec-salfun-naptul-habrys-doznec-salfun-naptul-habrys
-Spawns: N/A
-Type: bot
+- Example name: ~doznec-salfun-naptul-habrys-doznec-salfun-naptul-habrys
+- Spawns: N/A
+- Type: Bot
 
 
-Comets are for bots. These are free identities that anyone can spin up to get on the network. Spin one up today and get on the network for free using Port. Because comets are free, many groups or other Urbit IDs might block communications with them. 
+Comets are for bots. These are free identities that anyone can spin up to get on the network. Spin one up today and get on the network for free [using Port](https://urbit.org/getting-started). Because comets are free, many groups or other Urbit IDs might block communications with them. 
 
 Comets have nearly all the same capabilities as a planet. 
