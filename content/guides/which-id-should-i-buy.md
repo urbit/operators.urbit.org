@@ -45,9 +45,9 @@ The sections below will detail the role of each type of Urbit ID in the network.
 
 ### Galaxy
 
-Example name: ~zod
-Spawns: 2^8 Stars
-Type: Governance
+- Example name: ~zod
+- Spawns: 2^8 Stars
+- Type: Governance
 
 Galaxies are likely candidates for large organizations, countries, or anything that wants to have complete control over their own networking.  
 
@@ -107,7 +107,7 @@ Planets can issue 2^32 moons. We’ll read more about moons in the next section,
 
 
 
-###Moon
+### Moon
 
 - Example name: ~doznec-salfun-naptul-habrys
 - Spawns: N/A
@@ -123,7 +123,7 @@ Moons are currently used as backup identities, bots, or group hosts. Hosting a g
 Ultimately, moons are the IoT of Urbit.
 
 
-###Comet
+### Comet
 
 - Example name: ~doznec-salfun-naptul-habrys-doznec-salfun-naptul-habrys
 - Spawns: N/A
