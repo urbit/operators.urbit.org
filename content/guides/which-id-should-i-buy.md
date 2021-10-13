@@ -10,14 +10,14 @@ TL;DR
 Urbit ID is a decentralized addressing system and public key infrastructure designed for Urbit OS. It is a unique number, a username, an avatar, a piece of a collectively owned network, and a key to a new digital world. Sort of like DNS, IP and a username system combined into one thing. Each Urbit ID is an ERC-721 NFT on the Ethereum blockchain.
 
 There are 5 types of Urbit IDs, each with a different role in the network:
-Galaxies are likely candidates for large organizations, countries, or anything that wants to have complete control over their own networking. They spawn and sponsor stars, perform peer discovery and NAT traversal similar to DNS, provide provider-style services, and vote.  There are 2^8 (256) galaxies and each can spawn 256 stars.
-Stars are for businesses, communities, or metropolises. Stars spawn and sponsor planets, moderate their peers, provide hosting, L2, or object storage services, and swap for $WSTR. (You can swap stars for $WSTR [here](https://star.market/).) There are 2^16 (~65K) stars and each can sponsor ~65K planets.
-Planets are for people. They are your username, domain name, and crypto wallet address all wrapped into one. They can spawn moons and distribute software applications.
+- Galaxies are likely candidates for large organizations, countries, or anything that wants to have complete control over their own networking. They spawn and sponsor stars, perform peer discovery and NAT traversal similar to DNS, provide provider-style services, and vote.  There are 2^8 (256) galaxies and each can spawn 256 stars.
+- Stars are for businesses, communities, or metropolises. Stars spawn and sponsor planets, moderate their peers, provide hosting, L2, or object storage services, and swap for $WSTR. (You can swap stars for $WSTR [here](https://star.market/).) There are 2^16 (~65K) stars and each can sponsor ~65K planets.
+- Planets are for people. They are your username, domain name, and crypto wallet address all wrapped into one. They can spawn moons and distribute software applications.
 
 **NEVER BUY**:
 
-Moons are for devices. They are the IoT of Urbit. These are not independent identities. They cannot change sponsors.
-Comets are free identities. Anyone can boot one. They are for trying out Urbit, bots and spammers. 
+- Moons are for devices. They are the IoT of Urbit. These are not independent identities. They cannot change sponsors.
+- Comets are free identities. Anyone can boot one. They are for trying out Urbit, bots and spammers. 
 
 
 ## What is an Urbit ID?
@@ -36,7 +36,7 @@ There are 5 different types of Urbit IDs: Galaxy, Star, Planet, Moon, and Comet.
 
 ## The Different Types of IDs
 
-When talking about Urbit IDs to purchase, we are really only talking about three kinds: Galaxy, Star, and Planet. Moons and Comets aren’t worth buying. If they are for sale, it is a scam. Run, don’t walk, the other way. One of the most important functions of galaxies and stars is minting other identities, aka spawning. There are a total of 256 galaxies. Each galaxy can spawn 255 stars. Each star can spawn 65,535 planets. This makes for a total of ~4.3 billion planets on the Urbit network. 
+When talking about Urbit IDs to purchase, we are really only talking about three kinds: Galaxy, Star, and Planet. Moons and Comets aren’t worth buying. If they are for sale, it is a scam. Run, don’t walk, the other way. One of the most important functions of galaxies and stars is issuing other identities, aka spawning. There are a total of 256 galaxies. Each galaxy can spawn 255 stars. Each star can spawn 65,535 planets. This makes for a total of ~4.3 billion planets on the Urbit network. 
 
 When deciding which Urbit ID to purchase you should consider what level of involvement you want in the network, as well as the current status of the Urbit ID. Be sure to read our “How to Inspect and ID” guide which goes over the difference between new and booted, spawned and unspawned, active and inactive Urbit IDs. 
 
