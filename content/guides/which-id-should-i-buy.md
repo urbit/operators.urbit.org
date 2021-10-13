@@ -1,6 +1,6 @@
 +++
 title = "Which ID Should I Buy?"
-description = "A guide to the 5 different types of Urbit IDs: Galaxy, Star, Planet, Moon, & Comet"
+description = "A buyer's guide to the 5 different types of Urbit IDs: Galaxy, Star, Planet, Moon, & Comet"
 +++
 
 # Which ID should I buy?
