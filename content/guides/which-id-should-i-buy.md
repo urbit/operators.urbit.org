@@ -3,7 +3,7 @@ title = "Which ID Should I Buy?"
 description = "A buyer's guide to the 5 different types of Urbit IDs: Galaxy, Star, Planet, Moon, & Comet"
 +++
 
-**TL;DR**
+**TL;DR** 
 
 Urbit ID is a decentralized addressing system and public key infrastructure designed for Urbit OS. It is a unique number, a username, an avatar, a piece of a collectively owned network, and a key to a new digital world. Sort of like DNS, IP and a username system combined into one thing. Each Urbit ID is an ERC-721 NFT on the Ethereum blockchain.
 
