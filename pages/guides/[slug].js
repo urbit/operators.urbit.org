@@ -12,6 +12,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import SingleColumn from "../../components/SingleColumn";
 import Section from "../../components/Section";
+import { TableOfContents } from "../../components/TableOfContents";
 
 import { decode } from "html-entities";
 
@@ -31,15 +32,19 @@ export default function Post({
       </Head>
       <SingleColumn>
         <Header />
-        <Section short narrow>
+        <Section short>
           <h1>{post.title}</h1>
-          <h3 className=" mt-6">{post.description}</h3>
+          <h3 className="measure mt-6">{post.description}</h3>
         </Section>
-        <Section narrow className="markdown">
-          <article
-            dangerouslySetInnerHTML={{ __html: decode(markdown) }}
-          ></article>
-        </Section>
+        <Section>
+          <div className="flex">
+              <article
+                className={"markdown pr-0 lg:pr-16"}
+                dangerouslySetInnerHTML={{ __html: decode(markdown) }}
+              ></article>
+              <TableOfContents />
+            </div>
+          </Section>
         <Footer />
       </SingleColumn>
     </Container>

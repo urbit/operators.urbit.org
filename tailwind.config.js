@@ -12,7 +12,7 @@ module.exports = {
       "wall-600": "#24221E",
       washedWall: "rgba(240, 239, 236, .8)", // for overlays
       // AntiWall for darkmode
-      "antiwall-100": '#0C0D0F',
+      "antiwall-100": '#1C1E21',
       "antiwall-200": '#1C1F24',
       "antiwall-300": '#373B42',
       "antiwall-400": '#6E737B',
