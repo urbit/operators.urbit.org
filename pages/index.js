@@ -129,9 +129,8 @@ export default function Home({
         <Section>
           <h2 className="m-0 p-0 mr-4 measure">Help and Support</h2>
           <p className="pb-12 mt-8 measure">
-            It solves the hard problems of implementing a peer-to-peer network
-            (including identity, NAT traversal, and exactly-once delivery) in
-            the kernel so app developers can focus on business logic.
+            Need help operating your star or galaxy? Don't be a stranger. 
+            Reach out to us at the email below.
           </p>
           {/* <Link href="/faq">
             <button className="button-lg type-ui text-white bg-wall-600 mb-4">
