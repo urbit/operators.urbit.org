@@ -111,7 +111,7 @@ export default function Home({
               href="web+urbitgraph://group/~tirrel/the-marketplace"
               title="The Marketplace"
               caption="An Urbit group for trading address space">
-                <img alt="Marketplace logo" className="max-w-none w-12 h-12 rounded-full" src="/images/the-marketplace-logo.png" />
+                <Image alt="Marketplace logo" className="max-w-none w-12 h-12 rounded-full" src="/images/the-marketplace-logo.png" />
             </BubbleLink>
           </TwoUp>
         </Section>
