@@ -207,3 +207,21 @@ a:hover {
   position: static !important;
   border-radius: 0 !important;
 }
+
+.bg-hero-img {
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (prefers-color-scheme: light) {
+  .bg-hero-img {
+    background-image: url('/images/hero-img-light.png');
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-hero-img {
+    background-image: url('/images/hero-img-dark.png');
+  }
+}

@@ -59,10 +59,7 @@ export default function Home({
           // Hero Statement
         }
         <Section>
-          <div className="relative w-full bg-black dark:bg-yellow-300 rounded-2xl hero-image-height overflow-hidden">
-            <div style={{ mixBlendMode:'exclusion' }}>
-              <img className="absolute w-full h-full" src="https://storage.googleapis.com/media.urbit.org/site/operators/hero-img.png"  alt="Guide hero image gradient"/>
-            </div>
+          <div className="relative w-full bg-gray-200 rounded-2xl hero-image-height overflow-hidden bg-hero-img">
             <div className="absolute text-black dark:text-white flex w-full h-full items-center p-4 md:p-8 lg:p-12">
               <div>
                 <h1>Guides for Urbit Operators </h1>
@@ -136,14 +133,16 @@ export default function Home({
             (including identity, NAT traversal, and exactly-once delivery) in
             the kernel so app developers can focus on business logic.
           </p>
-          <Link href="/faq">
+          {/* <Link href="/faq">
             <button className="button-lg type-ui text-white bg-wall-600 mb-4">
             Check out the FAQ
             </button>
-          </Link>
-          <button className="button-lg type-ui text-white bg-wall-600">
-            Contact Us
-          </button>
+          </Link> */}
+          <div className="table">
+          <a href="mailto:support@urbit.org" className="button-lg type-ui text-white bg-wall-600">
+            support@urbit.org
+          </a>
+          </div>
         </Section>
 
         <Footer />
