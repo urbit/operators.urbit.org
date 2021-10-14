@@ -124,10 +124,10 @@ export default function Home({
           </TwoUp>
         </Section>
 
-        <Section>
+        {/* <Section>
           <h2 className="m-0 p-0 mr-4">FAQ</h2>
           <FaqCard faq={faq} className="mt-8" />
-        </Section>
+        </Section> */}
 
         <Section>
           <h2 className="m-0 p-0 mr-4 measure">Help and Support</h2>
@@ -136,6 +136,11 @@ export default function Home({
             (including identity, NAT traversal, and exactly-once delivery) in
             the kernel so app developers can focus on business logic.
           </p>
+          <Link href="/faq">
+            <button className="button-lg type-ui text-white bg-wall-600 mb-4">
+            Check out the FAQ
+            </button>
+          </Link>
           <button className="button-lg type-ui text-white bg-wall-600">
             Contact Us
           </button>
