@@ -16,7 +16,7 @@ import BubbleLink from "../components/BubbleLink";
 
 function GuideCard({ guide, className }) {
   return (
-    <div className={"bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer " + className}>
+    <div className={"bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 " + className}>
       <Link href={`/guides/${guide.slug}`}>
         <div className="p-8 measure ">
           <h4 className="mb-4">{guide.title}</h4>
@@ -25,6 +25,10 @@ function GuideCard({ guide, className }) {
       </Link>
     </div>
   )
+}
+
+GuideCard.defaultProps = {
+  className: "",
 }
 
 function FaqCard({ faq, className }) {

@@ -37,7 +37,7 @@ export default function Post({
           <h3 className="measure mt-6">{post.description}</h3>
         </Section>
         <Section>
-          <div className="flex">
+          <div className="block lg:flex">
               <article
                 className={"markdown pr-0 lg:pr-16"}
                 dangerouslySetInnerHTML={{ __html: decode(markdown) }}
