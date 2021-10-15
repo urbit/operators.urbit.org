@@ -160,7 +160,7 @@ with other galaxy-holders:
 -   A galaxy-holder email mailing list
 
 These channels are operated by Tlon; reach out to
-[<support@tlon.io>] to request invitations.
+[support@tlon.io](mailto:support@tlon.io) to request invitations.
 
 ## Buying a galaxy
 
