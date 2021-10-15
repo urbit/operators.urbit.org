@@ -142,7 +142,7 @@ export default function Home({
             </button>
           </Link> */}
           <div className="table">
-          <a href="mailto:support@urbit.org" className="button-lg type-ui text-white bg-wall-600">
+          <a href="mailto:support@urbit.org" className="button-lg type-ui text-white bg-wall-600 dark:bg-antiwall-100">
             support@urbit.org
           </a>
           </div>
