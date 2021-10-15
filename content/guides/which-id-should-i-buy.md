@@ -4,22 +4,20 @@ description = "A buyer's guide to the 5 different types of Urbit IDs: Galaxy, St
 +++
 
 
-# Which ID should I buy?
+## TL;DR
 
-TL;DR
+Urbit ID is a decentralized addressing system and public key infrastructure designed for Urbit OS. It is a unique number, a username, an avatar, a piece of a collectively owned network, and a key to a new digital world. Sort of like DNS, IP and a username system combined into one thing. Each Urbit ID is an [ERC-721](https://eips.ethereum.org/EIPS/eip-721) NFT on the Ethereum blockchain.
 
-Urbit ID is a decentralized addressing system and public key infrastructure designed for Urbit OS. It is a unique number, a username, an avatar, a piece of a collectively owned network, and a key to a new digital world. Sort of like DNS, IP and a username system combined into one thing. Each Urbit ID is an ERC-721 NFT on the Ethereum blockchain.
+There are 5 types of Urbit IDs, only 3 of which should be purchased, each with a different role in the network:
 
-There are 5 types of Urbit IDs, each with a different role in the network:
-Galaxies are likely candidates for large organizations, countries, or anything that wants to have complete control over their own networking. They spawn and sponsor stars, perform peer discovery and NAT traversal similar to DNS, provide provider-style services, and govern.  There are 2^8 (256) galaxies and each can spawn 255 stars.
-Stars are for businesses, communities, or metropolises. Stars spawn and sponsor planets, perform peer routing, provide hosting, or infrastructure services, and swap for WSTR. (You can swap stars for WSTR [here](https://star.market/).) There are 2^16 (~65K) stars and each can sponsor ~65K planets.
-Planets are for individuals. They are your username, domain name, and crypto wallet address all wrapped into one. They can spawn moons.
+1. Galaxies are likely candidates for large organizations, countries, or anything that wants to have complete control over their own networking. They spawn and sponsor stars, perform peer discovery and NAT traversal similar to DNS, provide provider-style services, and govern.  There are 2^8 (256) galaxies and each can spawn 255 stars.
+2. Stars are for businesses, communities, or metropolises. Stars spawn and sponsor planets, perform peer routing, provide hosting or infrastructural services, and swap for [$WSTR](https://star.market/) (Wrapped Stars). There are 2^16 (~65K) stars and each can sponsor ~65K planets.
+3. Planets are for individuals. They are your username, domain name, and crypto wallet address all wrapped into one asset. They can spawn moons.
 
-**NEVER BUY**:
+**NEVER BUY THESE**:
 
-Moons are for devices. They are the IoT of Urbit. These are not independent identities. They cannot change sponsors.
-Comets are free identities. Anyone can boot one. They are for trying out Urbit, bots and spammers. 
-
+4. Moons are for devices. They are the IoT of Urbit. These are not independent identities. They cannot change sponsors.
+5. Comets are free identities. Anyone can boot one. They are for trying out Urbit, developing/deploying automated agents (bots), and performing otherwise "disposable" activity.
 
 ## What is an Urbit ID?
 
@@ -33,24 +31,19 @@ Each Urbit ID is really just a number. From that number, we generate a pronounce
 
 Urbit ID is a pseudonymous and reputation-based identity system. There are ways to swap your ID with a nickname or dox yourself on the network if you wish. Think of an Urbit ID more like a phone number than a handle.
 
-
-
-
-
 ## The Different Types of IDs
 
 When talking about Urbit IDs to purchase, we are really only talking about three kinds: Galaxy, Star, and Planet. Moons and Comets aren’t worth buying. If they are for sale, it is a scam. Run, don’t walk, the other way. One of the most important functions of galaxies and stars is minting other identities, aka spawning. There are a total of 256 galaxies. Each galaxy can spawn 255 stars. Each star can spawn 65,535 planets. This makes for a total of ~4.3 billion planets on the Urbit network. 
 
-When deciding which Urbit ID to purchase you should consider what level of involvement you want in the network, as well as the current status of the Urbit ID. Be sure to read our [How to Inspect an ID](TODO) guide which goes over the difference between new and booted, spawned and unspawned, active and inactive Urbit IDs. 
+When deciding which Urbit ID to purchase you should consider what level of involvement you want in the network, as well as the current status of the Urbit ID. Be sure to read our [How to Inspect an ID](/guides/how-to-inspect-an-id) guide which goes over the difference between new and booted, spawned and unspawned, active and inactive Urbit IDs. 
 
 The sections below will detail the role of each type of Urbit ID in the network.
 
-
 ### Galaxy
 
-Example name: `~zod`
-Spawns: 2^8 Stars
-Purpose: Governance
+- Example name: `~zod`
+- Spawns: 2^8 Stars
+- Purpose: Governance
 
 Galaxies are likely candidates for large organizations, countries, or anything that wants to have complete control over their own networking or play a role in governing the future of Urbit ID.  
 
@@ -58,21 +51,17 @@ Galaxies 1. spawn and sponsor stars, 2. perform peer discovery and NAT traversal
 
 Galaxies spawn 255 stars, each star can spawn 65,535 planets. That’s a lot of address space. Galaxy holders are responsible for keeping their nodes running at all times as they provide software and network updates for their peers, also known as sponsoring stars. It’s considered bad practice to spawn and sell stars from an inactive galaxy. 
 
-
 On the network, galaxies perform peer discovery for their children. Simply put, this means that your galaxy tells other Urbit IDs where they can find your children so that they can communicate directly with them -- similar to asking a DNS server to tell you where to look for google.com. Thus, it is crucially important that your Galaxy be online and reachable.
-
 
 Galaxy holders form a senate that can upgrade the logic of the Urbit ID system by majority vote. They convene in a private group on Urbit, a telegram channel, and an email list.
 
-
 They also form a select social club.
-
 
 ### Star
 
-Example name: `~sampel`
-Spawns: 2^16 Planets
-Purpose: Infrastructure
+- Example name: `~sampel`
+- Spawns: 2^16 Planets
+- Purpose: Infrastructure
 
 Stars are for businesses, communities, DAOs, or metropolises. 
 
@@ -88,9 +77,9 @@ Stars 1. spawn and sponsor planets, 2. moderate their peers, 3. provide hosting,
 
 ### Planet
 
-Example name: ~sampel-palnet
-Spawns: 2^32 Moons
-Purpose: Personal
+- Example name: ~sampel-palnet
+- Spawns: 2^32 Moons
+- Purpose: Personal
 
 Planets are for you. They are personal and permanent. You can pass your planet onto your children, your children’s children, and so forth.
 
@@ -98,14 +87,11 @@ Planets are your username, domain name, and crypto wallet address all wrapped in
 
 Planets can issue 2^32 moons. We’ll read more about moons in the next section, but it is worth noting that moons are not independent identities like galaxies, stars, and planets. Moons are not represented in Azimuth. 
 
-
-
 ### Moon
 
-```Example name: ~doznec-salfun-naptul-habrys
-Spawns: N/A
-Purpose: Device```
-
+- Example name: ~doznec-salfun-naptul-habrys
+- Spawns: N/A
+- Purpose: Device
 
 Moons are for devices.
 
@@ -113,30 +99,12 @@ Moons differ from all previous Urbit IDs in that they cannot escape their sponso
 
 Moons are kind of like the IoT of Urbit. Someday moons are for your fleet of farming robots, your in-house factory, your network of mining GPUs. 
 
+### Comet
 
-###Comet
-
-```Example name: ~doznec-salfun-naptul-habrys-doznec-salfun-naptul-habrys
-Spawns: N/A
-Type: Bot```
-
+- Example name: ~doznec-salfun-naptul-habrys-doznec-salfun-naptul-habrys
+- Spawns: N/A
+- Type: Bot
 
 Comets are for bots or for trying out Urbit. These are free identities that anyone can spin up to get on the network. Spin one up today and get on the network for free [using Port](https://urbit.org/getting-started). Because comets are free, many groups or other Urbit IDs might block communications with them. 
 
-Comets don’t have an OTA provider by default. So they really are for demo-mode. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Comets don’t have an OTA provider by default. So they really are for demo-mode.

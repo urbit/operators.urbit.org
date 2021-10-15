@@ -1,13 +1,13 @@
 +++
 title = "How to Inspect an ID"
-description = "Urbit IDs unlock an entire digital world, and while they are NFTs, there’s a lot more to them than your typical piece of digital art."
+description = ""
 +++
 
 # How to inspect an Urbit ID
 
 Urbit IDs unlock an entire digital world, and while they are NFTs, there’s a lot more to them than your typical piece of digital art. 
 
-There are five different types of Urbit ID—galaxies, stars, planets, moons, comets—but only the first three are relevant for the purposes of this guide (moons and comets should **never be purchased**). For an in-depth overview of what each ID is for, check out the [Urbit ID Buyer’s Guide](TODO).
+There are five different types of Urbit ID—galaxies, stars, planets, moons, comets—but only the first three are relevant for the purposes of this guide (moons and comets should **never be purchased**). For an in-depth overview of what each ID is for, check out the [Urbit ID Buyer’s Guide](/guides/which-id-should-i-buy).
 
 One of the most important things to understand about Urbit IDs (“ID”) is that they are intended to be used to power an operating system, within which their owner will interact with a larger network of other ID owners (“owners”). An owner may take actions that permanently affect the state of the ID, and their actions with other owners on the network may confer *reputation* to the ID. Throughout the rest of this guide we’ll discuss the best ways to determine the status of a given ID.
 
@@ -15,15 +15,17 @@ Throughout this guide we’ll be making use of the [Urbit Network Explorer](http
 
 ## Planets
 
-When evaluating a planet you’ll want to consider whether or not it hasnot has:
+When evaluating a planet you’ll want to consider the following:
 
-Been spawned
-Been booted
-An online sponsor
+- Whether the planet has been spawned
+- Whether the planet has been booted
+- Whether the planet has an online sponsor
 
 ### Spawn status
 
-A planet that has not been spawned cannot be acquired—if someone is attempting to sell you an unspawned planet they’re not to be trusted. Here’s an example of an unspawned planet: https://network.urbit.org/~sampel-palnet
+A planet that has not been spawned cannot be acquired—if someone is attempting to sell you an unspawned planet they’re not to be trusted. 
+
+Here’s an example of an unspawned planet: https://network.urbit.org/~sampel-palnet
 
 Note the absence of a **Spawned** event in the **Azimuth Event Stream** box at the right side of the screen.
 
