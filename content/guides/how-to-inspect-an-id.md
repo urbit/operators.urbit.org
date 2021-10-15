@@ -1,9 +1,7 @@
 +++
 title = "How to Inspect an ID"
-description = ""
+description = "Urbit IDs unlock an entire digital world, and while they are NFTs, there’s a lot more to them than your typical piece of digital art"
 +++
-
-# How to inspect an Urbit ID
 
 Urbit IDs unlock an entire digital world, and while they are NFTs, there’s a lot more to them than your typical piece of digital art. 
 
@@ -45,8 +43,6 @@ Planets are meant to be used, and in order for a planet to be useful it must hav
 
 To find the sponsor of a given planet, consider the previous example of `~pannex-pidrup` in the Network Explorer:
 
-
-
 The sponsor can be found in the **Sponsor Chain**, which in this case is `~siddef`. 
 
 An **online sponsor** is a star that has been booted and is running on the network. At time of writing (October 2021), there is no direct way to determine whether or not a star is online using the Network Explorer; however, there are a number of ways to get a good idea. 
@@ -61,10 +57,10 @@ Finally, if you’d really like to be sure, you can [boot a comet](https://urbit
 
 When evaluating a star you’ll want to consider whether or not it has:
 
-Been spawned
-Been booted
-An online sponsor
-Spawned planets
+- Been spawned
+- Been booted
+- An online sponsor
+- Spawned planets
 
 Evaluating the points 1-3 above is basically the same as it is for planets for the same reasons. The only difference is that for checking an online sponsor, you’re instead checking the galaxy instead of the star. 
 

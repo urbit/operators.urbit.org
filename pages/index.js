@@ -16,9 +16,9 @@ import BubbleLink from "../components/BubbleLink";
 
 function GuideCard({ guide, className }) {
   return (
-    <div className={"bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-4 aspect-h-2 md:aspect-w-5 md:aspect-h-4 " + className}>
+    <div className={"bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer " + className}>
       <Link href={`/guides/${guide.slug}`}>
-        <div className="p-8 measure">
+        <div className="p-8 measure ">
           <h4 className="mb-4">{guide.title}</h4>
           <p>{guide.description}</p>
         </div>
