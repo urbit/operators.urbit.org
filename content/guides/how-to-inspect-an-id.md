@@ -3,8 +3,6 @@ title = "How to Inspect an ID"
 description = "Urbit IDs unlock an entire digital world, and while they are NFTs, there’s a lot more to them than your typical piece of digital art."
 +++
 
-Urbit IDs unlock an entire digital world, and while they are NFTs, there’s a lot more to them than your typical piece of digital art. 
-
 There are five different types of Urbit ID—galaxies, stars, planets, moons, comets—but only the first three are relevant for the purposes of this guide (moons and comets should **never be purchased**). For an in-depth overview of what each ID is for, check out the [Urbit ID Buyer’s Guide](/guides/which-id-should-i-buy).
 
 One of the most important things to understand about Urbit IDs (“ID”) is that they are intended to be used to power an operating system, within which their owner will interact with a larger network of other ID owners (“owners”). An owner may take actions that permanently affect the state of the ID, and their actions with other owners on the network may confer *reputation* to the ID. Throughout the rest of this guide we’ll discuss the best ways to determine the status of a given ID.
