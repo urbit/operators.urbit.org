@@ -1,6 +1,6 @@
 +++
 title = "How to Inspect an ID"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+description = "Urbit IDs unlock an entire digital world, and while they are NFTs, there’s a lot more to them than your typical piece of digital art."
 +++
 
 # How to inspect an Urbit ID
