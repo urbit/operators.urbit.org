@@ -21,13 +21,12 @@ associated with its custody.
 ### Issue Identities
 
 Stars distribute planets. Each star is capable of issuing 65,535 unique
-planets; this is their most important intrinsic ability. These planets
-are drawn from a pool that is deterministically derived; you can't spawn
-any arbitrary planet name, but you can
+planets; this is their most important intrinsic ability. You can
 [generate](https://github.com/tylershuster/venetia) a
 list of all of the planets that can be issued by a specific star,
 including those containing English words, or sorted [by
-sigil](https://github.com/urbitme/venetia-sigil).
+sigil](https://github.com/urbitme/venetia-sigil), and you can spawn 
+any of the unspawned planets belonging to your star.
 
 
 ### Sponsor Planets
