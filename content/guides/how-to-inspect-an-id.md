@@ -41,6 +41,8 @@ Planets are meant to be used, and in order for a planet to be useful it must hav
 
 To find the sponsor of a given planet, consider the previous example of `~pannex-pidrup` in the Network Explorer:
 
+![sponsor chain](https://storage.googleapis.com/media.urbit.org/operators/sponsor-chain.png)
+
 The sponsor can be found in the **Sponsor Chain**, which in this case is `~siddef`. 
 
 An **online sponsor** is a star that has been booted and is running on the network. At time of writing (October 2021), there is no direct way to determine whether or not a star is online using the Network Explorer; however, there are a number of ways to get a good idea. 
@@ -76,11 +78,11 @@ Enter the point number (found in the Network Explorer) into the field, and hit *
 
 For example, let’s use the star `~siddef`:
 
-
+![point-number](https://storage.googleapis.com/media.urbit.org/operators/point-number.png)
 
 The point number is 30,645, which we’d then put into Etherscan:
 
-
+![getSpawnCount](https://storage.googleapis.com/media.urbit.org/operators/getSpawnCount.png)
 
 This star has indeed spawned planets. If a star has not spawned planets, this number will come back as 0.
 
