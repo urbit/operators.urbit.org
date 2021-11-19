@@ -208,7 +208,7 @@ an API for object storage originally developed for AWS, and
 [LFS](https://github.com/aquarial/urbit-lfs-filehosting),
 a system for object storage developed for Git. Both of these systems are
 standards and are not bound to particular vendors -- they're just ways
-of storing and retrieving data.Minio is a free S3-compatible service you
+of storing and retrieving data. Minio is a free S3-compatible service you
 can run on your own server. Urbit's LFS system features explicit
 accomodations for 3rd party hosts, like storage quotas.
 
