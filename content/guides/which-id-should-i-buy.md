@@ -77,7 +77,7 @@ Stars 1. spawn and sponsor planets, 2. moderate their peers, 3. provide hosting,
 
 ### Planet
 
-- Example name: ~sampel-palnet
+- Example name: `~sampel-palnet`
 - Spawns: 2^32 Moons
 - Purpose: Personal
 
@@ -89,7 +89,7 @@ Planets can issue 2^32 moons. We’ll read more about moons in the next section,
 
 ### Moon
 
-- Example name: ~doznec-salfun-naptul-habrys
+- Example name: `~doznec-salfun-naptul-habrys`
 - Spawns: N/A
 - Purpose: Device
 
@@ -101,7 +101,7 @@ Moons are kind of like the IoT of Urbit. Someday moons are for your fleet of far
 
 ### Comet
 
-- Example name: ~doznec-salfun-naptul-habrys-doznec-salfun-naptul-habrys
+- Example name: `~doznec-salfun-naptul-habrys-doznec-salfun-naptul-habrys`
 - Spawns: N/A
 - Purpose: Bot
 
