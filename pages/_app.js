@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { init } from "@socialgouv/matomo-next";
 
 import "tailwindcss/tailwind.css";
