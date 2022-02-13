@@ -80,7 +80,7 @@
 /* Imagery */
 
 .markdown img {
-  @apply rounded-lg w-full h-auto;
+  @apply rounded-lg mx-auto h-auto;
 }
 
 .markdown figure {
@@ -103,7 +103,6 @@
 .markdown code[class*="language-"] {
   @apply px-2 py-0.5 bg-wall-100 dark:bg-antiwall-100 rounded-lg;
 }
-
 
 .markdown a code,
 .markdown a code[class*="language-"] {
