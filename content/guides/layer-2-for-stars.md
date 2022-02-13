@@ -1,6 +1,6 @@
 +++
 title = "Layer 2 for stars"
-description = "When considering Layer 2 migration, star operators have the most to gain, but also the most to review and understand. Spawning planets can be cost prohibitive with current gas prices. Migrating to L2 will solve that."
+description = "Thinking of migrating your star to L2? Some benefits and some trade-offs to consider."
 +++
 
 When considering [Layer 2](https://urbit.org/docs/azimuth/l2/layer2) migration, star operators have the most to gain, but also the most to review and understand. Spawning planets can be cost prohibitive with current gas prices. Migrating to L2 will solve that. However, you can also expect the value of your star to decrease. Also, keep in mind you cannot trade an L2 star for $WSTR.
