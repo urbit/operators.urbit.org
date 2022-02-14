@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image"
+import Image from "next/image";
 
 import Container from "../components/Container";
 import Section from "../components/Section";
@@ -9,14 +9,17 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import TwoUp from "../components/TwoUp";
-import {
-  getPostBySlug,
-} from "../lib/lib";
+import { getPostBySlug } from "../lib/lib";
 import BubbleLink from "../components/BubbleLink";
 
 function GuideCard({ guide, className }) {
   return (
-    <div className={"bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 " + className}>
+    <div
+      className={
+        "bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 " +
+        className
+      }
+    >
       <Link href={`/guides/${guide.slug}`}>
         <div className="p-8 measure ">
           <h4 className="mb-4">{guide.title}</h4>
@@ -24,16 +27,21 @@ function GuideCard({ guide, className }) {
         </div>
       </Link>
     </div>
-  )
+  );
 }
 
 GuideCard.defaultProps = {
   className: "",
-}
+};
 
 function FaqCard({ faq, className }) {
   return (
-    <div className={"bg-green-100 dark:bg-antiwall-100 rounded-xl cursor-pointer h-96 " + className}>
+    <div
+      className={
+        "bg-green-100 dark:bg-antiwall-100 rounded-xl cursor-pointer h-96 " +
+        className
+      }
+    >
       <Link href={`/faq`}>
         <div className="p-8 measure">
           <h4 className="mb-4">{faq.title}</h4>
@@ -41,17 +49,16 @@ function FaqCard({ faq, className }) {
         </div>
       </Link>
     </div>
-  )
+  );
 }
 
 export default function Home({
   inspectId,
   whichId,
-  runningStar,
+  l2Stars,
   runningGalaxy,
   faq,
 }) {
-  
   return (
     <Container>
       <Head>
@@ -70,9 +77,7 @@ export default function Home({
                 <h1>and Community Leaders</h1>
               </div>
             </div>
-
           </div>
-
         </Section>
 
         <Section>
@@ -91,13 +96,22 @@ export default function Home({
               title="Star Market"
               caption="DEX for Urbit stars"
             >
-              <img alt="star market logo" className="max-w-none w-12 h-12 rounded-full" src="/images/star-market-logo.png" />
+              <img
+                alt="star market logo"
+                className="max-w-none w-12 h-12 rounded-full"
+                src="/images/star-market-logo.png"
+              />
             </BubbleLink>
             <BubbleLink
               href="https://opensea.io/assets/urbit-id"
               title="OpenSea"
-              caption="A large, general NFT marketplace">
-              <img alt="opensea logo" className="max-w-none w-12 h-12 rounded-full" src="https://opensea.io/static/images/logos/opensea.svg" />
+              caption="A large, general NFT marketplace"
+            >
+              <img
+                alt="opensea logo"
+                className="max-w-none w-12 h-12 rounded-full"
+                src="https://opensea.io/static/images/logos/opensea.svg"
+              />
             </BubbleLink>
           </TwoUp>
           <TwoUp className="mt-0">
@@ -105,14 +119,23 @@ export default function Home({
               href="https://urbit.live"
               title="Urbit.live"
               caption="A specialized market for Urbit planets"
-              >
-              <img alt="urbitlive logo" className="max-w-none w-12 h-12 rounded-full" src="https://urbit.live/static/media/urbit-live-logo-png-400.6ec9a92b.png" />
+            >
+              <img
+                alt="urbitlive logo"
+                className="max-w-none w-12 h-12 rounded-full"
+                src="https://urbit.live/static/media/urbit-live-logo-png-400.6ec9a92b.png"
+              />
             </BubbleLink>
             <BubbleLink
               href="web+urbitgraph://group/~tirrel/the-marketplace"
               title="The Marketplace"
-              caption="An Urbit group for trading address space">
-                <img alt="Marketplace logo" className="max-w-none w-12 h-12 rounded-full" src="/images/the-marketplace-logo.png" />
+              caption="An Urbit group for trading address space"
+            >
+              <img
+                alt="Marketplace logo"
+                className="max-w-none w-12 h-12 rounded-full"
+                src="/images/the-marketplace-logo.png"
+              />
             </BubbleLink>
           </TwoUp>
         </Section>
@@ -120,7 +143,7 @@ export default function Home({
         <Section>
           <h2 className="m-0 p-0 mr-4">Operating your Node</h2>
           <TwoUp className="mt-8">
-            <GuideCard guide={runningStar} />
+            <GuideCard guide={l2Stars} />
             <GuideCard guide={runningGalaxy} />
           </TwoUp>
         </Section>
@@ -133,8 +156,8 @@ export default function Home({
         <Section>
           <h2 className="m-0 p-0 mr-4 measure">Help and Support</h2>
           <p className="pb-12 mt-8 measure">
-            Need help operating your star or galaxy? Don't be a stranger. 
-            Reach out to us at the email below.
+            Need help operating your star or galaxy? Don't be a stranger. Reach
+            out to us at the email below.
           </p>
           {/* <Link href="/faq">
             <button className="button-lg type-ui text-white bg-wall-600 mb-4">
@@ -142,9 +165,12 @@ export default function Home({
             </button>
           </Link> */}
           <div className="table">
-          <a href="mailto:support@urbit.org" className="button-lg type-ui text-white bg-wall-600 dark:bg-antiwall-100">
-            support@urbit.org
-          </a>
+            <a
+              href="mailto:support@urbit.org"
+              className="button-lg type-ui text-white bg-wall-600 dark:bg-antiwall-100"
+            >
+              support@urbit.org
+            </a>
           </div>
         </Section>
 
@@ -155,18 +181,40 @@ export default function Home({
 }
 
 export async function getStaticProps() {
+  const inspectId = getPostBySlug(
+    "how-to-inspect-an-id",
+    ["slug", "title", "description"],
+    "guides"
+  );
+  const whichId = getPostBySlug(
+    "which-id-should-i-buy",
+    ["slug", "title", "description"],
+    "guides"
+  );
 
-  const inspectId = getPostBySlug('how-to-inspect-an-id', ['slug', 'title', 'description'], 'guides')
-  const whichId = getPostBySlug('which-id-should-i-buy', ['slug', 'title', 'description'], 'guides')
+  const runningStar = getPostBySlug(
+    "running-a-star",
+    ["slug", "title", "description"],
+    "guides"
+  );
+  const runningGalaxy = getPostBySlug(
+    "running-a-galaxy",
+    ["slug", "title", "description"],
+    "guides"
+  );
 
-  const runningStar = getPostBySlug('running-a-star', ['slug', 'title', 'description'], 'guides')
-  const runningGalaxy = getPostBySlug('running-a-galaxy', ['slug', 'title', 'description'], 'guides')
+  const l2Stars = getPostBySlug(
+    "layer-2-for-stars",
+    ["slug", "title", "description"],
+    "guides"
+  );
 
-  const faq = getPostBySlug('faq', ['slug', 'title', 'description'], '/')
+  const faq = getPostBySlug("faq", ["slug", "title", "description"], "/");
 
   return {
     props: {
       inspectId,
+      l2Stars,
       whichId,
       runningStar,
       runningGalaxy,
