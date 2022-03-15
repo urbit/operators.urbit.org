@@ -115,7 +115,7 @@ with your children to elective services is an obvious step.
 
 Any services that might require a specialized dedicated host could be
 offered by a galaxy. Services like 
-[%btc-provider](https://github.com/urbit/urbit-bitcoin-rpc), WebRTC STUN/TURN, object hosting like S3, or operating a layer 2
+[%btc-provider](https://github.com/urbit/urbit-bitcoin-rpc) ([Docker image](https://hub.docker.com/r/wexpertsystems/urbit-bitcoin-node)), WebRTC STUN/TURN, object hosting like S3, or operating a layer 2
 roller are 
 potentially valuable for your residents and beyond. Neither stars nor
 galaxies have any specialized ability to deliver these out of the box --
@@ -174,7 +174,7 @@ have escaped to new sponsors -- and if so, why. Ask your seller about
 
 Galaxies rarely change hands, and are not usually listed publicly. If
 you are interested in purchasing a galaxy, your best bet is through
-solicition through word of mouth. A good place to start looking is in
+solicitation through word of mouth. A good place to start looking is in
 on-network groups like [The Marketplace](web+urbitgraph://group/~tirrel/the-marketplace),
 a public group where over-the-counter point sales are coordinated, or
 [Cryptocurrency Forum](web+urbitgraph://group/~sonwet/cryptocurrency-forum), a public group related to trading
@@ -255,7 +255,7 @@ To transfer an incoming galaxy to a master ticket:
 
 Take advantage of your [proxy
 addresses](https://urbit.org/docs/glossary/proxies) to
-delegatevoting, spawning, and management privileges to different
+delegate voting, spawning, and management privileges to different
 addresses than your ownership key (see '[Key management](#key-management)' section below). Urbit's [HD wallet](https://urbit.org/docs/azimuth/azimuth%23the-urbit-hd-wallet) design
 makes it easy to keep your ownership key locked in a box while you
 perform typical operations with subsidiary keys, or re-derive those keys
@@ -497,7 +497,7 @@ friendly.
 
 To **withdraw an unlocked star**:
 
--   Authenticate into Bridge with your ownership key.]{.c3}
+-   Authenticate into Bridge with your ownership key.
 -   Navigate to the 'Lockup Contract' menu.
 -   Under 'Locked', you can see the number of stars available to
     withdraw from lockup. Here you can specify the ETH address you want
@@ -601,7 +601,7 @@ the hash of the text manually, which you can do easily with an
 [online](https://emn178.github.io/online-tools/keccak_256.html) [generator](https://keccak-256.cloxy.net/).
 
 Compare the output to the hash of the proposal in Bridge and make sure
-they are identical.]{.c3}
+they are identical.
 
 For upgrade proposals, the Bridge menu entry will contain the address
 of a modified contract on the Ethereum blockchain.

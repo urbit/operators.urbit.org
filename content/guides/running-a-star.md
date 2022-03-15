@@ -142,7 +142,7 @@ them.
 As a star, you are a natural Schelling point to provide services for
 the planets you spawn. The following services are all elective, but act
 as examples of useful services for your customers and residents.
-Services might be offered gratis or as a commercial service.
+Services might be offered gratis or as a commercial service. Services that run on Urbit ships should be delegated to moons so that they don't slow down the core services your star provides.
 
 ### Bitcoin
 
@@ -157,20 +157,24 @@ choice.
 
 In order to facilitate Bitcoin transactions, you need to run a full node
 with a specific configuration and [software
-stack](https://github.com/urbit/urbit-bitcoin-rpc).
+stack](https://github.com/urbit/urbit-bitcoin-rpc). You can use a [Docker
+Container](https://hub.docker.com/r/wexpertsystems/urbit-bitcoin-node) to
+simplify deployment and scaling. 
+
 Once your blockchain is synced and the stack is ready to go, you'll
 connect the `%btc-provider` app to your full node, then whitelist
 any clients or groups that you want to allow access: 
 
 ```
-dojo> :btc-provider|command add-whitelist+[%users (silt ~[~sampel-palnet])]
-dojo> :btc-provider|command add-whitelist+[%groups (silt [~sampel %group-name]~)
-dojo> :btc-provider|command [%add-whitelist %kids ~]
+dojo> :btc-provider +bitcoin!btc-provider/command [%add-whitelist %kids ~]
+dojo> :btc-provider +bitcoin!btc-provider/command [%add-whitelist [%groups groups=(sy ~[[~sampel %group-name]])]]
+dojo> :btc-provider +bitcoin!btc-provider/command [%add-whitelist [%users users=(sy ~[~wallet-hodler])]]
+dojo> :btc-provider +bitcoin!btc-provider/command [%add-whitelist %public ~]
 ```
 
 Note that running `%btc-provider` and a full node on the same
 machine as your star may prove burdensome, so it may make sense for you
-to delegate it to another machine, or to run `%btc-provider` on a
+to delegate it to another machine, as well as running `%btc-provider` on a
 moon.
 
 ### Rollers
