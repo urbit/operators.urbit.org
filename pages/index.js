@@ -92,14 +92,14 @@ export default function Home({
           <h2 className="m-0 p-0 mr-4">Marketplaces</h2>
           <TwoUp className="mt-8">
             <BubbleLink
-              href="https://star.market"
-              title="Star Market"
-              caption="DEX for Urbit stars"
+              href="https://urbitex.io"
+              title="Urbitex"
+              caption="An automated Urbit address marketplace"
             >
               <img
-                alt="star market logo"
+                alt="Urbitex logo"
                 className="max-w-none w-12 h-12 rounded-full"
-                src="/images/star-market-logo.png"
+                src="/images/urbitex-logo.png"
               />
             </BubbleLink>
             <BubbleLink
@@ -127,7 +127,7 @@ export default function Home({
               />
             </BubbleLink>
             <BubbleLink
-              href="web+urbitgraph://group/~tirrel/the-marketplace"
+              href="https://urbit.org/groups/~tirrel/the-marketplace"
               title="The Marketplace"
               caption="An Urbit group for trading address space"
             >
