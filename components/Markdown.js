@@ -37,7 +37,8 @@ function a(h, node) {
   if (
     url.includes("https://operators.urbit.org") ||
     url.startsWith("/") ||
-    url.startsWith("#")
+    url.startsWith("#") ||
+    url.startsWith("?")
   ) {
     return {
       type: "element",
