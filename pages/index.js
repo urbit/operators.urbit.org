@@ -34,18 +34,18 @@ GuideCard.defaultProps = {
   className: "",
 };
 
-function FaqCard({ faq, className }) {
+function BuyersCard({ guide, className }) {
   return (
     <div
       className={
-        "bg-green-100 dark:bg-antiwall-100 rounded-xl cursor-pointer h-96 " +
+        "bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer mt-8 h-96 " +
         className
       }
     >
-      <Link href={`/faq`}>
-        <div className="p-8 measure">
-          <h4 className="mb-4">{faq.title}</h4>
-          <p>{faq.description}</p>
+      <Link href={`/guides/${guide.slug}`}>
+        <div className="p-8 measure ">
+          <h4 className="mb-4">{guide.title}</h4>
+          <p>{guide.description}</p>
         </div>
       </Link>
     </div>
@@ -58,6 +58,7 @@ export default function Home({
   l2Stars,
   runningGalaxy,
   faq,
+  starBuyers,
 }) {
   return (
     <Container>
@@ -82,6 +83,7 @@ export default function Home({
 
         <Section>
           <h2 className="m-0 p-0 mr-4">Getting Started</h2>
+          <BuyersCard guide={starBuyers} />
           <TwoUp className="mt-8">
             <GuideCard guide={inspectId} />
             <GuideCard guide={whichId} />
@@ -209,12 +211,19 @@ export async function getStaticProps() {
     "guides"
   );
 
+  const starBuyers = getPostBySlug(
+    "star-buyers-guide",
+    ["slug", "title", "description"],
+    "guides"
+  );
+
   const faq = getPostBySlug("faq", ["slug", "title", "description"], "/");
 
   return {
     props: {
       inspectId,
       l2Stars,
+      starBuyers,
       whichId,
       runningStar,
       runningGalaxy,
