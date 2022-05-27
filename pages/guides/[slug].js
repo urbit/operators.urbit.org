@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { getPostBySlug, getAllPosts } from "../../lib/lib";
 import Head from "next/head";
+import Link from "next/link";
 import Meta from "../../components/Meta";
 import ErrorPage from "../404";
 import Container from "../../components/Container";
@@ -93,17 +94,18 @@ const TabbedLayout = ({ post, markdown }) => {
         <Section short>
           <h1 className="mb-4">{post.title}</h1>
           {list.map((item) => (
-            <a
-              className={
-                "type-ui mr-4 " +
-                (id === item.id || (item.id === "overview" && !id)
-                  ? "pb-1 border-b-4"
-                  : "text-wall-400")
-              }
-              href={`?id=${item.id}`}
-            >
-              {item.title}
-            </a>
+            <Link href={{ query: { slug: post.slug, id: item.id } }} passHref>
+              <a
+                className={
+                  "type-ui mr-4 " +
+                  (id === item.id || (item.id === "overview" && !id)
+                    ? "pb-1 border-b-4"
+                    : "text-wall-400")
+                }
+              >
+                {item.title}
+              </a>
+            </Link>
           ))}
         </Section>
         <Section>
