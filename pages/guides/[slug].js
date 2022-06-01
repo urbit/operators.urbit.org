@@ -109,7 +109,7 @@ const TabbedLayout = ({ post, markdown }) => {
           ))}
         </Section>
         <Section>
-          <div className="block lg:flex">
+          <div className="block max-w-prose lg:flex">
             <article
               className={"markdown pr-0 lg:pr-16 " + (ready ? "" : "hidden")}
               dangerouslySetInnerHTML={{ __html: decode(markdown) }}
