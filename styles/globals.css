@@ -215,6 +215,8 @@ a:hover {
   background-repeat: none;
   background-size: cover;
   background-position: center;
+  background-image: url('https://media.urbit.org/site/operators/hero-img.jpg');
+}
 }
 
 @media (prefers-color-scheme: light) {
