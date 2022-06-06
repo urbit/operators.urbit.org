@@ -6,9 +6,10 @@ tabbed = "true"
 
 <div title="Overview" id="overview">
 
-While planets are the best way to use Urbit long-term for the great majority of people, stars are the best way to take an ownership stake in the network itself.
+While planets are the best way to use Urbit long-term for most, stars are the best way to take an ownership stake in the network itself.
 
-If a planet is a plot of digital land, think of a star as a whole province.  It can issue planets and perform a variety of unique network functions, making it an entirely unique investment asset.
+If a planet is a plot of digital land, think of a star as a province or city-state.  It can issue planets and perform a variety of specific network functions, making it a unique asset.
+<br><br>
 
 <a href="?id=stars-as-an-asset">
 <div class="nomarkdown inline-callout flex items-center bg-wall-100 dark:bg-antiwall-100 rounded-xl pl-4">
