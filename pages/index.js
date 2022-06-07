@@ -95,11 +95,8 @@ export default function Home({
         </Section>
 
         <Section>
-          <h2 className="m-0 p-0 mr-4">Getting Started</h2>
-          <TwoUp className="mt-8">
-            <GuideCard guide={inspectId} />
-            <GuideCard guide={whichId} />
-          </TwoUp>
+          <h2 className="m-0 p-0 mr-4">Star Buyer's Guide</h2>
+          <BuyersCard guide={starBuyers} />
         </Section>
 
         <Section>
@@ -155,8 +152,11 @@ export default function Home({
         </Section>
 
         <Section>
-          <h2 className="m-0 p-0 mr-4">Star Buyer's Guide</h2>
-          <BuyersCard guide={starBuyers} />
+          <h2 className="m-0 p-0 mr-4">Getting Started</h2>
+          <TwoUp className="mt-8">
+            <GuideCard guide={inspectId} />
+            <GuideCard guide={whichId} />
+          </TwoUp>
         </Section>
 
         <Section>
