@@ -26,7 +26,7 @@ export default function Post({ post, markdown }) {
   return (
     <Container>
       <Head>
-        <title>{post.title} • Updates • operators.urbit.org</title>
+        <title>{post.title} • Operator's Manual • Urbit</title>
         {Meta(post)}
       </Head>
       <SingleColumn>

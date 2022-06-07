@@ -17,7 +17,7 @@ export default function BasicPage({ post, markdown, search }) {
   return (
     <Container>
       <Head>
-        <title>Urbit • {post.title}</title>
+        <title>{post.title} • Operator's Manual • Urbit</title>
         {Meta(post)}
       </Head>
       <SingleColumn>

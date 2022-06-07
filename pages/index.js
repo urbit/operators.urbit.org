@@ -76,7 +76,7 @@ export default function Home({
   return (
     <Container>
       <Head>
-        <title>operators.urbit.org</title>
+        <title>Home · Operator's Manual · Urbit</title>
       </Head>
       <SingleColumn>
         <Header />
@@ -87,7 +87,7 @@ export default function Home({
           <div className="relative w-full bg-gray-200 rounded-2xl hero-image-height overflow-hidden bg-hero-img">
             <div className="absolute text-black flex w-full h-full items-center p-4 md:p-8 lg:p-12">
               <div>
-                <h1>Guides for Urbit Operators </h1>
+                <h1>Guides for Urbit Operators</h1>
                 <h1>and Community Leaders</h1>
               </div>
             </div>
