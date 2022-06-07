@@ -93,20 +93,22 @@ const TabbedLayout = ({ post, markdown }) => {
         <Header />
         <Section short>
           <h1 className="mb-4">{post.title}</h1>
-          {list.map((item) => (
-            <Link href={{ query: { slug: post.slug, id: item.id } }} passHref>
-              <a
-                className={
-                  "type-ui mr-4 " +
-                  (id === item.id || (item.id === "overview" && !id)
-                    ? "pb-1 border-b-4"
-                    : "text-wall-400")
-                }
-              >
-                {item.title}
-              </a>
-            </Link>
-          ))}
+          <div className="overflow-x-auto min-w-0 flex-1 flex">
+            {list.map((item) => (
+              <Link href={{ query: { slug: post.slug, id: item.id } }} passHref>
+                <a
+                  className={
+                    "type-ui flex-shrink-0 mr-8 " +
+                    (id === item.id || (item.id === "overview" && !id)
+                      ? "pb-1 border-b-4"
+                      : "text-wall-400")
+                  }
+                >
+                  {item.title}
+                </a>
+              </Link>
+            ))}
+          </div>
         </Section>
         <Section>
           <div className="block max-w-prose lg:flex">
