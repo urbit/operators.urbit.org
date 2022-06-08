@@ -188,3 +188,13 @@
 .markdown table tr:last-child td:last-child {
   border-bottom-right-radius: 8px;
 }
+
+.markdown .nomarkdown p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown .nomarkdown *:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}

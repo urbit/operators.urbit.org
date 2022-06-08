@@ -18,11 +18,11 @@ export default function PageWithIndex({ post, markdown }) {
   return (
     <Container>
       <Head>
-        <title>Urbit • {post.title}</title>
+        <title>{post.title} • Operator's Manual • Urbit</title>
         {Meta(post)}
       </Head>
       <SingleColumn>
-        <Header/>
+        <Header />
         <Section>
           <h1>{post.title}</h1>
           <h3 className=" mt-6">{post.description}</h3>

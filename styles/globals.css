@@ -215,16 +215,34 @@ a:hover {
   background-repeat: none;
   background-size: cover;
   background-position: center;
+  background-image: url('https://media.urbit.org/site/operators/hero-img.jpg');
 }
 
-@media (prefers-color-scheme: light) {
-  .bg-hero-img {
-    background-image: url('/images/hero-img-light.png');
+.inline-callout {
+  position: relative;
+  width: calc(100% + 4rem);
+  max-width: 90vw;
+}
+
+.inline-callout::after {
+  position: absolute;
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('/images/chevron.svg');
+  height: 1rem;
+  width: 1rem;
+  right: 1rem;
+}
+
+@media screen and (max-width: 720px) {
+  .inline-callout::after {
+    display: none;
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   .bg-hero-img {
-    background-image: url('/images/hero-img-dark.png');
+    background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url('https://media.urbit.org/site/operators/hero-img.jpg');
   }
 }

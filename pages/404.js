@@ -13,7 +13,7 @@ export default function NotFound(props) {
   return (
     <Container>
       <Head>
-        <title>404 • operators.urbit.org</title>
+        <title>404 • Operator's Manual • Urbit</title>
         {Meta(post)}
       </Head>
       <SingleColumn>

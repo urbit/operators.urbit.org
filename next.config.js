@@ -11,6 +11,10 @@ module.exports = {
       net: false,
       crypto: false,
     };
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
     return config;
   },
 };

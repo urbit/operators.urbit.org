@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import Stars from "../components/icons/stars.svg";
 
 import Container from "../components/Container";
 import Section from "../components/Section";
@@ -20,12 +21,20 @@ function GuideCard({ guide, className }) {
         className
       }
     >
-      <Link href={`/guides/${guide.slug}`}>
-        <div className="p-8 measure ">
+      <div className="p-8 measure flex justify-between flex-col">
+        <div>
           <h4 className="mb-4">{guide.title}</h4>
           <p>{guide.description}</p>
         </div>
-      </Link>
+        <Link href={`/guides/${guide.slug}`}>
+          <a
+            passHref
+            className="bg-blue-500 text-white rounded-lg flex justify-center p-3 w-20 mt-4"
+          >
+            Read
+          </a>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -34,20 +43,24 @@ GuideCard.defaultProps = {
   className: "",
 };
 
-function FaqCard({ faq, className }) {
+function BuyersCard({ guide, className = "" }) {
   return (
     <div
       className={
-        "bg-green-100 dark:bg-antiwall-100 rounded-xl cursor-pointer h-96 " +
+        "rounded-xl items-center flex flex-col md:flex-row space-y-24 md:space-y-0" +
         className
       }
     >
-      <Link href={`/faq`}>
-        <div className="p-8 measure">
-          <h4 className="mb-4">{faq.title}</h4>
-          <p>{faq.description}</p>
-        </div>
-      </Link>
+      <Stars
+        className="filter dark:invert overflow-visible"
+        style={{ flexBasis: "25%" }}
+      />
+      <div className="flex flex-col space-y-8" style={{ flexBasis: "75%" }}>
+        <p>{guide.description}</p>
+        <Link passHref href={`/guides/${guide.slug}`}>
+          <a className="button-lg bg-green-400 text-white w-40">View Guide</a>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -58,11 +71,12 @@ export default function Home({
   l2Stars,
   runningGalaxy,
   faq,
+  starBuyers,
 }) {
   return (
     <Container>
       <Head>
-        <title>operators.urbit.org</title>
+        <title>Home · Operator's Manual · Urbit</title>
       </Head>
       <SingleColumn>
         <Header />
@@ -71,9 +85,9 @@ export default function Home({
         }
         <Section>
           <div className="relative w-full bg-gray-200 rounded-2xl hero-image-height overflow-hidden bg-hero-img">
-            <div className="absolute text-black dark:text-white flex w-full h-full items-center p-4 md:p-8 lg:p-12">
+            <div className="absolute text-black flex w-full h-full items-center p-4 md:p-8 lg:p-12">
               <div>
-                <h1>Guides for Urbit Operators </h1>
+                <h1>Guides for Urbit Operators</h1>
                 <h1>and Community Leaders</h1>
               </div>
             </div>
@@ -81,25 +95,22 @@ export default function Home({
         </Section>
 
         <Section>
-          <h2 className="m-0 p-0 mr-4">Getting Started</h2>
-          <TwoUp className="mt-8">
-            <GuideCard guide={inspectId} />
-            <GuideCard guide={whichId} />
-          </TwoUp>
+          <h2 className="m-0 p-0 mr-4">Star Buyer's Guide</h2>
+          <BuyersCard guide={starBuyers} />
         </Section>
 
         <Section>
           <h2 className="m-0 p-0 mr-4">Marketplaces</h2>
           <TwoUp className="mt-8">
             <BubbleLink
-              href="https://star.market"
-              title="Star Market"
-              caption="DEX for Urbit stars"
+              href="https://urbitex.io"
+              title="Urbitex"
+              caption="An automated Urbit address marketplace"
             >
               <img
-                alt="star market logo"
+                alt="Urbitex logo"
                 className="max-w-none w-12 h-12 rounded-full"
-                src="/images/star-market-logo.png"
+                src="/images/urbitex-logo.png"
               />
             </BubbleLink>
             <BubbleLink
@@ -127,7 +138,7 @@ export default function Home({
               />
             </BubbleLink>
             <BubbleLink
-              href="web+urbitgraph://group/~tirrel/the-marketplace"
+              href="https://urbit.org/groups/~tirrel/the-marketplace"
               title="The Marketplace"
               caption="An Urbit group for trading address space"
             >
@@ -137,6 +148,14 @@ export default function Home({
                 src="/images/the-marketplace-logo.png"
               />
             </BubbleLink>
+          </TwoUp>
+        </Section>
+
+        <Section>
+          <h2 className="m-0 p-0 mr-4">Getting Started</h2>
+          <TwoUp className="mt-8">
+            <GuideCard guide={inspectId} />
+            <GuideCard guide={whichId} />
           </TwoUp>
         </Section>
 
@@ -209,12 +228,19 @@ export async function getStaticProps() {
     "guides"
   );
 
+  const starBuyers = getPostBySlug(
+    "star-buyers-guide",
+    ["slug", "title", "description"],
+    "guides"
+  );
+
   const faq = getPostBySlug("faq", ["slug", "title", "description"], "/");
 
   return {
     props: {
       inspectId,
       l2Stars,
+      starBuyers,
       whichId,
       runningStar,
       runningGalaxy,
