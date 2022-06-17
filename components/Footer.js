@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="mt-20 layout px-4 md:px-8 flex justify-between items-center pt-8 md:pt-10 lg:pt-12 pb-10 md:pb-12 lg:pb-24">
       <Link href="/">
-        <a className="type-ui flex items-center">The Urbit Guidebook</a>
+        <a className="type-ui flex items-center">Urbit Operators</a>
       </Link>
 
       <nav className="flex items-center">
