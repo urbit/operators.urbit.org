@@ -9,6 +9,7 @@ import SingleColumn from "../components/SingleColumn";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+import OneUp from "../components/OneUp";
 import TwoUp from "../components/TwoUp";
 import { getPostBySlug } from "../lib/lib";
 import BubbleLink from "../components/BubbleLink";
@@ -29,7 +30,7 @@ function GuideCard({ guide, className }) {
         <Link href={`/guides/${guide.slug}`}>
           <a
             passHref
-            className="bg-blue-500 text-white rounded-lg flex justify-center p-3 w-20 mt-4"
+            className="bg-green-400 text-white rounded-lg flex justify-center p-3 w-20 mt-4"
           >
             Read
           </a>
@@ -72,6 +73,7 @@ export default function Home({
   runningGalaxy,
   faq,
   starBuyers,
+  sellingPlanets
 }) {
   return (
     <Container>
@@ -87,8 +89,7 @@ export default function Home({
           <div className="relative w-full bg-gray-200 rounded-2xl hero-image-height overflow-hidden bg-hero-img">
             <div className="absolute text-black flex w-full h-full items-center p-4 md:p-8 lg:p-12">
               <div>
-                <h1>Guides for Urbit Operators</h1>
-                <h1>and Community Leaders</h1>
+                <h1>Guides for Urbit Operators&nbsp;and Community Leaders</h1>
               </div>
             </div>
           </div>
@@ -149,6 +150,8 @@ export default function Home({
               />
             </BubbleLink>
           </TwoUp>
+
+
         </Section>
 
         <Section>
@@ -165,6 +168,10 @@ export default function Home({
             <GuideCard guide={l2Stars} />
             <GuideCard guide={runningGalaxy} />
           </TwoUp>
+
+          <OneUp className="">
+            <GuideCard guide={sellingPlanets} />
+          </OneUp>
         </Section>
 
         {/* <Section>
@@ -234,6 +241,13 @@ export async function getStaticProps() {
     "guides"
   );
 
+  const sellingPlanets = getPostBySlug(
+    "selling-planets",
+    ["slug", "title", "description"],
+    "guides"
+  );
+
+
   const faq = getPostBySlug("faq", ["slug", "title", "description"], "/");
 
   return {
@@ -244,6 +258,7 @@ export async function getStaticProps() {
       whichId,
       runningStar,
       runningGalaxy,
+      sellingPlanets,
       faq,
     },
   };

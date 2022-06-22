@@ -1,6 +1,6 @@
 +++
 title = "Running a Galaxy"
-description = "Urbit's address space has 256 central nodes, called galaxies. By operating a galaxy, you have elected to participate in the network's infrastructure and governance. Operating a galaxy is an important job, and carries special considerations."
+description = "By operating a galaxy, you have elected to participate in the network's infrastructure and governance. Operating a galaxy is an important job, and carries special considerations."
 +++
 
 # Galaxy operator's guide
