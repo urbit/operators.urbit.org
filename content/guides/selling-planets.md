@@ -35,7 +35,7 @@ The basic requirements for selling planets are an operational star and planet co
 
 - **Advantages:** Allows for flexibility in payment methods and minimal technical overhead.
 - **Considerations:** Lacks the ability to scale, since all sales are processed manually.
-- **Examples:** [The Planet Store][https://www.theplanet.store/], [Galactic Embassy Hotel](web+urbitgraph://group/~fipdel/galactic-embassy-hotel)
+- **Examples:** [The Planet Store](https://www.theplanet.store/), [Galactic Embassy Hotel](https://urbit.org/groups/~fipdel/galactic-embassy-hotel)
 - **Level of complexity:** Low
 
 ### Hosted e-commerce tools
@@ -44,7 +44,7 @@ Layer 2 opens up the use of conventional e-commerce sales platforms and tools fo
 
 - **Advantages:**  Allows star operators to collect credit card payment; relatively low technical burden. 
 - **Considerations:** Minimal automation -- if you generate 100 codes, you will need to manually enter 100 items in inventory. Operator is subject to terms and conditions of the sales platform.
-- **Examples:** [~mocbel house](https://planets.mocbel.house/), [~lanlyd](https://planets.lanlyd.net/)
+- **Example:** [~lanlyd](https://planets.lanlyd.net/)
 - **Level of complexity:** Low
 
 ### Self-hosted software stack
