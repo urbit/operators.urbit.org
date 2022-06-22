@@ -8,7 +8,7 @@ https://prismjs.com/download.html#themes=prism-coy&languages=markup+css+clike+ja
 
 code[class*="language-"],
 pre[class*="language-"] {
-  @apply text-wall-600;
+  @apply text-wall-600 dark:text-antiwall-600;
   background: none;
   font-family: "Source Code Pro", monospace;
   font-size: 1em;
