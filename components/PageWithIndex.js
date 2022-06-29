@@ -38,8 +38,8 @@ export default function PageWithIndex({ post, markdown, search }) {
             <TableOfContents />
           </div>
         </Section>
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 }

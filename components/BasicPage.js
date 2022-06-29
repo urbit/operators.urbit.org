@@ -31,8 +31,8 @@ export default function BasicPage({ post, markdown, search }) {
             dangerouslySetInnerHTML={{ __html: decode(markdown) }}
           ></article>
         </Section>
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 }

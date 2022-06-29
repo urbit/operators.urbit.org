@@ -46,8 +46,8 @@ export default function Post({ post, markdown, search }) {
             <TableOfContents />
           </div>
         </Section>
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 }
@@ -120,8 +120,8 @@ const TabbedLayout = ({ post, markdown }) => {
             ></article>
           </div>
         </Section>
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 };

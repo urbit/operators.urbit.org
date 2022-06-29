@@ -206,9 +206,8 @@ export default function Home({
             </a>
           </div>
         </Section>
-
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 }
