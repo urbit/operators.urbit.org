@@ -33,7 +33,7 @@ export default function Header(props) {
         </a>
       </Link>
 
-      <nav className="flex">
+      <nav className="hidden md:flex">
         <ActiveLink
           currentPath={currentPath}
           className="mr-4 type-ui"
