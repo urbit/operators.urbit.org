@@ -1,4 +1,4 @@
-body, html {
+/* body, html {
     @apply dark:bg-black dark:text-antiwall-600;
 }
 
@@ -8,7 +8,7 @@ body, html {
     background-size: cover;
     background-position: center;
     background-image: url('https://media.urbit.org/site/operators/hero-img.jpg');
-  }
+  } */
   
   .inline-callout {
     position: relative;
@@ -32,7 +32,7 @@ body, html {
       display: none;
     }
   }
-  
+/*   
   @media screen and (prefers-color-scheme: dark) {
     .bg-hero-img {
       background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url('https://media.urbit.org/site/operators/hero-img.jpg');
@@ -72,4 +72,4 @@ body, html {
 code[class*="language-"],
 pre[class*="language-"] { 
     @apply dark:text-antiwall-600;
-}
+} */
