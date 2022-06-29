@@ -13,12 +13,13 @@ import OneUp from "../components/OneUp";
 import TwoUp from "../components/TwoUp";
 import { getPostBySlug } from "../lib/lib";
 import BubbleLink from "../components/BubbleLink";
+import { IntraNav } from "foundation-design-system";
 
 function GuideCard({ guide, className }) {
   return (
     <div
       className={
-        "bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 " +
+        "bg-wall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 " +
         className
       }
     >
@@ -52,10 +53,7 @@ function BuyersCard({ guide, className = "" }) {
         className
       }
     >
-      <Stars
-        className="filter dark:invert overflow-visible"
-        style={{ flexBasis: "25%" }}
-      />
+      <Stars className="filter overflow-visible" style={{ flexBasis: "25%" }} />
       <div className="flex flex-col space-y-8" style={{ flexBasis: "75%" }}>
         <p>{guide.description}</p>
         <Link passHref href={`/guides/${guide.slug}`}>
@@ -73,13 +71,15 @@ export default function Home({
   runningGalaxy,
   faq,
   starBuyers,
-  sellingPlanets
+  sellingPlanets,
+  search,
 }) {
   return (
     <Container>
       <Head>
         <title>Home · Operator's Manual · Urbit</title>
       </Head>
+      <IntraNav ourSite="https://operators.urbit.org" search={search} />
       <SingleColumn>
         <Header />
         {
@@ -150,8 +150,6 @@ export default function Home({
               />
             </BubbleLink>
           </TwoUp>
-
-
         </Section>
 
         <Section>
@@ -193,7 +191,7 @@ export default function Home({
           <div className="table">
             <a
               href="mailto:support@urbit.org"
-              className="button-lg type-ui text-white bg-wall-600 dark:bg-antiwall-100"
+              className="button-lg type-ui text-white bg-wall-600"
             >
               support@urbit.org
             </a>
@@ -246,7 +244,6 @@ export async function getStaticProps() {
     ["slug", "title", "description"],
     "guides"
   );
-
 
   const faq = getPostBySlug("faq", ["slug", "title", "description"], "/");
 
