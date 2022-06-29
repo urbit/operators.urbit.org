@@ -5,11 +5,9 @@ import MenuTray from "./MenuTray";
 import classnames from "classnames";
 
 function ActiveLink({ children, href, className, currentPath }) {
-  const firstCrumb = currentPath.split("/")[1];
-
   const activeClassName = classnames({
-    "text-wall-600": "/" + firstCrumb === href,
-    "text-wall-500": "/" + firstCrumb !== href,
+    "text-wall-600": href === currentPath,
+    "text-wall-500": href !== currentPath,
   });
 
   return (
@@ -36,9 +34,27 @@ export default function Header(props) {
       </Link>
 
       <nav className="flex">
-        {/* <Link href="/faq">
-          <a className="type-ui mr-4">FAQ</a>
-        </Link> */}
+        <ActiveLink
+          currentPath={currentPath}
+          className="mr-4 type-ui"
+          href="/#getting-started"
+        >
+          Getting Started
+        </ActiveLink>
+        <ActiveLink
+          currentPath={currentPath}
+          className="mr-4 type-ui"
+          href="/guides/star-buyers-guide"
+        >
+          Star Buyer's Guide
+        </ActiveLink>
+        <ActiveLink
+          currentPath={currentPath}
+          className="type-ui"
+          href="/#node-operation"
+        >
+          Node Operation
+        </ActiveLink>
       </nav>
       <MenuTray isOpen={isOpen} setTray={setTray} search={props.search}>
         <Link href="/" passHref>
@@ -54,37 +70,27 @@ export default function Header(props) {
           <a className="mt-2 mb-4">Developers</a>
         </Link>
         <hr className="border-wall-200" />
-        {/* <ActiveLink
+        <ActiveLink
           currentPath={currentPath}
-          className="mt-4 mr-5 mb-4"
-          href="/manual"
+          className="mt-4 type-ui"
+          href="/#getting-started"
         >
-          Manual
+          Getting Started
         </ActiveLink>
         <ActiveLink
           currentPath={currentPath}
-          className="mr-5 mb-4"
-          href="/blog"
+          className="mt-2 type-ui"
+          href="/guides/star-buyers-guide"
         >
-          Blog
+          Star Buyer's Guide
         </ActiveLink>
         <ActiveLink
           currentPath={currentPath}
-          className="mr-5 mb-4"
-          href="/events"
+          className="mt-2 type-ui"
+          href="/#node-operation"
         >
-          Events
+          Node Operation
         </ActiveLink>
-        <ActiveLink
-          currentPath={currentPath}
-          className="mr-5 mb-4 text-green-400"
-          href="/getting-started"
-        >
-          Get Started
-        </ActiveLink>
-        <ActiveLink currentPath={currentPath} className="mr-5 mb-4" href="/faq">
-          FAQ
-        </ActiveLink> */}
       </MenuTray>
     </header>
   );

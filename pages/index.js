@@ -85,14 +85,29 @@ export default function Home({
         {
           // Hero Statement
         }
-        <Section>
-          <div className="relative w-full bg-gray-200 rounded-2xl hero-image-height overflow-hidden bg-hero-img">
-            <div className="absolute text-black flex w-full h-full items-center p-4 md:p-8 lg:p-12">
-              <div>
-                <h1>Guides for Urbit Operators&nbsp;and Community Leaders</h1>
-              </div>
+        <Section className="pb-72">
+          {/* Hero statement */}
+          <div className="flex flex-col space-y-4">
+            <h1 className="max-w-prose">
+              Learn best practices for running your own urbit and hosting
+              digital communities
+            </h1>
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 pt-4">
+              <Link href="#getting-started" passHref>
+                <a className="button-lg bg-green-400 text-white">Get Started</a>
+              </Link>
             </div>
           </div>
+        </Section>
+
+        <Section>
+          <h2 className="m-0 p-0 mr-4" id="getting-started">
+            Getting Started
+          </h2>
+          <TwoUp className="mt-8">
+            <GuideCard guide={inspectId} />
+            <GuideCard guide={whichId} />
+          </TwoUp>
         </Section>
 
         <Section>
@@ -153,15 +168,9 @@ export default function Home({
         </Section>
 
         <Section>
-          <h2 className="m-0 p-0 mr-4">Getting Started</h2>
-          <TwoUp className="mt-8">
-            <GuideCard guide={inspectId} />
-            <GuideCard guide={whichId} />
-          </TwoUp>
-        </Section>
-
-        <Section>
-          <h2 className="m-0 p-0 mr-4">Operating your Node</h2>
+          <h2 className="m-0 p-0 mr-4" id="node-operation">
+            Node Operation
+          </h2>
           <TwoUp className="mt-8">
             <GuideCard guide={l2Stars} />
             <GuideCard guide={runningGalaxy} />
