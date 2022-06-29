@@ -13,12 +13,13 @@ import OneUp from "../components/OneUp";
 import TwoUp from "../components/TwoUp";
 import { getPostBySlug } from "../lib/lib";
 import BubbleLink from "../components/BubbleLink";
+import { IntraNav } from "foundation-design-system";
 
 function GuideCard({ guide, className }) {
   return (
     <div
       className={
-        "bg-wall-100 dark:bg-antiwall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 " +
+        "bg-wall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 " +
         className
       }
     >
@@ -52,10 +53,7 @@ function BuyersCard({ guide, className = "" }) {
         className
       }
     >
-      <Stars
-        className="filter dark:invert overflow-visible"
-        style={{ flexBasis: "25%" }}
-      />
+      <Stars className="filter overflow-visible" style={{ flexBasis: "25%" }} />
       <div className="flex flex-col space-y-8" style={{ flexBasis: "75%" }}>
         <p>{guide.description}</p>
         <Link passHref href={`/guides/${guide.slug}`}>
@@ -73,26 +71,43 @@ export default function Home({
   runningGalaxy,
   faq,
   starBuyers,
-  sellingPlanets
+  sellingPlanets,
+  search,
 }) {
   return (
     <Container>
       <Head>
         <title>Home · Operator's Manual · Urbit</title>
       </Head>
+      <IntraNav ourSite="https://operators.urbit.org" search={search} />
       <SingleColumn>
         <Header />
         {
           // Hero Statement
         }
-        <Section>
-          <div className="relative w-full bg-gray-200 rounded-2xl hero-image-height overflow-hidden bg-hero-img">
-            <div className="absolute text-black flex w-full h-full items-center p-4 md:p-8 lg:p-12">
-              <div>
-                <h1>Guides for Urbit Operators&nbsp;and Community Leaders</h1>
-              </div>
+        <Section className="pb-72">
+          {/* Hero statement */}
+          <div className="flex flex-col space-y-4">
+            <h1 className="max-w-prose">
+              Learn best practices for running your own urbit and hosting
+              digital communities
+            </h1>
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 pt-4">
+              <Link href="#getting-started" passHref>
+                <a className="button-lg bg-green-400 text-white">Get Started</a>
+              </Link>
             </div>
           </div>
+        </Section>
+
+        <Section>
+          <h2 className="m-0 p-0 mr-4" id="getting-started">
+            Getting Started
+          </h2>
+          <TwoUp className="mt-8">
+            <GuideCard guide={inspectId} />
+            <GuideCard guide={whichId} />
+          </TwoUp>
         </Section>
 
         <Section>
@@ -150,20 +165,12 @@ export default function Home({
               />
             </BubbleLink>
           </TwoUp>
-
-
         </Section>
 
         <Section>
-          <h2 className="m-0 p-0 mr-4">Getting Started</h2>
-          <TwoUp className="mt-8">
-            <GuideCard guide={inspectId} />
-            <GuideCard guide={whichId} />
-          </TwoUp>
-        </Section>
-
-        <Section>
-          <h2 className="m-0 p-0 mr-4">Operating your Node</h2>
+          <h2 className="m-0 p-0 mr-4" id="node-operation">
+            Node Operation
+          </h2>
           <TwoUp className="mt-8">
             <GuideCard guide={l2Stars} />
             <GuideCard guide={runningGalaxy} />
@@ -193,15 +200,14 @@ export default function Home({
           <div className="table">
             <a
               href="mailto:support@urbit.org"
-              className="button-lg type-ui text-white bg-wall-600 dark:bg-antiwall-100"
+              className="button-lg type-ui text-white bg-wall-600"
             >
               support@urbit.org
             </a>
           </div>
         </Section>
-
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 }
@@ -246,7 +252,6 @@ export async function getStaticProps() {
     ["slug", "title", "description"],
     "guides"
   );
-
 
   const faq = getPostBySlug("faq", ["slug", "title", "description"], "/");
 

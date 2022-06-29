@@ -3,27 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run cache-posts && next dev",
     "build": "next build",
+    "prebuild": "npm run cache-posts",
+    "cache-posts": "node lib/cache.js",
     "export": "npm run next build && next export",
-    "start": "next start",
-    "prepare": "husky install"
+    "start": "next start"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "@socialgouv/matomo-next": "^1.2.2",
     "@svgr/webpack": "^6.2.1",
-    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tlon/sigil-js": "^1.4.5",
     "autoprefixer": "^10.2.6",
     "classnames": "^2.3.1",
     "deepmerge": "^4.2.2",
     "downshift": "^6.1.5",
     "feed": "^4.2.2",
+    "foundation-design-system": "github:urbit/foundation-design-system",
     "fuzzy-search": "^3.2.1",
     "gray-matter": "^4.0.3",
     "html-entities": "^2.3.2",
+    "leven-sort": "^3.0.0",
+    "lodash.debounce": "^4.0.8",
     "luxon": "^2.0.2",
-    "next": "latest",
+    "next": "12.1.6",
     "patch-package": "^6.4.7",
     "postcss": "^8.3.0",
     "react": "^17.0.2",
@@ -40,11 +45,11 @@
     "remark-prism": "^1.3.6",
     "remark-rehype": "^10.1.0",
     "remark-slug": "^6.0.0",
-    "tailwindcss": "^2.1.4",
-    "unified": "^9.2.1"
+    "tailwindcss": "^3",
+    "unified": "^9.2.1",
+    "urbit-ob": "^5.0.1"
   },
   "devDependencies": {
-    "husky": "^6.0.0",
     "prettier": "^2.3.1",
     "pretty-quick": "^3.1.0"
   }

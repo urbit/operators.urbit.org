@@ -9,8 +9,9 @@ import SingleColumn from "./SingleColumn";
 import Section from "./Section";
 import { decode } from "html-entities";
 import { TableOfContents } from "./TableOfContents";
+import { IntraNav } from "foundation-design-system";
 
-export default function PageWithIndex({ post, markdown }) {
+export default function PageWithIndex({ post, markdown, search }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage />;
@@ -21,6 +22,7 @@ export default function PageWithIndex({ post, markdown }) {
         <title>{post.title} • Operator's Manual • Urbit</title>
         {Meta(post)}
       </Head>
+      <IntraNav ourSite="https://operators.urbit.org" search={search} />
       <SingleColumn>
         <Header />
         <Section>
@@ -36,8 +38,8 @@ export default function PageWithIndex({ post, markdown }) {
             <TableOfContents />
           </div>
         </Section>
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 }

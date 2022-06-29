@@ -1,0 +1,75 @@
+/* body, html {
+    @apply dark:bg-black dark:text-antiwall-600;
+}
+
+
+.bg-hero-img {
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://media.urbit.org/site/operators/hero-img.jpg');
+  } */
+  
+  .inline-callout {
+    position: relative;
+    width: calc(100% + 4rem);
+    max-width: 90vw;
+  }
+  
+  .inline-callout::after {
+    position: absolute;
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/images/chevron.svg');
+    height: 1rem;
+    width: 1rem;
+    right: 1rem;
+  }
+  
+  @media screen and (max-width: 720px) {
+    .inline-callout::after {
+      display: none;
+    }
+  }
+/*   
+  @media screen and (prefers-color-scheme: dark) {
+    .bg-hero-img {
+      background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url('https://media.urbit.org/site/operators/hero-img.jpg');
+    }
+  }
+
+.markdown hr {
+    @apply dark:border-antiwall-300;
+}
+
+.markdown pre,
+.markdown pre[class*="language-"] {
+  @apply dark:bg-antiwall-100;
+}
+
+.markdown code,
+.markdown code[class*="language-"] {
+  @apply dark:bg-antiwall-100;
+}
+
+.markdown a code,
+.markdown a code[class*="language-"] {
+  @apply dark:bg-green-600;
+}
+
+.markdown blockquote {
+    @apply dark:border-antiwall-300;
+}
+
+.markdown table tr th,
+.markdown table tr td,
+.markdown table tr th:first-child,
+.markdown table tr td:first-child { 
+    @apply dark:border-antiwall-100;
+}
+
+code[class*="language-"],
+pre[class*="language-"] { 
+    @apply dark:text-antiwall-600;
+} */

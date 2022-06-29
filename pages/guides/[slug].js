@@ -13,15 +13,16 @@ import Section from "../../components/Section";
 import { TableOfContents } from "../../components/TableOfContents";
 import { decode } from "html-entities";
 import { useEffect, useState } from "react";
+import { IntraNav } from "foundation-design-system";
 
-export default function Post({ post, markdown }) {
+export default function Post({ post, markdown, search }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage />;
   }
 
   if (post?.tabbed) {
-    return <TabbedLayout post={post} markdown={markdown} />;
+    return <TabbedLayout post={post} markdown={markdown} search={search} />;
   }
   return (
     <Container>
@@ -29,6 +30,7 @@ export default function Post({ post, markdown }) {
         <title>{post.title} • Operator's Manual • Urbit</title>
         {Meta(post)}
       </Head>
+      <IntraNav ourSite="https://operators.urbit.org" search={search} />
       <SingleColumn>
         <Header />
         <Section short>
@@ -44,8 +46,8 @@ export default function Post({ post, markdown }) {
             <TableOfContents />
           </div>
         </Section>
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 }
@@ -118,8 +120,8 @@ const TabbedLayout = ({ post, markdown }) => {
             ></article>
           </div>
         </Section>
-        <Footer />
       </SingleColumn>
+      <Footer />
     </Container>
   );
 };

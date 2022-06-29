@@ -1,33 +1,97 @@
-import Link from "next/link";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import Link from "next/link";
+import MenuTray from "./MenuTray";
 import classnames from "classnames";
-import path from "path";
-import Section from "../components/Section";
-import { capitalize } from "../lib/lib";
+
+function ActiveLink({ children, href, className, currentPath }) {
+  const activeClassName = classnames({
+    "text-wall-600": href === currentPath,
+    "text-wall-500": href !== currentPath,
+  });
+
+  return (
+    <Link href={href} passHref>
+      <a className={`${className} ${activeClassName}`}>{children}</a>
+    </Link>
+  );
+}
 
 export default function Header(props) {
+  const [isOpen, setTray] = useState(false);
+
+  const currentPath = useRouter().asPath;
+
+  const routeDepth = currentPath.split("/").length;
+
+  const firstCrumb = currentPath.split("/")[1];
   return (
     <header className="layout px-4 md:px-8 flex justify-between items-center pt-8 md:pt-10 lg:pt-12 pb-10 md:pb-12 lg:pb-24">
       <Link href="/">
-        <a className="type-ui flex items-center">Urbit Operators</a>
+        <a className="font-semibold text-lg flex items-center">
+          Urbit Operators
+        </a>
       </Link>
 
-      <nav className="flex">
-        {/* <Link href="/faq">
-          <a className="type-ui mr-4">FAQ</a>
-        </Link> */}
-        <a
-          className="type-ui flex items-center"
-          href="https://urbit.org"
-          target="_blank"
+      <nav className="hidden md:flex">
+        <ActiveLink
+          currentPath={currentPath}
+          className="mr-4 type-ui"
+          href="/#getting-started"
         >
-          urbit.org{" "}
-          <div className="font-sans w-8 h-8 rounded-full bg-wall-600 dark:bg-antiwall-600 ml-2 text-wall-100 dark:text-antiwall-100 flex items-center justify-center">
-            <p className="leading-none pt-0.5">{"↗"}</p>
-          </div>
-        </a>
+          Getting Started
+        </ActiveLink>
+        <ActiveLink
+          currentPath={currentPath}
+          className="mr-4 type-ui"
+          href="/guides/star-buyers-guide"
+        >
+          Star Buyer's Guide
+        </ActiveLink>
+        <ActiveLink
+          currentPath={currentPath}
+          className="type-ui"
+          href="/#node-operation"
+        >
+          Node Operation
+        </ActiveLink>
       </nav>
+      <MenuTray isOpen={isOpen} setTray={setTray} search={props.search}>
+        <Link href="/" passHref>
+          <a className="font-semibold mb-4">Urbit Operators</a>
+        </Link>
+        <Link href="https://urbit.org" passHref>
+          <a className="mt-2">Urbit.org</a>
+        </Link>
+        <Link href="/" passHref>
+          <a className="font-semibold mt-2">Operators</a>
+        </Link>
+        <Link href="https://developers.urbit.org" passHref>
+          <a className="mt-2 mb-4">Developers</a>
+        </Link>
+        <hr className="border-wall-200" />
+        <ActiveLink
+          currentPath={currentPath}
+          className="mt-4 type-ui"
+          href="/#getting-started"
+        >
+          Getting Started
+        </ActiveLink>
+        <ActiveLink
+          currentPath={currentPath}
+          className="mt-2 type-ui"
+          href="/guides/star-buyers-guide"
+        >
+          Star Buyer's Guide
+        </ActiveLink>
+        <ActiveLink
+          currentPath={currentPath}
+          className="mt-2 type-ui"
+          href="/#node-operation"
+        >
+          Node Operation
+        </ActiveLink>
+      </MenuTray>
     </header>
   );
 }
