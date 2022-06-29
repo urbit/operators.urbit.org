@@ -1,6 +1,6 @@
 export default async (req, res) => {
   const results = await fetch(
-    `https://developers-urbit-966qqrq67-urbit.vercel.app/api/glossary?q=${encodeURIComponent(
+    `https://developers.urbit.org/api/glossary?q=${encodeURIComponent(
       req.query.q
     )}`
   ).then((res) => res.json());
