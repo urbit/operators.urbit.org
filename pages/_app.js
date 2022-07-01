@@ -3,7 +3,7 @@ import { init } from "@socialgouv/matomo-next";
 import { useState, useEffect } from "react";
 import { configure, GlobalHotKeys } from "react-hotkeys";
 import Search from "../components/Search";
-
+import Head from 'next/head';
 import "foundation-design-system/styles/globals.css";
 import "foundation-design-system/styles/markdown.css";
 import "foundation-design-system/styles/prism.css";
@@ -61,6 +61,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+
+      <Head>
+        <link rel="icon" type="image/png" href="/images/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
+        <link rel="manifest" href="/images/site.webmanifest"/>
+      </Head>
+
       <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
       <Search
         showSearch={showSearch}
