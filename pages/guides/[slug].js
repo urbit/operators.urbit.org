@@ -52,7 +52,7 @@ export default function Post({ post, markdown, search }) {
   );
 }
 
-const TabbedLayout = ({ post, markdown }) => {
+const TabbedLayout = ({ post, markdown, search }) => {
   const [list, setList] = useState([]);
   const [ready, setReady] = useState(false);
   const router = useRouter();
@@ -91,6 +91,7 @@ const TabbedLayout = ({ post, markdown }) => {
         <title>{post.title} • Updates • operators.urbit.org</title>
         {Meta(post)}
       </Head>
+      <IntraNav ourSite="https://operators.urbit.org" search={search} />
       <SingleColumn>
         <Header />
         <Section short>
