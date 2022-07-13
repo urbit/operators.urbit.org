@@ -16,6 +16,13 @@ yarn dev
 
 Finally, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Install Foundation Design System Updates
+
+rm -rf package-lock.json node_modules .next
+
+npm i && npm run dev
+
+
 ## Framework and Library Documentation
 
 To learn more about Next.js, take a look at the following resources:
