@@ -69,7 +69,6 @@ export default function Home({
   whichId,
   l2Stars,
   runningGalaxy,
-  faq,
   starBuyers,
   sellingPlanets,
   search,
@@ -101,13 +100,38 @@ export default function Home({
         </Section>
 
         <Section>
-          <h2 className="m-0 p-0 mr-4" id="getting-started">
-            Getting Started
+          <h2 className="m-0 p-0 mr-4" id="urbit-ids">
+            Urbit IDs
           </h2>
           <TwoUp className="mt-8">
             <GuideCard guide={inspectId} />
             <GuideCard guide={whichId} />
           </TwoUp>
+        </Section>
+
+        <Section>
+          <h2 className="m-0 p-0 mr-4">Operator's Manual</h2>
+          <div
+            className={
+              "mt-8 items-center flex flex-col md:flex-row space-y-24 md:space-y-0 md:space-x-8"
+            }
+          >
+            <img src="/images/operators-manual.svg" className="basis-1/4" />
+            <div
+              className="flex flex-col space-y-8"
+              style={{ flexBasis: "75%" }}
+            >
+              <p>
+                A series of guides and reference material for assisting you in
+                the usage and operations of your ship.
+              </p>
+              <Link passHref href="/manual">
+                <a className="button-lg bg-green-400 text-white w-40">
+                  View Guide
+                </a>
+              </Link>
+            </div>
+          </div>
         </Section>
 
         <Section>
