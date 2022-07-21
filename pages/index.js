@@ -49,7 +49,7 @@ function BuyersCard({ guide, className = "" }) {
   return (
     <div
       className={
-        "rounded-xl items-center flex flex-col md:flex-row space-y-24 md:space-y-0" +
+        "rounded-xl items-center flex flex-col md:flex-row space-y-24 mt-8 md:space-x-8 md:space-y-0" +
         className
       }
     >
