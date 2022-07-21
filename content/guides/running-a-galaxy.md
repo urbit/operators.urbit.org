@@ -66,7 +66,7 @@ should be minimized to the best of your abilities, and the machine
 running your ship should have the requisite resources to handle these
 tasks. If you are unable to provide these services to your children,
 they will find somebody who can, by 
-[escaping](https://urbit.org/using/id/using-bridge%23escaping-your-sponsor) to another sponsor.
+[escaping](/using/id/using-bridge%23escaping-your-sponsor) to another sponsor.
 
 You may have noticed that this means you could technically bear
 responsibility for the connectivity of \~16 million ships, but Urbit's
@@ -238,7 +238,7 @@ To transfer an incoming galaxy to a master ticket:
     [Bridge](https://bridge.urbit.org) with
     your 
     wallet, and  approve the [incoming
-    transfer](https://urbit.org/using/id/using-bridge%23accept-your-transfer) of
+    transfer](/using/id/using-bridge%23accept-your-transfer) of
     the galaxy. Note that you must pay a transaction fee.
 -   Once the galaxy has been accepted, go to the 'ID' section in Bridge
     to transfer your key to a  [master
@@ -254,9 +254,9 @@ To transfer an incoming galaxy to a master ticket:
     your master ticket.
 
 Take advantage of your [proxy
-addresses](https://urbit.org/docs/glossary/proxies) to
+addresses](https://developers.urbit.org/reference/glossary/proxies) to
 delegate voting, spawning, and management privileges to different
-addresses than your ownership key (see '[Key management](#key-management)' section below). Urbit's [HD wallet](https://urbit.org/docs/azimuth/azimuth%23the-urbit-hd-wallet) design
+addresses than your ownership key (see '[Key management](#key-management)' section below). Urbit's [HD wallet](https://developers.urbit.org/reference/azimuth/hd-wallet) design
 makes it easy to keep your ownership key locked in a box while you
 perform typical operations with subsidiary keys, or re-derive those keys
 if you lose them.
@@ -267,7 +267,7 @@ wallet as recovery keys
  [Ledger](https://support.ledger.com/hc/en-us/articles/4404382560913-Restore-from-recovery-phrase?support%3Dtrue)).
 If you prefer to purely use a hardware wallet, instructions for a
  [hardware HD
-wallet](https://urbit.org/docs/azimuth/azimuth%23hardware-hd-wallet)  analogous
+wallet](https://developers.urbit.org/reference/azimuth/hd-wallet#hardware-hd-wallet)  analogous
 to a master ticket are also available in the docs.
 
 ## Selling a galaxy
@@ -296,8 +296,8 @@ change in ownership.
 
 Most galaxy sales take place privately. The best place to look for
 buyers is on Urbit itself, particularly in groups oriented around
-trading and digital assets, like [The Marketplace](web+urbitgraph://group/~tirrel/the-marketplace) or
-[Cryptocurrency Forum](web+urbitgraph://group/~sonwet/cryptocurrency-forum). Using the network is beneficial both for casting a
+trading and digital assets, like [The Marketplace](https://urbit.org/groups/~tirrel/the-marketplace) or
+[Cryptocurrency Forum](https://urbit.org/groups/~sonwet/cryptocurrency-forum). Using the network is beneficial both for casting a
 wider net than word of mouth, as well as weighing informal reputation on
 both sides of an exchange. It also selects for parties who are invested
 in the network and might provide informed feedback.
@@ -315,7 +315,7 @@ and receipt.
 
 ## Key Management
 
-[Azimuth](https://urbit.org/docs/glossary/azimuth) allows
+[Azimuth](https://developers.urbit.org/reference/glossary/azimuth) allows
 operators to delegate privileges related to interacting with the
 [PKI](https://urbit.org/blog/pki-maze) to
 sub-addresses. This means that you can break up the ability to perform
@@ -385,7 +385,7 @@ fundamental responsibility of a galaxy operator.
 Because networking is a critical function, it is advisable to shift the
 resource burden of auxiliary services onto other instances; moons are
 just as capable of running software as your galaxy.
-[Moons](https://urbit.org/docs/glossary/moon) are
+[Moons](https://developers.urbit.org/reference/glossary/moon) are
 child instances whose keys are not tracked by Azimuth; your galaxy has
 \~4 billion available to spawn at your discretion. Moons might be useful
 for performing tasks that would otherwise burden your ship.
@@ -425,7 +425,7 @@ perform it. If you have assigned an address as a spawn
 proxy, you can use that to log into
 Bridge and carry out the transaction.
 Bridge is a browser-based
-[interface](https://urbit.org/using/id/using-bridge&) for
+[interface](/using/id/using-bridge) for
 interacting with the Azimuth contracts.
 
 In the Bridge main menu, select 'Issue
@@ -538,7 +538,7 @@ period.
 ### Assigning a planet voting rights
 
 Azimuth points have the ability to delegate privileges to
-[sub-addresses](https://urbit.org/docs/azimuth/azimuth%23proxies),
+[sub-addresses](https://developers.urbit.org/reference/azimuth/hd-wallet#proxies),
 so that you can avoid exposing your ownership keys. Voting on contract
 upgrades takes place in Bridge, but you may find it more convenient and
 secure to use a proxy to perform the voting operations. For this reason,

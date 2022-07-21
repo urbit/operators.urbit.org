@@ -207,7 +207,7 @@ backends require resources, setup and maintenance -- handling these
 tasks would be valuable for other ships.
 
 These connectors currently point to two systems --
-[S3](https://urbit.org/using/os/s3),
+[S3](/manual/os/s3),
 an API for object storage originally developed for AWS, and
 [LFS](https://github.com/aquarial/urbit-lfs-filehosting),
 a system for object storage developed for Git. Both of these systems are
@@ -225,7 +225,7 @@ orphaned planets.
 
 Adoption is a simple process, but it's a two-way operation. To adopt a
 planet, they must [escape their original
-sponsor](https://urbit.org/using/id/using-bridge%23escaping-your-sponsor) and
+sponsor](/manual/id/using-bridge%23escaping-your-sponsor) and
 set your star's `@p` as their sponsor, which they can do in Bridge. You
 must also accept by logging into Bridge with your ownership or
 management key, then selecting 'Requests' within the 'Residents' menu,
@@ -374,7 +374,7 @@ To send your incoming star to a master ticket:
 -   Log into
     [Bridge](https://bridge.urbit.org) with
     your hardware wallet, and [approve the incoming
-    transfer](https://urbit.org/using/id/using-bridge%23accept-your-transfer) of the galaxy. Note that you must pay a transaction fee.
+    transfer](/manual/id/using-bridge%23accept-your-transfer) of the galaxy. Note that you must pay a transaction fee.
 -   Once the star has been accepted, go to the 'ID' section in Bridge to
     transfer your key to a [master
     ticket](https://urbit.org/faq%23master-ticket).
