@@ -37,9 +37,16 @@ export default function Header(props) {
         <ActiveLink
           currentPath={currentPath}
           className="mr-4 type-ui"
-          href="/#getting-started"
+          href="/#urbit-ids"
         >
-          Getting Started
+          Urbit IDs
+        </ActiveLink>
+        <ActiveLink
+          currentPath={currentPath}
+          className="mr-4 type-ui"
+          href="/manual"
+        >
+          Manual
         </ActiveLink>
         <ActiveLink
           currentPath={currentPath}
@@ -73,9 +80,16 @@ export default function Header(props) {
         <ActiveLink
           currentPath={currentPath}
           className="mt-4 type-ui"
-          href="/#getting-started"
+          href="/#urbit-ids"
         >
-          Getting Started
+          Urbit IDs
+        </ActiveLink>
+        <ActiveLink
+          currentPath={currentPath}
+          className="mt-2 type-ui"
+          href="/manual"
+        >
+          Manual
         </ActiveLink>
         <ActiveLink
           currentPath={currentPath}

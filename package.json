@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run cache-posts && next dev",
+    "dev": "npm run prebuild && next dev",
     "build": "next build",
-    "prebuild": "npm run cache-posts",
+    "prebuild": "npm run cache-posts && npm run manual-tree",
     "cache-posts": "node lib/cache.js",
+    "manual-tree": "node lib/buildPageTree manual weight",
     "export": "npm run next build && next export",
     "start": "next start"
   },
