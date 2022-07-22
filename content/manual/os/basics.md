@@ -9,10 +9,10 @@ hidetitle = "true"
 
 This document deals with:
 
-- Running an Urbit ship with the ordinary runtime [from the command line](/getting-started/cli).
+- Running an Urbit ship with the ordinary runtime [from the command line](https://urbit.org/getting-started/cli).
 - Basic setup, configuration and usage in Urbit's shell called the `dojo`.
 
-If you're looking for information on using the GUI application [Port](/getting-started#port), see the [Port guide](/manual/running/port) instead.
+If you're looking for information on using the GUI application [Port](https://urbit.org/getting-started/desktop), see the [Port guide](/manual/running/port) instead.
 
 ## Shutdown
 
@@ -149,7 +149,7 @@ The `moon:` part is the name of the moon, in this case `~faswep-navred-sampel-pa
 
 You can just copy the key (which in this case would be the `0w5[...]600g1` part) to the clipboard, or save it in a `.key` file, for example `faswep-navred-sampel-palnet.key`.
 
-You can use the key and moon name in the same installation flow from the [Command line installation](/getting-started/cli) guide, following the same scheme as for booting a planet. That scheme is:
+You can use the key and moon name in the same installation flow from the [Command line installation](https://urbit.org/getting-started/cli) guide, following the same scheme as for booting a planet. That scheme is:
 
 ```sh
 $ ./urbit -w <moon-name> -G <key> -c <pier-name>
