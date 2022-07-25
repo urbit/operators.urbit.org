@@ -67,11 +67,13 @@ function BuyersCard({ guide, className = "" }) {
 export default function Home({
   inspectId,
   whichId,
+  urbitidFaq,
   l2Stars,
   runningGalaxy,
   starBuyers,
   sellingPlanets,
   search,
+  urbitSecurity
 }) {
   return (
     <Container>
@@ -102,6 +104,9 @@ export default function Home({
             <GuideCard guide={inspectId} />
             <GuideCard guide={whichId} />
           </TwoUp>
+          <OneUp>
+            <GuideCard guide={urbitidFaq} />
+          </OneUp>
         </Section>
 
         <Section>
@@ -195,9 +200,10 @@ export default function Home({
             <GuideCard guide={runningGalaxy} />
           </TwoUp>
 
-          <OneUp className="">
+          <TwoUp className="">
             <GuideCard guide={sellingPlanets} />
-          </OneUp>
+            <GuideCard guide={urbitSecurity} />
+          </TwoUp>
         </Section>
 
         {/* <Section>
@@ -272,6 +278,18 @@ export async function getStaticProps() {
     "guides"
   );
 
+  const urbitidFaq = getPostBySlug(
+    "urbit-id-faq",
+    ["slug", "title", "description"],
+    "guides"
+  );
+
+  const urbitSecurity = getPostBySlug(
+    "urbit-security",
+    ["slug", "title", "description"],
+    "guides"
+  );
+
   const faq = getPostBySlug("faq", ["slug", "title", "description"], "/");
 
   return {
@@ -280,9 +298,11 @@ export async function getStaticProps() {
       l2Stars,
       starBuyers,
       whichId,
+      urbitidFaq,
       runningStar,
       runningGalaxy,
       sellingPlanets,
+      urbitSecurity,
       faq,
     },
   };
