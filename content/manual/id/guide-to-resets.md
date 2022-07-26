@@ -45,7 +45,7 @@ would like to perform a reset, follow the steps below.
 - Download your new keyfile following these instructions: [Generate your
   keyfile](/manual/id/using-bridge#generate-your-keyfile).
 - Delete or archive your old [pier](/docs/glossary/pier).
-- Proceed to [boot your ship](/getting-started/cli#boot-your-planet) with the
+- Proceed to [boot your ship](https://urbit.org/getting-started/cli#boot-your-planet) with the
   new keyfile.
 - Delete your keyfile after successfully booting.
 - Rejoin your favorite chat channels and subscriptions.
@@ -68,8 +68,8 @@ slightly different.
   keys](/manual/id/using-bridge#set-your-networking-keys), and [Generate your
   keyfile](/manual/id/using-bridge#generate-your-keyfile). The option whether or
   not to reset is in the Accept your Transfer step.
-- Delete or archive your old [pier](/docs/glossary/pier).
-- Proceed to [boot your ship](/getting-started/cli#boot-your-planet) with the
+- Delete or archive your old [pier](https://developers.urbit.org/reference/glossary/pier).
+- Proceed to [boot your ship](https://urbit.org/getting-started/cli#boot-your-planet) with the
   new keyfile.
 - Delete your keyfile after successfully booting.
 - Rejoin your favorite chat channels and subscriptions.

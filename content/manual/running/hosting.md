@@ -115,7 +115,7 @@ Continuing to follow the DO docs we're going to configure the ufw firewall.
 
 ## Installing Urbit
 
-Finally we're ready to install Urbit on your very own server. This part is actually pretty easy, if you haven't installed Urbit locally then the instructions are the exact same as the ones in the Urbit [install doc](/getting-started/). If you have a local ship already, we're going to install Urbit on the server and then send your local ship up.
+Finally we're ready to install Urbit on your very own server. This part is actually pretty easy, if you haven't installed Urbit locally then the instructions are the exact same as the ones in the Urbit [install doc](https://urbit.org/getting-started/). If you have a local ship already, we're going to install Urbit on the server and then send your local ship up.
 
 - **WARNING**: Since Urbit is p2p you don't want to ever run two copies of your
   ship simultaneously. This is because other nodes that interact with each of
@@ -185,7 +185,7 @@ On iOS you can save a website to your homescreen as an icon. If you do this for 
   - [Digital Ocean Nginx Installation][do nginx install]
   - [Digital Ocean Nginx Config][do nginx config]
   - [Digital Ocean SSL Cert Setup][do ssl config]
-  - [Urbit Install Docs](/getting-started/)
+  - [Urbit Install Docs](https://urbit.org/getting-started/)
   - [Urbit Basic Cloud Install][urbit basic cloud install]
 
 [gandi]: https://www.gandi.net/
