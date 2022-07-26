@@ -20,7 +20,7 @@ your Urbit ships without any knowledge of the command line or Urbit binary.
 ## Install
 
 Port is available for Linux, MacOS and Windows. See the [Getting
-Started](/getting-started#port) for installation instructions.
+Started](https://urbit.org/getting-started/desktop) for installation instructions.
 
 ## Boot a comet
 
@@ -58,7 +58,7 @@ Enter a name for your ship in the `Name` field. This name is just displayed
 locally in Port for convenience. Next, enter your ship's name (e.g.
 `~sampel-palnet`) in the `Shipname` field. For `Key File`, select `Choose Key File` and browse to its location on your computer. If you don't have your
 keyfile yet, see _step one_ of the [Setting up your
-urbit](/getting-started/planet#keyfile) guide. Once you've selected the keyfile,
+urbit](https://urbit.org/getting-started/planet#keyfile) guide. Once you've selected the keyfile,
 hit `Continue`.
 
 It'll take a few minutes to spin up the ship, then you can click `Launch Ship into Urbit` and it'll take you to the login screen. Click `Copy Access Key` at
@@ -67,7 +67,7 @@ You'll now be at your ship's home screen and ready to explore Urbit.
 
 ## Import pier
 
-Port can import existing [piers](/docs/glossary/pier). For example, if you've
+Port can import existing [piers](https://developers.urbit.org/reference/glossary/pier). For example, if you've
 been running your ship with the Urbit binary from the command line, and would
 now like to run it with Port instead, you can do so.
 
