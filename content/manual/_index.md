@@ -29,5 +29,5 @@ application.
 ### [Running Urbit](/manual/running/)
 
 Urbit can be run in a variety of contexts. Our [Getting Started
-Guide](/getting-started/) covers how to run an Urbit locally on your
+Guide](https://urbit.org/getting-started/) covers how to run an Urbit locally on your
 computer; this section covers alternative ways of running Urbit.
