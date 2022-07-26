@@ -282,6 +282,11 @@ class Search extends Component {
                                   }`}
                                 >
                                   {item.content.content}
+                                  {item?.content?.foundOnPage && (
+                                    <span className="italic block">
+                                      Found in page content
+                                    </span>
+                                  )}
                                 </p>
                               </div>
                             </li>
@@ -323,6 +328,11 @@ class Search extends Component {
                                   }`}
                                 >
                                   {item.content.content}
+                                  {item?.content?.foundOnPage && (
+                                    <span className="italic block">
+                                      Found in page content
+                                    </span>
+                                  )}
                                 </p>
                               </div>
                             </li>
@@ -364,6 +374,11 @@ class Search extends Component {
                                   }`}
                                 >
                                   {item.content.content}
+                                  {item?.content?.foundOnPage && (
+                                    <span className="italic block">
+                                      Found in page content
+                                    </span>
+                                  )}
                                 </p>
                               </div>
                             </li>
