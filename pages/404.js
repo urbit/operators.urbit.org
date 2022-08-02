@@ -1,11 +1,13 @@
 import Head from "next/head";
 import Meta from "../components/Meta";
-import Container from "../components/Container";
-import SingleColumn from "../components/SingleColumn";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Section from "../components/Section";
-import { IntraNav } from "foundation-design-system";
+import {
+  IntraNav,
+  Section,
+  SingleColumn,
+  Container,
+} from "@urbit/foundation-design-system";
 
 export default function NotFound({ search }) {
   const post = {

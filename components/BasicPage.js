@@ -2,12 +2,14 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Meta from "../components/Meta";
 import ErrorPage from "../pages/404";
-import Container from "./Container";
 import Header from "./Header";
 import Footer from "./Footer";
-import SingleColumn from "./SingleColumn";
-import Section from "./Section";
-import { decode } from "html-entities";
+import {
+  Container,
+  SingleColumn,
+  Section,
+  Markdown,
+} from "@urbit/foundation-design-system";
 
 export default function BasicPage({ post, markdown, search }) {
   const router = useRouter();
@@ -27,9 +29,7 @@ export default function BasicPage({ post, markdown, search }) {
           <h3 className=" mt-6">{post.description}</h3>
         </Section>
         <Section narrow className="markdown">
-          <article
-            dangerouslySetInnerHTML={{ __html: decode(markdown) }}
-          ></article>
+          <Markdown.render content={JSON.parse(markdown)} />
         </Section>
       </SingleColumn>
       <Footer />
