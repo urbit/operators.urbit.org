@@ -4,16 +4,17 @@ import Head from "next/head";
 import Link from "next/link";
 import Meta from "../../components/Meta";
 import ErrorPage from "../404";
-import Container from "../../components/Container";
-import Markdown from "../../components/Markdown";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import SingleColumn from "../../components/SingleColumn";
-import Section from "../../components/Section";
-import { TableOfContents } from "../../components/TableOfContents";
-import { decode } from "html-entities";
+import {
+  Container,
+  SingleColumn,
+  Section,
+  IntraNav,
+  TableOfContents,
+  Markdown,
+} from "@urbit/foundation-design-system";
 import { useEffect, useState } from "react";
-import { IntraNav } from "foundation-design-system";
 
 export default function Post({ post, markdown, search }) {
   const router = useRouter();
@@ -37,14 +38,11 @@ export default function Post({ post, markdown, search }) {
           <h1>{post.title}</h1>
           <h3 className="measure mt-6">{post.description}</h3>
         </Section>
-        <Section>
-          <div className="block lg:flex">
-            <article
-              className={"markdown pr-0 lg:pr-16 max-w-prose"}
-              dangerouslySetInnerHTML={{ __html: decode(markdown) }}
-            ></article>
-            <TableOfContents />
+        <Section className="flex">
+          <div className="block markdown lg:flex">
+            <Markdown.render content={JSON.parse(markdown)} />
           </div>
+          <TableOfContents />
         </Section>
       </SingleColumn>
       <Footer />
@@ -114,11 +112,8 @@ const TabbedLayout = ({ post, markdown, search }) => {
           </div>
         </Section>
         <Section>
-          <div className="block max-w-prose lg:flex">
-            <article
-              className={"markdown pr-0 lg:pr-16 " + (ready ? "" : "hidden")}
-              dangerouslySetInnerHTML={{ __html: decode(markdown) }}
-            ></article>
+          <div className="block markdown max-w-prose lg:flex">
+            <Markdown.render content={JSON.parse(markdown)} />
           </div>
         </Section>
       </SingleColumn>
@@ -135,7 +130,7 @@ export async function getStaticProps({ params }) {
     "guides"
   );
 
-  const markdown = await Markdown({ post });
+  const markdown = JSON.stringify(Markdown.parse({ post }));
 
   return {
     props: { post, markdown },

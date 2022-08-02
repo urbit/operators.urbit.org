@@ -1,6 +1,6 @@
 import { getPostBySlug } from "../lib/lib";
 import PageWithIndex from "../components/PageWithIndex";
-import Markdown from "../components/Markdown";
+import { Markdown } from "@urbit/foundation-design-system";
 
 export default function Faq({ post, markdown, search }) {
   return <PageWithIndex post={post} markdown={markdown} search={search} />;
@@ -9,7 +9,7 @@ export default function Faq({ post, markdown, search }) {
 export async function getStaticProps() {
   const post = getPostBySlug("/faq", ["title", "slug", "content"], "/");
 
-  const markdown = await Markdown({ post });
+  const markdown = JSON.stringify(Markdown.parse({ post }));
 
   return {
     props: { post, markdown },

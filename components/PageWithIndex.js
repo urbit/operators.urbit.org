@@ -2,14 +2,16 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Meta from "../components/Meta";
 import ErrorPage from "../pages/404";
-import Container from "./Container";
 import Header from "./Header";
 import Footer from "./Footer";
-import SingleColumn from "./SingleColumn";
-import Section from "./Section";
-import { decode } from "html-entities";
-import { TableOfContents } from "./TableOfContents";
-import { IntraNav } from "foundation-design-system";
+import {
+  IntraNav,
+  TableOfContents,
+  Markdown,
+  Container,
+  SingleColumn,
+  Section,
+} from "@urbit/foundation-design-system";
 
 export default function PageWithIndex({ post, markdown, search }) {
   const router = useRouter();
@@ -30,13 +32,10 @@ export default function PageWithIndex({ post, markdown, search }) {
           <h3 className=" mt-6">{post.description}</h3>
         </Section>
         <Section>
-          <div className="flex">
-            <article
-              className={"markdown pr-0 lg:pr-16"}
-              dangerouslySetInnerHTML={{ __html: decode(markdown) }}
-            ></article>
-            <TableOfContents />
+          <div className="flex markdown">
+            <Markdown.render content={JSON.parse(markdown)} />
           </div>
+          <TableOfContents />
         </Section>
       </SingleColumn>
       <Footer />
