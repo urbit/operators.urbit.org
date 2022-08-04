@@ -38,8 +38,8 @@ export default function Post({ post, markdown, search }) {
           <h1>{post.title}</h1>
           <h3 className="measure mt-6">{post.description}</h3>
         </Section>
-        <Section className="flex">
-          <div className="block markdown lg:flex">
+        <Section className="flex sidebar">
+          <div className="block markdown sidebar lg:flex">
             <Markdown.render content={JSON.parse(markdown)} />
           </div>
           <TableOfContents />
