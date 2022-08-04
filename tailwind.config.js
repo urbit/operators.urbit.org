@@ -5,7 +5,7 @@ module.exports = {
     files: [
       "./node_modules/@urbit/foundation-design-system/dist/**/*.js",
       "./pages/**/*.{js,ts,jsx,tsx}",
-      "./components/**/*.{js,ts,jsx,tsx}",
+      "./components/**/*.{js,ts,svg,jsx,tsx}",
       "./content/**/*.md",
     ],
     transform: {
@@ -16,6 +16,5 @@ module.exports = {
       },
     },
   },
-  darkMode: "media", // or 'media' or 'class'
   presets: [require("@urbit/foundation-design-system/tailwind.config")],
 };
