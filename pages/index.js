@@ -3,23 +3,25 @@ import Link from "next/link";
 import Image from "next/image";
 import Stars from "../components/icons/stars.svg";
 
-import Container from "../components/Container";
-import Section from "../components/Section";
-import SingleColumn from "../components/SingleColumn";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import OneUp from "../components/OneUp";
-import TwoUp from "../components/TwoUp";
 import { getPostBySlug } from "../lib/lib";
 import BubbleLink from "../components/BubbleLink";
-import { IntraNav } from "foundation-design-system";
+import {
+  IntraNav,
+  Section,
+  Container,
+  SingleColumn,
+  TwoUp,
+} from "@urbit/foundation-design-system";
 
 function GuideCard({ guide, className }) {
   return (
     <div
       className={
-        "bg-wall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 " +
+        "bg-wall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 h-full " +
         className
       }
     >
@@ -73,7 +75,7 @@ export default function Home({
   starBuyers,
   sellingPlanets,
   search,
-  urbitSecurity
+  urbitSecurity,
 }) {
   return (
     <Container>

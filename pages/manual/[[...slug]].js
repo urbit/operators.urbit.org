@@ -6,7 +6,7 @@ import { useState } from "react";
 import classnames from "classnames";
 import { join } from "path";
 import { getPage } from "../../lib/lib";
-import { Markdown } from "foundation-design-system";
+import { Markdown } from "@urbit/foundation-design-system";
 import ContentArea from "../../components/ContentArea";
 import Sidebar from "../../components/DocsSidebar";
 import ManualTree from "../../cache/manual.json";
