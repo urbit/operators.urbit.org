@@ -11,7 +11,7 @@ contributions are welcome.
 
 This documentation provides a series of guides and reference material for
 assisting you in the usage and operations of your ship. If you're looking for
-documentation on how to _develop_ on Urbit, see our [development docs](/docs/).
+documentation on how to _develop_ on Urbit, see our [development docs](https://urbit.org/docs/).
 
 ### [Urbit OS](/manual/os/)
 

@@ -43,7 +43,7 @@ export default function ContentArea(props) {
     <div className="w-full min-w-0 flex flex-col items-center">
       <div
         ref={scrollBox}
-        className="px-4 md:px-12 lg:px-24 pt-8 md:pt-10 lg:pt-16 flex flex-col w-full max-w-screen-xl max-h-screen h-screen overflow-y-scroll"
+        className="bg-white px-4 md:px-12 lg:px-24 pt-8 md:pt-10 lg:pt-16 flex flex-col w-full max-w-screen-xl max-h-screen h-screen overflow-y-scroll"
       >
         <div className="flex justify-between w-full items-center shrink-0">
           <div className="font-semibold antialiased text-lg text-black">
