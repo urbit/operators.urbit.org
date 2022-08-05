@@ -142,58 +142,6 @@ export default function Home({
         </Section>
 
         <Section>
-          <h2 className="m-0 p-0 mr-4">Marketplaces</h2>
-          <TwoUp className="mt-8">
-            <BubbleLink
-              href="https://urbitex.io"
-              title="Urbitex"
-              caption="An automated Urbit address marketplace"
-            >
-              <img
-                alt="Urbitex logo"
-                className="max-w-none w-12 h-12 rounded-full"
-                src="/images/urbitex-logo.png"
-              />
-            </BubbleLink>
-            <BubbleLink
-              href="https://opensea.io/assets/urbit-id"
-              title="OpenSea"
-              caption="A large, general NFT marketplace"
-            >
-              <img
-                alt="opensea logo"
-                className="max-w-none w-12 h-12 rounded-full"
-                src="https://opensea.io/static/images/logos/opensea.svg"
-              />
-            </BubbleLink>
-          </TwoUp>
-          <TwoUp className="mt-0">
-            <BubbleLink
-              href="https://urbit.live"
-              title="Urbit.live"
-              caption="A specialized market for Urbit planets"
-            >
-              <img
-                alt="urbitlive logo"
-                className="max-w-none w-12 h-12 rounded-full"
-                src="https://urbit.live/static/media/urbit-live-logo-png-400.6ec9a92b.png"
-              />
-            </BubbleLink>
-            <BubbleLink
-              href="https://urbit.org/groups/~tirrel/the-marketplace"
-              title="The Marketplace"
-              caption="An Urbit group for trading address space"
-            >
-              <img
-                alt="Marketplace logo"
-                className="max-w-none w-12 h-12 rounded-full"
-                src="/images/the-marketplace-logo.png"
-              />
-            </BubbleLink>
-          </TwoUp>
-        </Section>
-
-        <Section>
           <h2 className="m-0 p-0 mr-4" id="node-operation">
             Node Operation
           </h2>
