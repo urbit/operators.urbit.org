@@ -21,7 +21,7 @@ function GuideCard({ guide, className }) {
   return (
     <div
       className={
-        "bg-wall-100 rounded-xl cursor-pointer aspect-w-none aspect-h-none md:aspect-w-5 md:aspect-h-4 h-full " +
+        "bg-wall-100 rounded-xl cursor-pointer h-full " +
         className
       }
     >
