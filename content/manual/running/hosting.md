@@ -214,8 +214,7 @@ instructions](#if-you're-using-port) above instead.
 
 - In the Dojo, use either `"CTRL + D"` or `|exit` to shut down your ship.
 - Archive your ship by running `tar cvzf riclen-tinlyr.tar.gz
-  ~/path/to/your/pier`, replacing `riclen-tinlyr` with your own ship name and
-  `~/path/to/your/pier` with the location of your pier.
+  ~/path/to/your/pier` (substitute your own ship name and pier location).
 
 ## 4. Connect to the server
 
@@ -241,8 +240,8 @@ a ship running locally and instead want to boot a new planet you've obtained,
 skip this step and refer to the [key file upload instructions](#upload-your-key-file)
 below instead.
 
-Replace `riclen-tinlyr.tar.gz` with the archive you made
-previously, and `riclen-tinlyr` with the Host you set in `~/.ssh/config` above:
+Copy the archived pier to the server with the following (substituting your ship
+name and Host):
 
 ```bash {% copy=true %}
 scp riclen-tinlyr.tar.gz riclen-tinlyr:
@@ -273,9 +272,8 @@ If you hit "Claim", it'll bring you here:
 ![download passport
 screenshot](https://media.urbit.org/operators/manual/running/hosting/download-passport.png)
 
-Hit "Download Backup (Passport)" and it'll have you download a file called
-`riclen-tinlyr-passport.zip` (but with your own planet rather than
-`riclen-tinlyr`).
+Hit "Download Backup (Passport)" and it'll have you download a file named like
+`riclen-tinlyr-passport.zip`.
 
 Unzip the file with:
 
@@ -306,7 +304,7 @@ will be safe.
 This will leave only the `riclen-tinlyr-1.key` file. The key file contains your
 planet's private keys, which are necessary to boot it up for the first time.
 You'll need to copy that file to the server with the following command (again,
-replacing `riclen-tinlyr` with your own planet and host):
+replacing `riclen-tinlyr` with your own ship and Host):
 
 ```bash {% copy=true %}
 scp riclen-tinlyr-passport/riclen-tinlyr-1.key riclen-tinlyr:
@@ -319,7 +317,7 @@ afterwards you should also delete that file for security.
 #### Finish server configuration
 
 Once you've either uploaded your pier or uploaded your key file as the case may
-be, you can connect to your server (replacing `riclen-tinlyr` with your Host):
+be, you can connect to your server:
 
 ```bash {% copy=true %}
 ssh riclen-tinlyr
@@ -345,9 +343,9 @@ these instructions. If you're booting a new planet for the first time and
 uploaded a key file, ignore these and follow the [instructions for booting a new
 planet](#if-booting-a-new-planet-from-a-key-file) below.
 
-In the previous section you ssh'd into the server and configured Caddy. In the same
-ssh session, extract the pier archive you previously uploaded (replacing
-`riclen-tinlyr` with the correct name):
+In the previous section you ssh'd into the server and configured Caddy. In the
+same ssh session, extract the pier archive you previously uploaded, then delete
+the archive:
 
 ```bash {% copy=true %}
 tar xvzf riclen-tinlyr.tar.gz && rm riclen-tinlyr.tar.gz
