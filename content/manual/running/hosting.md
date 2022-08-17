@@ -482,3 +482,16 @@ ship's homescreen.
 
 Your ship is now running in the cloud, and you can access it from any device by
 visiting its URL.
+
+## 7. Cleanup
+
+If you booted a new ship by uploading a key file, it's a good idea to now delete
+the key file on your local machine.
+
+If you uploaded an existing pier, you should delete the old copy of both the
+pier directory and the `.tar.gz` archive on your local machine. If you really
+want, you can technically keep one of these as a backup, but note that **you
+must never again boot the old copy on the live network**. Doing so will create
+unfixable networking problems and require you to perform a factory reset through
+Bridge, wiping your ship's data. We therefore don't recommend you keep
+duplicates of your pier lying around.
