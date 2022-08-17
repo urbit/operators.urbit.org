@@ -20,7 +20,7 @@ This guide uses Digital Ocean as the cloud provider, but others can be used. If
 using another provider, the setup script provided and other server configuration
 instructions may need to be modified or done manually.
 
-## 1. Create a Digital Ocean droplet
+## 1. Create a Droplet
 
 Create an account on [Digital Ocean](https://digitalocean.com). Once you make an
 account, choose "Deploy a virtual machine".
