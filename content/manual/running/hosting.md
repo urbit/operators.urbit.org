@@ -489,9 +489,9 @@ If you booted a new ship by uploading a key file, it's a good idea to now delete
 the key file on your local machine.
 
 If you uploaded an existing pier, you should delete the old copy of both the
-pier directory and the `.tar.gz` archive on your local machine. If you really
-want, you can technically keep one of these as a backup, but note that **you
-must never again boot the old copy on the live network**. Doing so will create
-unfixable networking problems and require you to perform a factory reset through
-Bridge, wiping your ship's data. We therefore don't recommend you keep
-duplicates of your pier lying around.
+pier directory and the `.tar.gz` archive on your local machine. You might be
+tempted to keep one of these as a backup, but note that **you must never again
+boot the old copy on the live network**. Doing so will create unfixable
+networking problems and require you to perform a factory reset through Bridge,
+wiping your ship's data. We therefore don't recommend you keep duplicates of
+your pier lying around.
