@@ -188,37 +188,40 @@ move it to the cloud. If you don't, you can skip this step.
 
 {% /callout %}
 
-#### If you're using Port
+{% tabs %}
 
-If your planet is already running on Port from your local machine, follow these
-steps to get it ready to deploy to your cloud-hosted server. If you're not using
-Port, but are running your ship from the command line, skip this section and
-refer to the [CLI instructions](#if-you're-running-from-the-command-line) below instead.
+{% tab label="If you're using Port" %}
 
 Shut down your local ship and export it:
 
-- In port, first click `"Home"` in the bottom left corner of the home page.
-  ![landscape screenshot](https://media.urbit.org/operators/manual/running/hosting/landscape-screenshot.png)
-- Then, click `"Manage"` next to the planet you want to upload to the cloud.
-  ![port manage screenshot](https://media.urbit.org/operators/manual/running/hosting/port-manage-screenshot.jpg)
-- Finally, click `"Export"`, and make note of the location in which you export
-  your archived planet so that you can use it in the next step.
-  ![port eject screenshot](https://media.urbit.org/operators/manual/running/hosting/port-eject-screenshot.jpg)
+In port, first click `"Home"` in the bottom left corner of the home page.
 
-#### If you're running from the command line
+![landscape
+screenshot](https://media.urbit.org/operators/manual/running/hosting/landscape-screenshot.png)
 
-If you're running your ship locally in the command line, follow these steps to
-get it ready to deploy to your cloud-hosted server. If you're using Port rather
-than the command line, ignore this section and refer to the [Port
-instructions](#if-you're-using-port) above instead.
+Then, click `"Manage"` next to the planet you want to upload to the cloud.
+![port manage
+screenshot](https://media.urbit.org/operators/manual/running/hosting/port-manage-screenshot.jpg)
 
-- In the Dojo, use either `"CTRL + D"` or `|exit` to shut down your ship.
-- Archive your ship by running `tar cvzf riclen-tinlyr.tar.gz
-  ~/path/to/your/pier` (substitute your own ship name and pier location).
+Finally, click `"Export"`, and make note of the location in which you export
+your archived planet so that you can use it in the next step.
+
+![port eject screenshot](https://media.urbit.org/operators/manual/running/hosting/port-eject-screenshot.jpg)
+  
+{% /tab %}
+
+{% tab label="If you're running from the command line" %}
+
+In the Dojo, use either `"CTRL + D"` or `|exit` to shut down your ship.
+
+Archive your ship by running `tar cvzf riclen-tinlyr.tar.gz ~/path/to/your/pier`
+(substitute your own ship name and pier location).
+
+{% /tab %}
+
+{% /tabs %}
 
 ## 4. Connect to the server
-
-#### Create an SSH alias
 
 To make connecting simple, you can add an alias to `~/.ssh/config` on your local
 machine. Open `~/.ssh/config` in an editor (you may need to create it if the
@@ -233,12 +236,10 @@ Host riclen-tinlyr
   IdentitiesOnly yes
 ```
 
-#### Upload your pier
+{% tabs %}
 
-Here you'll upload the pier you archived previously. If you didn't previously have
-a ship running locally and instead want to boot a new planet you've obtained,
-skip this step and refer to the [key file upload instructions](#upload-your-key-file)
-below instead.
+{% tab label="If you have an existing pier" %}
+
 
 Copy the archived pier to the server with the following (substituting your ship
 name and Host):
@@ -250,11 +251,9 @@ scp riclen-tinlyr.tar.gz riclen-tinlyr:
 It may take a while to upload if your pier is large and/or your internet is
 slow.
 
-#### Upload your key file
+{% /tab %}
 
-If you had an existing ship running locally which you want to upload to the
-server, you can ignore this step and refer to the [pier upload
-instructions](#upload-your-pier) above instead.
+{% tab label="If you have a key file" %}
 
 If you have obtained a planet and want to boot it for the first time, you'll
 need to upload its key file to the server. These instructions assume you've
@@ -314,6 +313,10 @@ Note: you should keep the `riclen-tinlyr-1.key` until you've completed this
 guide and your ship is booted to be sure it was copied successfully, but
 afterwards you should also delete that file for security.
 
+{% /tab %}
+
+{% /tabs %}
+
 #### Finish server configuration
 
 Once you've either uploaded your pier or uploaded your key file as the case may
@@ -336,12 +339,9 @@ sudo systemctl restart caddy
 
 ## 5. Boot your ship
 
-#### If you've uploaded an existing pier
+{% tabs %}
 
-If you uploaded an existing archived pier like `riclen-tinlyr.tar.gz`, follow
-these instructions. If you're booting a new planet for the first time and
-uploaded a key file, ignore these and follow the [instructions for booting a new
-planet](#if-booting-a-new-planet-from-a-key-file) below.
+{% tab label="If you have an existing pier" %}
 
 In the previous section you ssh'd into the server and configured Caddy. In the
 same ssh session, extract the pier archive you previously uploaded, then delete
@@ -397,12 +397,9 @@ tmux a
 
 Finally, you can disconnect from the ssh session completely by hitting `CTRL+d`.
 
-#### If booting a new planet from a key file
+{% /tab %}
 
-If you uploaded a key file like `riclen-tinlyr-1.key` and are booting a new
-planet, follow these instructions. If you uploaded the archive of an existing
-pier, follow the [instructions for booting an existing ship](#if-you've-uploaded-an-existing-pier)
-above.
+{% tab label="If you have a key file" %}
 
 In the previous section you ssh'd into the server and configured Caddy. In the same
 ssh session, start tmux:
@@ -464,6 +461,9 @@ tmux a
 
 Finally, you can disconnect from the ssh session completely by hitting `CTRL+d`.
 
+{% /tab %}
+
+{% /tabs %}
 
 ## 6. Log in to Landscape
 
