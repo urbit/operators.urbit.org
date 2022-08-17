@@ -333,7 +333,6 @@ domain with the one you chose previously):
 
 ```bash {% copy=true %}
 echo -e "riclen-tinlyr.crabdance.com \n  reverse_proxy 127.0.0.1:8080" | sudo tee /etc/caddy/Caddyfile > /dev/null
-sudo systemctl enable --now caddy
 sudo systemctl restart caddy
 ```
 
