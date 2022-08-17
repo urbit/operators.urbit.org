@@ -190,6 +190,15 @@ move it to the cloud. If you don't, you can skip this step.
 
 {% tabs %}
 
+{% tab label="If you're running from the command line" %}
+
+In the Dojo, use either `"CTRL + D"` or `|exit` to shut down your ship.
+
+Archive your ship by running `tar cvzf riclen-tinlyr.tar.gz ~/path/to/your/pier`
+(substitute your own ship name and pier location).
+
+{% /tab %}
+
 {% tab label="If you're using Port" %}
 
 Shut down your local ship and export it:
@@ -208,15 +217,6 @@ your archived planet so that you can use it in the next step.
 
 ![port eject screenshot](https://media.urbit.org/operators/manual/running/hosting/port-eject-screenshot.jpg)
   
-{% /tab %}
-
-{% tab label="If you're running from the command line" %}
-
-In the Dojo, use either `"CTRL + D"` or `|exit` to shut down your ship.
-
-Archive your ship by running `tar cvzf riclen-tinlyr.tar.gz ~/path/to/your/pier`
-(substitute your own ship name and pier location).
-
 {% /tab %}
 
 {% /tabs %}
