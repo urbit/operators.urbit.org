@@ -7,196 +7,491 @@ weight = 2
 hidetitle = "true"
 +++
 
-The goal of this guide is to have clear and easy to follow best practices for deploying an Urbit node to a server you control in the cloud. Deploying in the cloud allows you to access your Urbit from any device.
+The goal of this guide is to have clear and easy to follow best practices for
+deploying an Urbit node to a server you control in the cloud. Deploying in the
+cloud allows you to access your Urbit from any device.
 
-Most Urbit users start out running their ship locally on one machine in order to play with it, but this means when your machine is offline your Urbit node is offline too (and can't get updates). You can also only access your Urbit from that one machine.
+Most Urbit users start out running their ship locally on one machine in order to
+play with it, but this means when your machine is offline your Urbit node is
+offline too (and can't get updates). You can also only access your Urbit from
+that one machine.
 
-This guide uses Digital Ocean as the cloud provider, but others can be used.
+This guide uses Digital Ocean as the cloud provider, but others can be used. If
+using another provider, the setup script provided and other server configuration
+instructions may need to be modified or done manually.
 
-## Create a Digital Ocean droplet
+## 1. Create a Droplet
 
-- Create an account on [Digital Ocean][digital ocean].
-- Create a droplet with the following settings:
-- **Image**: Ubuntu 20.04 x64
-- **Plan**: 4GB RAM
-- **Add block storage**: Skip
-- **Datacenter Region**: Choose the region closest to you.
-- **VPC Network**: No VPC
-- **Additional Options**: None
-- **Authentication**: SSH keys, add a New SSH Key following the instructions DO gives you.
-- **How many Droplets**: 1
-- **Choose a hostname**: This will be the hostname of the box you ssh into (can be whatever you want, I used my Urbit planet name).
-- **Add tags**: None
-- **Project**: It'll select your default.
-- **Backups**: Optional (it costs a little extra, but I have it enabled for peace of mind).
+Create an account on [Digital Ocean](https://digitalocean.com). Once you make an
+account, choose "Deploy a virtual machine".
 
-## Getting your own domain
+You should see the page below where you can create your Droplet, aka Virtual Machine:
 
-Your own domain will make accessing your Urbit a lot easier (it'll also allow you to secure things with a Let's Encrypt cert). Domains are relatively inexpensive and since this guide is about best practices it's a required step.
+![do screenshot](https://media.urbit.org/operators/manual/running/hosting/do-screenshot.png)
 
-There are a lot of domain name registrars you can use, this guide suggests [gandi.net][gandi]. From there you can search for and register a domain that you like.
+Fill out the options like so:
 
-## Configuring your domain for your Digital Ocean droplet
+#### Image
 
-Once you've registered your domain you'll need to configure it to use Digital Ocean for DNS. The following steps are done on the Gandi website.
+Ubuntu 22.04 x64
 
-- Click Domain on the left panel
-- Click the domain you're going to use for Urbit
-- Click "Gandi's LiveDNS" under Nameservers in the Domain configuration section of the overview page
-- Click Change
-- Click External
-- Add the Digital Ocean nameservers:
-  - `ns1.digitalocean.com`
-  - `ns2.digitalocean.com`
-  - `ns3.digitalocean.com`
-- Save the change.
-- - It can take 12-24 hours for this change to propagate.
-- Now that you've updated the DNS records you can add the domain to your droplet.
-- - Back on the DO site, click Networking from the left panel and then enter the domain you registered.
-- Click on that domain and add an A record that directs to the IP of your droplet (found on your droplet's page).
+#### Plan
 
-## Creating your non-root user
+- Shared CPU: Basic
+- CPU options: Regular with SSD
+- 2GB / 1 CPU ($12/mo)
 
-With our domain in place we're now ready to actually log into the box and start to configure the server itself.
+You can choose a more powerful option if you'd like but the $12 option should be
+sufficient. Note Urbit needs 2GB of memory; it's possible to choose a cheaper
+option and run it with less memory by using swap but it will impact performance.
 
-- Since we don't yet have a user we'll need to log in as root:
-  ```
-  $ ssh root@your_server_ip
-  ```
-- If you set a passphrase on your ssh key, you'll be asked for it. If not, you should automatically be logged in.
-- Create a new user, in our example we'll use _sammy_ (to match the DO docs), but you should use your own username:
-  ```
-  # adduser sammy
-  ```
-- Enter a strong password for your user. The questions `adduser` asks you don't matter, hit enter to skip them.
-- Give your new user sudo access:
-  ```
-  # usermod -aG sudo sammy
-  ```
-- Next we need to enable external access to our new user by moving the ssh key over from root (and setting proper permissions on it).
-- Be careful to note the **lack of trailing slash** in the command below after `/.ssh`:
-  ```
-  # rsync --archive --chown=sammy:sammy ~/.ssh /home/sammy
-  ```
-- Test this connection with `ssh sammy@your_server_ip` from your local machine in a new terminal window.
-- To test that your domain is working try `ssh sammy@your_domain` from a new terminal on your local machine.
-- You should now be able to use this user going forward with `sudo` when necessary.
+#### Add block storage
 
-## Setting up a basic firewall
+The $12 plan includes 50GB which should be sufficient for quite some time, so
+you can skip this.
 
-Continuing to follow the DO docs we're going to configure the ufw firewall.
+#### Datacenter region
 
-- The below command shows us the applications available to be easily configured with firewall rules by ufw.
+Choose the region closest to you.
 
-  ```
-  $ sudo ufw app list
-  ```
+#### VPC Network
 
-- Next we'll configure ufw to allow connections via ssh and to allow Urbit to use the standard web port when the firewall is enabled,
-  as well as opening a port that we'll later specify for your urbit to use to communicate directly with other ships.
+Leave this as default.
 
-  ```
-  $ sudo ufw allow OpenSSH
-  $ sudo ufw allow www
-  $ sudo ufw allow https
-  $ sudo ufw allow 34543/udp
-  ```
+#### Authentication
 
-  Note that you can choose any port in place of 34543 for Ames. Just be sure to pass the same port via the `-p` option when starting your ship.
+In the "Authentication" field, select "SSH keys" and hit "New SSH Key". Run the
+following command in the terminal on your local machine, replacing
+`riclen-tinlyr` with the name of your ship (sans the leading `~`):
 
-- Next we'll turn on the firewall.
-  ```
-  $ sudo ufw enable
-  ```
-- To see the current firewall status use the following.
-  ```
-  $ sudo ufw status
-  ```
+```bash {% copy=true %}
+SHIP="riclen-tinlyr" bash -c 'ssh-keygen -q -N "" -C $SHIP -f ~/.ssh/$SHIP && cat ~/.ssh/$SHIP.pub'
+```
 
-## Installing Urbit
+It should spit out a long string of letters and numbers beginning with `ssh-rsa`
+and ending with your ship name. Copy the whole thing and paste it into the "SSH
+key content" field on Digital Ocean. In the "Name" field, enter your ship name.
 
-Finally we're ready to install Urbit on your very own server. This part is actually pretty easy, if you haven't installed Urbit locally then the instructions are the exact same as the ones in the Urbit [install doc](https://urbit.org/getting-started/). If you have a local ship already, we're going to install Urbit on the server and then send your local ship up.
+#### Additional options
 
-- **WARNING**: Since Urbit is p2p you don't want to ever run two copies of your
-  ship simultaneously. This is because other nodes that interact with each of
-  your copies will be confused by which one is the most up to date. If you end
-  up accidentally doing this you'll have to do a 'factory reset' described in the [guide to resets](/manual/id/guide-to-resets) to fix things.
-- The first thing you're going to want to do is shut down your local ship, either with control-d or `|exit` in dojo.
-- Next we're going to install Urbit on the server and permit it to bind to the web ports:
-  ```
-  $ ssh your_user@your_domain
-  $ mkdir urbit
-  $ cd urbit
-  $ wget --content-disposition https://urbit.org/install/linux64/latest
-  $ tar zxf ./linux64.tgz --strip=1
-  $ sudo setcap 'cap_net_bind_service=+ep' urbit
-  ```
-- Now we're going to tar up your local ship and send it to your server, from your local machine's urbit directory:
-  ```
-  $ tar -zcvf <ship_dir_name>.tar.gz <ship_dir_name>
-  $ scp <ship_dir_name>.tar.gz  your_user@your_domain:urbit
-  ```
-- Back on your server let's untar your ship and start it up with the Ames port we allowed through the firewall:
-  ```
-  $ ssh your_user@your_domain
-  $ cd urbit
-  $ tar -zxvf <ship_dir_name>.tar.gz
-  $ ./urbit -p 34543 <ship_dir_name>
-  ```
-- Now we run a few commands in Dojo to request a Let’s Encrypt cert for your
-  domain. Replace `tld` with whatever your top-level domain is e.g. `com` in
-  `example.com`. `your_subdomain` is optional and that part of the command
-  should be omitted if you are not using it):
-  ```
-  ~sampel-palnet:dojo> |start %acme
-  ~sampel-palnet:dojo> :acme &path /tld/your_domain/your_subdomain
-  ```
-- Your ship should now be sailing on the digital ocean. Check `https://your_subdomain.your_domain.tld`, if everything is working properly you should see a login page.
-- Log in with the code from `+code` in dojo like normal and you should see all of your applications.
+Click "User data" and paste the script below into the field provided. This
+will automatically configure the server and install necessary software.
 
-## Leaving your Urbit running in a Screen session
+```bash {% copy=true %}
+#!/bin/bash
 
-Finally, to leave your Urbit running after you disconnect we can leave it in a Screen session. This is just a way to leave applications running in the background and then reconnect to them later. Alternatively, the same can be done with tmux.
+# configure swap
+fallocate -l 2G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
 
-- First start with your ship stopped, then run the following:
-  ```
-  $ screen -S urbit
-  ```
-- This will start a screen session, we can now start up the Urbit ship from the `urbit` directory in this session:
-  ```
-  $ ./urbit <ship_dir_name>
-  ```
-- Then we can disconnect from the screen session and leave the ship running with `control-a d`
-- To get back into the screen session:
-  ```
-  $ screen -r
-  ```
-- There are more screen commands for interacting with sessions that are easy to find on the internet.
+# setup firewall
+ufw allow OpenSSH
+ufw allow www
+ufw allow https
+ufw allow 34543/udp
+ufw enable
 
-## Links and Misc.
+# create and configure user
+useradd -s /bin/bash -d /home/urbit -m -G sudo urbit
+passwd -d urbit
+echo "urbit ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-A lot of the above documentation comes from combining existing resources.
+# configure ssh keys for user
+mkdir -p /home/urbit/.ssh
+chmod 700 /home/urbit/.ssh
+cp /root/.ssh/authorized_keys /home/urbit/.ssh/authorized_keys
+chmod 600 /home/urbit/.ssh/authorized_keys
+chown -R urbit:urbit /home/urbit/.ssh
 
-On iOS you can save a website to your homescreen as an icon. If you do this for your Urbit domain it's a little like having it as an app.
+# configure sshd
+mkdir -p /etc/ssh/sshd_config.d
+cat > /etc/ssh/sshd_config.d/override.conf <<EOF
+PermitRootLogin no
+PubkeyAuthentication yes
+PasswordAuthentication no
+EOF
 
-- For the docs that made up this guide see the following links.
-  - [Digital Ocean Initial Setup][do initial setup]
-  - [Digital Ocean DNS][do dns]
-  - [Digital Ocean Nginx Installation][do nginx install]
-  - [Digital Ocean Nginx Config][do nginx config]
-  - [Digital Ocean SSL Cert Setup][do ssl config]
-  - [Urbit Install Docs](https://urbit.org/getting-started/)
-  - [Urbit Basic Cloud Install][urbit basic cloud install]
+# fetch and extract urbit binary
+curl -L https://urbit.org/install/linux64/latest | tar xzk --strip=1 -C /home/urbit/
+chown urbit:urbit /home/urbit/urbit
 
-[gandi]: https://www.gandi.net/
-[digital ocean]: https://www.digitalocean.com/
-[do dns]: https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars
-[do nginx install]: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04
-[do nginx config]: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-go-web-application-using-nginx-on-ubuntu-18-04
-[do ssl config]: https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04
-[urbit basic cloud install]: https://medium.com/@urbitlive/hello-world-urbit-edition-install-boot-and-run-your-urbit-planet-on-a-10-cloud-server-b9579745b9a8
-[do initial setup]: https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04
-[blog github]: https://github.com/zalberico/zalberico.github.io
+# install necessary packages
+apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
+apt -y update
+apt install -y caddy tmux
 
-If you plan to use Nginx as a reverse proxy for your Urbit, it is important that you include the following settings in your configuration in order to allow the Landscape web client to properly communicate with your Urbit:
-` chunked_transfer_encoding off; proxy_buffering off; proxy_cache off; `
+# reboot
+systemctl reboot
+```
+
+#### How many Droplets?
+
+1
+
+#### Choose a hostname
+
+This will be the name the server calls itself locally, you can put in whatever
+you want. Your planet name is a good choice.
+
+#### Add tags
+
+Leave empty.
+
+#### Select project
+
+Leave as the default.
+
+#### Create Droplet
+
+Hit this button to create the droplet.
+
+## 2. Get domain
+
+To access your ship easily from any device, it's necessary to have a domain
+name. You can either buy one from a domain registrar like
+[gandi.net](https://www.gandi.net/), [Namecheap](https://www.namecheap.com),
+etc, or you can get a free subdomain from a site like
+[freedns.afraid.org](https://freedns.afraid.org/).
+
+In this guide, we'll walk through the second free option, but if you'd prefer
+your own, you just need to add an A Record pointing to your droplet's public IP
+address.
+
+Go to [freedns.afraid.org](https://freedns.afraid.org/) and sign up. Once done,
+log in and select the "Subdomains" option in the menu on the left. Choose to
+add a new one, and you'll be presented with a screen like so:
+
+![afraid.org subdomain add](https://media.urbit.org/operators/manual/running/hosting/afraid-domain-add.png)
+
+You can put anything in the "Subdomain" field, but typically you'd put your
+planet name. You can choose whichever domain option you'd like. In the
+"Destination" field, you'll need to put the public IP address of your droplet,
+which you can get from the dashboard on Digital Ocean.
+
+Once you hit "Save", the configuration is complete:
+
+![afraid.org subdomain created](https://media.urbit.org/operators/manual/running/hosting/afraid-domain-add.png)
+
+## 3. Prepare for upload
+
+{% callout %}
+
+**Note**
+
+This step is necessary if you already have a ship running locally and want to
+move it to the cloud. If you don't, you can skip this step.
+
+{% /callout %}
+
+{% tabs %}
+
+{% tab label="If you're running from the command line" %}
+
+In the Dojo, use either `"CTRL + D"` or `|exit` to shut down your ship.
+
+Archive your pier by running `tar cvzf riclen-tinlyr.tar.gz ~/path/to/your/pier`
+(substitute your own ship name and pier location).
+
+{% /tab %}
+
+{% tab label="If you're using Port" %}
+
+Shut down your local ship and export it:
+
+In port, first click `"Home"` in the bottom left corner of the home page.
+
+![landscape
+screenshot](https://media.urbit.org/operators/manual/running/hosting/landscape-screenshot.png)
+
+Then, click `"Manage"` next to the planet you want to upload to the cloud.
+![port manage
+screenshot](https://media.urbit.org/operators/manual/running/hosting/port-manage-screenshot.jpg)
+
+Finally, click `"Eject"`, and make note of the location in which you export
+your archived planet so that you can use it in the next step.
+
+![port eject screenshot](https://media.urbit.org/operators/manual/running/hosting/port-eject-screenshot.jpg)
+  
+{% /tab %}
+
+{% /tabs %}
+
+## 4. Connect to the server
+
+To make connecting simple, you can add an alias to `~/.ssh/config` on your local
+machine. Open `~/.ssh/config` in an editor (you may need to create it if the
+file doesn't exist), and add the following to the bottom of the file (replacing
+the ship name and IP address with your own):
+
+``` {% copy=true %}
+Host riclen-tinlyr
+  HostName 161.35.148.247
+  User urbit
+  IdentityFile ~/.ssh/riclen-tinlyr
+  IdentitiesOnly yes
+```
+
+{% tabs %}
+
+{% tab label="If you have an existing pier" %}
+
+
+Copy the archived pier to the server with the following (substituting your ship
+name and Host):
+
+```bash {% copy=true %}
+scp riclen-tinlyr.tar.gz riclen-tinlyr:
+```
+
+It may take a while to upload if your pier is large and/or your internet is
+slow.
+
+{% /tab %}
+
+{% tab label="If you have a key file" %}
+
+If you have obtained a planet and want to boot it for the first time, you'll
+need to upload its key file to the server. These instructions assume you've
+received an invite. If you've got a planet by another method, you can also login
+to [Bridge](https://bridge.urbit.org) and download the key file from there.
+
+If you've received a planet invite via email or a claim link like
+`https://bridge.urbit.org/#labfur-batteg-dapnex-binsup-riclen-tinlyr`, open it
+in a browser and you should see a page like the following:
+
+![claim planet screenshot](https://media.urbit.org/operators/manual/running/hosting/claim-planet.png)
+
+If you hit "Claim", it'll bring you here:
+
+![download passport
+screenshot](https://media.urbit.org/operators/manual/running/hosting/download-passport.png)
+
+Hit "Download Backup (Passport)" and it'll have you download a file named like
+`riclen-tinlyr-passport.zip`.
+
+Unzip the file with:
+
+```bash {% copy=true %}
+unzip ~/path/to/download/folder/riclen-tinlyr-passport.zip
+```
+
+It'll create a folder called `riclen-tinlyr-passport` which will contain three files:
+
+- `riclen-tinlyr-1.key`
+- `riclen-tinlyr-Management Proxy.png`
+- `riclen-tinlyr-Master Ticket.png`
+
+You can physically print out the two `.png` files and store them in a safe and
+secure location. Importantly, you should ensure the *master ticket* (which will
+look something like `~tarnes-pilryd-dassed-sogsul`) is securely and safely
+stored. If anyone gains access to the master ticket they'll have ownership and
+control of your Urbit ID, and if you lose it you'll irreversibly lose ownership
+and control of your Urbit ID.
+
+The next screen on the claim page will ask you to re-enter the master ticket to
+ensure you've recorded it accurately, and then the claim process is complete.
+Once you've securely, physically backed up the master ticket and the `.png`
+passports, it's a good idea to delete the `riclen-tinlyr-passport.zip` file and
+the two `.png` files, so if someone gains access to your computer, your Urbit ID
+will be safe.
+
+This will leave only the `riclen-tinlyr-1.key` file. The key file contains your
+planet's private keys, which are necessary to boot it up for the first time.
+You'll need to copy that file to the server with the following command (again,
+replacing `riclen-tinlyr` with your own ship and Host):
+
+```bash {% copy=true %}
+scp riclen-tinlyr-passport/riclen-tinlyr-1.key riclen-tinlyr:
+```
+
+Note: you should keep the `riclen-tinlyr-1.key` until you've completed this
+guide and your ship is booted to be sure it was copied successfully, but
+afterwards you should also delete that file for security.
+
+{% /tab %}
+
+{% /tabs %}
+
+#### Finish server configuration
+
+Once you've either uploaded your pier or uploaded your key file as the case may
+be, you can connect to your server:
+
+```bash {% copy=true %}
+ssh riclen-tinlyr
+```
+
+You'll be taken to the shell on your server. In order to complete the domain
+name setup, you need to edit the config file of the `caddy` reverse-proxy
+web-server. Run the following two commands in the droplet's shell (replacing the
+domain with the one you chose previously):
+
+```bash {% copy=true %}
+echo -e "riclen-tinlyr.crabdance.com \n  reverse_proxy 127.0.0.1:8080" | sudo tee /etc/caddy/Caddyfile > /dev/null
+sudo systemctl restart caddy
+```
+
+## 5. Boot your ship
+
+{% tabs %}
+
+{% tab label="If you have an existing pier" %}
+
+In the previous section you ssh'd into the server and configured Caddy. In the
+same ssh session, extract the pier archive you previously uploaded, then delete
+the archive:
+
+```bash {% copy=true %}
+tar xvzf riclen-tinlyr.tar.gz && rm riclen-tinlyr.tar.gz
+```
+
+You'll now have a folder called `riclen-tinlyr`, which is your pier. Urbit is
+best run in a tmux or screen session so it's easy to keep it running when
+you disconnect. In this case we'll use tmux, which has already been installed
+by the setup script.
+
+Run tmux:
+
+```bash {% copy=true %}
+tmux
+```
+
+You should now be in tmux. First, dock your ship:
+
+```bash {% copy=true %}
+./urbit dock riclen-tinlyr
+```
+
+That will copy the `urbit` runtime inside the pier, so you can now delete the
+separate binary:
+
+```bash {% copy=true %}
+rm urbit
+```
+
+Now you can boot your ship, specifying the Ames UDP port which was configured in
+the firewall by the setup script:
+
+```bash {% copy=true %}
+./riclen-tinlyr/.run --http-port 8080 -p 34543
+```
+
+It'll take a few moments to boot, and then your ship should be running like
+normal and you'll be at the usual Dojo prompt. If you haven't previously noted
+your web login code, you'll need to run `+code` in the Dojo and copy it. Then,
+you can disconnect from the tmux session by hitting `CTRL+b d` (that is, you
+hit `CTRL+b`, release it, and then hit `d`). This will disconnect you from
+tmux and take you back to the usual shell, but it'll keep running in the
+background. If you want to get back to the Dojo again, you can reattach the
+tmux session with:
+
+```bash {% copy=true %}
+tmux a
+```
+
+Finally, you can disconnect from the ssh session completely by hitting `CTRL+d`.
+
+{% /tab %}
+
+{% tab label="If you have a key file" %}
+
+In the previous section you ssh'd into the server and configured Caddy. In the same
+ssh session, start tmux:
+
+```bash {% copy=true}
+tmux
+```
+
+You should now be in tmux. Boot a new ship with the following command,
+specifying the ship name and key file, as well as the Ames port that was
+previously opened in the firewall by the setup script:
+
+```bash {% copy=true %}
+./urbit -w riclen-tinlyr -k riclen-tinlyr-1.key -p 34543
+```
+
+It may take several minutes to boot the new ship. Eventually, it'll take you to
+the Dojo (Urbit's shell) and show a prompt like `~riclen-tinlyr:dojo>`. Once
+booted, shut the ship down again by typing `|exit` in the Dojo. After it quits,
+it should print something like "docked successfully", which means the binary has
+been copied inside the pier. This means you can delete the separate binary:
+
+```bash {% copy=true %}
+rm urbit
+```
+
+The key file is only needed when you first boot the ship, so it's good practice
+to delete it after first boot:
+
+```bash {% copy=true %}
+rm riclen-tinlyr-1.key
+```
+Now you can start your ship back up again with the following:
+
+```bash {% copy=true %}
+./riclen-tinlyr/.run --http-port 8080 -p 34543
+```
+
+After a few moments it'll be back at the Dojo prompt again. In order to login to
+the web interface, you need to get the web login code. Run the following in the
+Dojo:
+
+``` {% copy-true %}
++code
+```
+
+It'll spit out something like `ropnys-batwyd-nossyt-mapwet`. That's your web
+login code, you can copy that and save it in a password manager or similar. Note
+that the web login code is separate from the master ticket.
+
+You can now disconnect from the tmux session by hitting `CTRL+b d` (that is, you
+hit `CTRL+b`, release it, and then hit `d`). You'll be taken back to the
+ordinary shell, but the ship will still be running in the background. If you
+want to get back to the Dojo again, you can reattach the tmux session with:
+
+```bash {% copy=true %}
+tmux a
+```
+
+Finally, you can disconnect from the ssh session completely by hitting `CTRL+d`.
+
+{% /tab %}
+
+{% /tabs %}
+
+## 6. Log in to Landscape
+
+The server configuration should now be complete, and you can access Landscape in
+the browser. Navigate to the domain you configured previously, in this case
+`riclen-tinlyr.crabdance.com`. You should see the Landscape login screen:
+
+![landscape login screen](https://media.urbit.org/operators/manual/running/hosting/landscape-login.png)
+
+Before logging in, check that the URL in the browser begins with `https`, and
+that it has a lock icon or similar next to it. This means Caddy has successfully
+configured its SSL certificates. If there's no lock and you're at `http://...`
+(without the `s`), Caddy has not yet setup the certificates. You may need to
+give it some time and try again. Otherwise, enter the web login code you
+previously got with the `+code` command in the Dojo, and you'll be taken to your
+ship's homescreen.
+
+Your ship is now running in the cloud, and you can access it from any device by
+visiting its URL.
+
+## 7. Cleanup
+
+If you booted a new ship by uploading a key file, it's a good idea to now delete
+the key file on your local machine.
+
+If you uploaded an existing pier, you should delete the old copy of both the
+pier directory and the `.tar.gz` archive on your local machine. You might be
+tempted to keep one of these as a backup, but note that **you must never again
+boot the old copy on the live network**. Doing so will create unfixable
+networking problems and require you to perform a factory reset through Bridge,
+wiping your ship's data. We therefore don't recommend you keep duplicates of
+your pier lying around.
