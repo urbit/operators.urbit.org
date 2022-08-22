@@ -10,9 +10,8 @@ called Vere - this is the `urbit` binary you execute in the terminal (or is run
 in the background by Port). You can also install a number of userspace
 applications such as Groups, Bitcoin, Studio, Pals, etc. Each of these
 layers—Vere, Arvo and apps—receive updates. In this guide, we'll look at how to
-deal with updates for each of these layers, the meaning of the update
-notifications you'll get in Landscape, and how these layers depend on each
-other.
+deal with these updates, the meaning of the update notifications you'll get in
+Landscape, and how these layers depend on each other.
 
 ## Quick overview
 
