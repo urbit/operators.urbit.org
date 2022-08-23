@@ -132,7 +132,7 @@ to apply any queued kernel updates.
 
 If you're still running a binary older than 1.9, you'll need to:
 
-1. Shut down your ship
+1. Shut down your ship with `Ctrl+d` or by typing `|exit` in the dojo.
 2. Download the new binary with the command given for your operating system in
    the [command line install guide](https://urbit.org/getting-started/cli).
 3. Start your ship back up with the new `urbit` binary you downloaded.
