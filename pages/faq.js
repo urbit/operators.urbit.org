@@ -1,6 +1,5 @@
-import { getPostBySlug } from "../lib/lib";
 import PageWithIndex from "../components/PageWithIndex";
-import { Markdown } from "@urbit/foundation-design-system";
+import { Markdown, getPostBySlug } from "@urbit/foundation-design-system";
 
 export default function Faq({ post, markdown, search }) {
   return <PageWithIndex post={post} markdown={markdown} search={search} />;

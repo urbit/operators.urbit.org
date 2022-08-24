@@ -1,11 +1,8 @@
 import {
-  getAllEvents,
-  generateDisplayDate,
-  generateRealtimeDate,
   formatDate,
   formatTime,
   formatTimeZone,
-} from "../lib/lib";
+} from "@urbit/foundation-design-system";
 
 export function Name({ children, className }) {
   return <b className={`font-normal ${className || ""}`}>{children}</b>;

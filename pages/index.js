@@ -1,29 +1,22 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import Stars from "../components/icons/stars.svg";
-
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 import OneUp from "../components/OneUp";
-import { getPostBySlug } from "../lib/lib";
-import BubbleLink from "../components/BubbleLink";
 import {
   IntraNav,
   Section,
   Container,
   SingleColumn,
   TwoUp,
+  getPostBySlug,
 } from "@urbit/foundation-design-system";
 
 function GuideCard({ guide, className }) {
   return (
     <div
-      className={
-        "bg-wall-100 rounded-xl cursor-pointer h-full " +
-        className
-      }
+      className={"bg-wall-100 rounded-xl cursor-pointer h-full " + className}
     >
       <div className="p-8 measure flex justify-between flex-col">
         <div>
