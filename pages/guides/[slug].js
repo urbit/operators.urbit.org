@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { getPostBySlug, getAllPosts } from "../../lib/lib";
 import Head from "next/head";
 import Link from "next/link";
 import Meta from "../../components/Meta";
@@ -13,6 +12,8 @@ import {
   IntraNav,
   TableOfContents,
   Markdown,
+  getPostBySlug,
+  getAllPosts,
 } from "@urbit/foundation-design-system";
 import { useEffect, useState } from "react";
 
