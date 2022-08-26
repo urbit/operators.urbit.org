@@ -34,7 +34,7 @@ export default function Post({ post, markdown, search }) {
       </Head>
       <IntraNav ourSite="https://operators.urbit.org" search={search} />
       <SingleColumn>
-        <Header />
+        <Header search={search} />
         <Section short>
           <h1>{post.title}</h1>
           <h3 className="measure mt-6">{post.description}</h3>
@@ -92,7 +92,7 @@ const TabbedLayout = ({ post, markdown, search }) => {
       </Head>
       <IntraNav ourSite="https://operators.urbit.org" search={search} />
       <SingleColumn>
-        <Header />
+        <Header search={search} />
         <Section short>
           <h1 className="mb-4">{post.title}</h1>
           <div className="overflow-x-auto min-w-0 flex-1 flex">
