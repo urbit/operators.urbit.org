@@ -26,7 +26,7 @@ export default function PageWithIndex({ post, markdown, search }) {
       </Head>
       <IntraNav ourSite="https://operators.urbit.org" search={search} />
       <SingleColumn>
-        <Header />
+        <Header search={search} />
         <Section>
           <h1>{post.title}</h1>
           <h3 className=" mt-6">{post.description}</h3>
