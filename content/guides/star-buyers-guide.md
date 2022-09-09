@@ -88,9 +88,9 @@ Stars make it easy to sell planets.  Even if you were to sell planets for just $
 
 But beyond the value of the planets as network space, a star has the potential to become a locus of community. A community consists of the planets issued by the star and the software that they run. When you own a star you can practically host a standalone network; all of your child planets only go through you for routing. It's a natural choice for a company, an organization, or a city-state.
 
-Not only do stars deliver kernel updates, they’re a natural source for custom software. Stars are positioned to that they can decide to only share features with the planets they sponsor. Stars could also host bolt-on services like the bitcoin wallet or machine learning that are better suited to run on dedicated servers optimized for those functions.
+Not only do stars deliver kernel updates, they’re a natural source for custom software. Stars are positioned so that they can decide to only share features with the planets they sponsor. Stars could also host bolt-on services like the bitcoin wallet or machine learning that are better suited to run on dedicated servers optimized for those functions.
 
-Keep in mind that a while stars are positioned to serve as this type of infrastructure, the demand and the tools for these type of functions is yet to come.
+Keep in mind that while stars are positioned to serve as this type of infrastructure, the demand and the tools for these type of functions are yet to come.
 
 
 
