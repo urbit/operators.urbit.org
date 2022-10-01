@@ -4,7 +4,7 @@ weight = 40
 template = "doc.html"
 +++
 
-An important concept on the [Ames](/docs/arvo/ames/ames) network is that of
+An important concept on the [Ames](https://developers.urbit.org/reference/arvo/ames/ames) network is that of
 continuity. Continuity refers to how ships remember the order of their own
 network messages and the network messages of others -- these messages are
 numbered, starting from zero. A _factory reset_ is when ships on the network agree to
@@ -33,7 +33,7 @@ There are two separate sequences of actions you need to take in order to reset.
 One flow is for when you wish to keep Ethereum ownership address of the ship the
 same, and the other is for when you are transferring the ship to a new Ethereum
 ownership address. We make the emphasis about the Ethereum _ownership_ address
-as changing your [proxies](/docs/glossary/proxies) does not require a reset.
+as changing your [proxies](https://developers.urbit.org/reference/glossary/proxies) does not require a reset.
 
 If you will be keeping your ship at the same Ethereum ownership address and
 would like to perform a reset, follow the steps below.
@@ -44,7 +44,7 @@ would like to perform a reset, follow the steps below.
   click `Send Transaction` and wait for the progress bar to appear.
 - Download your new keyfile following these instructions: [Generate your
   keyfile](/manual/id/using-bridge#generate-your-keyfile).
-- Delete or archive your old [pier](/docs/glossary/pier).
+- Delete or archive your old [pier](https://developers.urbit.org/reference/glossary/pier).
 - Proceed to [boot your ship](https://urbit.org/getting-started/cli#boot-your-planet) with the
   new keyfile.
 - Delete your keyfile after successfully booting.
@@ -79,7 +79,7 @@ slightly different.
 Network resets were events where all ships on the network were required to
 update to a new continuity era. Network resets happened when an Arvo update
 was released that could not be implemented via an [OTA
-update](/docs/glossary/ota-updates). The continuity era is given by an integer
+update](https://developers.urbit.org/reference/glossary/ota-updates). The continuity era is given by an integer
 in Ames that is incremented when the network resets. Only ships with the same
 such value are able to communicate with one another. The most recent network
 reset occurred in December 2020, and we expect it to have been the final one.

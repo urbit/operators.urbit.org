@@ -4,12 +4,12 @@ weight = 11
 template = "doc.html"
 +++
 
-This document explains what the [Urbit HD wallet](/docs/glossary/hdwallet) is
+This document explains what the [Urbit HD wallet](https://developers.urbit.org/reference/glossary/hdwallet) is
 and how to use it.
 
 ### What is the Urbit HD Wallet? {% #urbit-hd-wallet %}
 
-The [Urbit Hierarchical Deterministic (HD) Wallet](/docs/glossary/hdwallet) is a
+The [Urbit Hierarchical Deterministic (HD) Wallet](https://developers.urbit.org/reference/glossary/hdwallet) is a
 custom Ethereum wallet based on BIP39 and BIP44 – the same underlying technology
 used by wallet providers like Ledger, Trezor, Metamask, and MyEtherWallet. You
 can think of the Urbit HD wallet as a wallet of wallets, which lets you keep a
@@ -31,7 +31,7 @@ it with anyone, and you must store it very securely (see our practices below).**
 This ticket is used to derive the Ethereum wallet that holds your ownership
 keys, your [Urbit OS](#what-is-arvo) key – used to boot your Urbit – and the
 other keys associated with your identity. You’ll have a master ticket if you
-used the Urbit Wallet Generator or claimed a [ship](/docs/glossary/ship) on our
+used the Urbit Wallet Generator or claimed a [ship](https://developers.urbit.org/reference/glossary/ship) on our
 hosted version of Bridge.
 
 If you're operating a planet, you can use your master ticket to authenticate
@@ -41,7 +41,7 @@ with Bridge.
 
 An ownership address is an Ethereum address that owns one or more of your Urbit
 IDs. The Urbit Wallet Generator creates one [Urbit HD
-Wallet](/docs/glossary/hdwallet) and associated addresses for each of your
+Wallet](https://developers.urbit.org/reference/glossary/hdwallet) and associated addresses for each of your
 identities. Using the ownership key associated with your ownership address, you
 can transfer identities to other people, meaning that it’s very important to
 store securely.
@@ -53,7 +53,7 @@ See [Proxies](/manual/id/proxies).
 ### What are seeds? {% #seeds %}
 
 All Ethereum key-pairs in the Urbit wallet system, including
-[proxies](/docs/glossary/proxies), are produced by 128-bit cryptographically
+[proxies](https://developers.urbit.org/reference/glossary/proxies), are produced by 128-bit cryptographically
 random values called seeds. These seeds are the equivalent of the BIP39 mnemonic
 of an Ethereum wallet and are yours alone. An ownership key pair is derived from
 an ownership seed and, likewise, the various proxy key pairs are generated from
@@ -65,9 +65,9 @@ For detailed information see the [Urbit HD Wallet Spec (UP 8)](https://github.co
 
 This means registering the public keys of your identity's encryption and
 authentication key pairs (together known as "networking keys") with Urbit ID /
-[Azimuth](/docs/glossary/azimuth), so that others can discover them. The
+[Azimuth](https://developers.urbit.org/reference/glossary/azimuth), so that others can discover them. The
 corresponding private keys can then be used to, for example, run a
-[ship](/docs/glossary/ship) on the [Urbit OS](#what-is-arvo) network.
+[ship](https://developers.urbit.org/reference/glossary/ship) on the [Urbit OS](#what-is-arvo) network.
 
 You want to reset these keys if they are compromised, or if your ship has sunk.
 This is of little practical significance today, but resetting your networking

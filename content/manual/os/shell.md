@@ -31,9 +31,10 @@ Tall-form Hoon may require multiple lines:
 ~your-urbit:dojo< 2
 ```
 
-Hoon uses something called [the subject](/docs/hoon/hoon-school/the-subject-and-its-legs).
-The Dojo has its own subject and that's where Hoon's equivalent of variables,
-called faces, are stored.
+Hoon uses something called [the
+subject](https://developers.urbit.org/reference/glossary/subject).  The Dojo
+has its own subject and that's where Hoon's equivalent of variables, called
+faces, are stored.
 
 Use `=var` to save faces to the Dojo subject.
 
