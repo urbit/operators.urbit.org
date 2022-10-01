@@ -44,7 +44,7 @@ After you access your Ethereum address, if a point was sent to that address, you
 
 Now you'll be on the management page of your point. The transfer isn't completed
 yet, so click `Accept incoming transfer`. If you are transferring to yourself
-and do not wish to [factory reset](https://developers.urbit.org/reference/glossary/resets), check the box labeled
+and do not wish to [factory reset](https://developers.urbit.org/reference/glossary/reset), check the box labeled
 `Retain proxies and key configuration, in case of transferring to self`.
 Otherwise leave the box unchecked, ensuring that your ship will be factory reset upon
 transfer and thus no Azimuth data from the previous owner (namely proxies and
