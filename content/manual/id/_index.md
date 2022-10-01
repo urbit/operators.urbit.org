@@ -21,7 +21,7 @@ Urbit ID.
 
 ### [Proxies](/manual/id/proxies)
 
-You may designate other Ethereum addresses as [proxies](/docs/glossary/proxies)
+You may designate other Ethereum addresses as [proxies](https://developers.urbit.org/reference/glossary/proxies)
 for your Urbit ID, which are capable of a reduced subset of Urbit ID actions.
 
 ### [HD Wallet](/manual/id/hd-wallet)

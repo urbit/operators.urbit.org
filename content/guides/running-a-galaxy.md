@@ -66,7 +66,7 @@ should be minimized to the best of your abilities, and the machine
 running your ship should have the requisite resources to handle these
 tasks. If you are unable to provide these services to your children,
 they will find somebody who can, by 
-[escaping](/manual/using/id/using-bridge#escaping-your-sponsor) to another sponsor.
+[escaping](/manual/id/using-bridge#escaping-your-sponsor) to another sponsor.
 
 You may have noticed that this means you could technically bear
 responsibility for the connectivity of \~16 million ships, but Urbit's
@@ -126,7 +126,7 @@ that you should separate running them from your galaxy itself. Try not
 to run extraneous software on your galaxy to avoid burdening the host
 machine. For the same reason, don't host groups on your galaxy; very
 large groups can carry high resource costs. Use dedicated
- [moons](https://urbit.org/docs/glossary/moon) or
+ [moons](https://developers.urbit.org/reference/glossary/moon) or
 planets to host groups or demanding services.
 
 Since you already deliver software updates, software distribution is an
@@ -238,7 +238,7 @@ To transfer an incoming galaxy to a master ticket:
     [Bridge](https://bridge.urbit.org) with
     your 
     wallet, and  approve the [incoming
-    transfer](/manual/using/id/using-bridge#accept-your-transfer) of
+    transfer](/manual/id/using-bridge#accept-your-transfer) of
     the galaxy. Note that you must pay a transaction fee.
 -   Once the galaxy has been accepted, go to the 'ID' section in Bridge
     to transfer your key to a  [master
@@ -425,7 +425,7 @@ perform it. If you have assigned an address as a spawn
 proxy, you can use that to log into
 Bridge and carry out the transaction.
 Bridge is a browser-based
-[interface](/using/manual/id/using-bridge) for
+[interface](/manual/id/using-bridge) for
 interacting with the Azimuth contracts.
 
 In the Bridge main menu, select 'Issue

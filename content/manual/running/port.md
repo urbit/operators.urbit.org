@@ -44,7 +44,7 @@ home screen and ready to explore Urbit.
 ship which has just undergone a [factory
 reset](https://developers.urbit.org/reference/glossary/reset). A ship should
 only be booted from its keyfile in its current
-[rift](/docs/azimuth/life-and-rift#rift) once. If your ship has already been
+[rift](https://developers.urbit.org/reference/azimuth/life-and-rift#rift) once. If your ship has already been
 booted elsewhere, see the [Import pier](#import-pier) section instead.**
 
 With Port freshly installed, you can select `Boot a fresh ID` on its home
