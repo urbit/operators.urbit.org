@@ -37,7 +37,7 @@ The planet [`~pannex-pidrup`](https://network.urbit.org/~pannex-pidrup) has been
 
 ### Sponsor status
 
-Planets are meant to be used, and in order for a planet to be useful it must have an online sponsor. Sponsors are responsible for distributing software updates and performing peer discovery (the specifics of which are covered [here](TODO)), which are necessary functions for using your planet that you’ll be unable to receive with an offline sponsor.
+Planets are meant to be used, and in order for a planet to be useful it must have an online sponsor. Sponsors are responsible for distributing software updates and performing peer discovery (the specifics of which are covered [here](#TODO)), which are necessary functions for using your planet that you’ll be unable to receive with an offline sponsor.
 
 To find the sponsor of a given planet, consider the previous example of `~pannex-pidrup` in the Network Explorer:
 

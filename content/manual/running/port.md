@@ -41,7 +41,8 @@ home screen and ready to explore Urbit.
 ## Boot another ship
 
 **Important: This is for booting a ship for the first time, or for booting a
-ship which has just undergone a [factory reset](/docs/glossary/resets). A ship should
+ship which has just undergone a [factory
+reset](https://developers.urbit.org/reference/glossary/reset). A ship should
 only be booted from its keyfile in its current
 [rift](/docs/azimuth/life-and-rift#rift) once. If your ship has already been
 booted elsewhere, see the [Import pier](#import-pier) section instead.**
@@ -56,12 +57,14 @@ something like this:
 
 Enter a name for your ship in the `Name` field. This name is just displayed
 locally in Port for convenience. Next, enter your ship's name (e.g.
-`~sampel-palnet`) in the `Shipname` field. For `Key File`, select `Choose Key File` and browse to its location on your computer. If you don't have your
-keyfile yet, see _step one_ of the [Setting up your
-urbit](https://urbit.org/getting-started/planet#keyfile) guide. Once you've selected the keyfile,
-hit `Continue`.
+`~sampel-palnet`) in the `Shipname` field. For `Key File`, select `Choose Key
+File` and browse to its location on your computer. The keyfile should be the
+file like `sampel-palnet-1.key` in the passport backup you downloaded from
+[Bridge](https://bridge.urbit.org). If you don't have it, you'll need to login
+to Bridge and download it. Once you've selected the keyfile, hit `Continue`.
 
-It'll take a few minutes to spin up the ship, then you can click `Launch Ship into Urbit` and it'll take you to the login screen. Click `Copy Access Key` at
+It'll take a few minutes to spin up the ship, then you can click `Launch Ship
+into Urbit` and it'll take you to the login screen. Click `Copy Access Key` at
 the bottom-left, paste it into the `Access Key` field, and hit `Continue`.
 You'll now be at your ship's home screen and ready to explore Urbit.
 
@@ -148,8 +151,9 @@ see the [Import pier](#import-pier) section for details of importing it.
 
 **Warning: Deleting a pier is irreversible, and all data will be lost. If the
 ship is a comet, the comet name will be unusable again. If the ship is a planet
-or star, you will need to perform a [factory reset](/docs/glossary/reset) via Bridge
-to be able to use it again (and all of its data will still be lost).**
+or star, you will need to perform a [factory
+reset](https://developers.urbit.org/reference/glossary/reset) via Bridge to be
+able to use it again (and all of its data will still be lost).**
 
 To completely delete the pier of a ship managed by Port, go to the home screen
 and click `Manage` for the ship in question. Then, under `Ship Migration`, hit

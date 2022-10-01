@@ -24,7 +24,7 @@ Urbit ID.
 You may designate other Ethereum addresses as [proxies](/docs/glossary/proxies)
 for your Urbit ID, which are capable of a reduced subset of Urbit ID actions.
 
-### [HD Wallet](/manual/id/hw-wallet)
+### [HD Wallet](/manual/id/hd-wallet)
 
 A wallet for your Urbit ID that is accessible with a passphrase called a master
 ticket.
@@ -44,11 +44,11 @@ What to do when things go very wrong and you need to start over.
 
 ## Layer 2
 
-In 2021, [naive rollups](/blog/rollups) were introduced to reduce the cost of
+In 2021, [naive rollups](https://urbit.org/blog/rollups) were introduced to reduce the cost of
 working with Urbit ID and the friction associated with using Ethereum and
 cryptocurrency. We have written a series of short guides intended to educate
 users of how these changes affect them. For more comprehensive documentation
-aimed at developers, see the [Azimuth documentation](/docs/azimuth).
+aimed at developers, see the [Azimuth documentation](https://developers.urbit.org/reference/azimuth/azimuth).
 
 ### Layer 2 Bridge Guide
 

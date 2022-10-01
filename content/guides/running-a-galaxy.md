@@ -66,7 +66,7 @@ should be minimized to the best of your abilities, and the machine
 running your ship should have the requisite resources to handle these
 tasks. If you are unable to provide these services to your children,
 they will find somebody who can, by 
-[escaping](/using/id/using-bridge%23escaping-your-sponsor) to another sponsor.
+[escaping](/manual/using/id/using-bridge#escaping-your-sponsor) to another sponsor.
 
 You may have noticed that this means you could technically bear
 responsibility for the connectivity of \~16 million ships, but Urbit's
@@ -226,7 +226,7 @@ associated BIP39 mnemonic are equivalent to ownership of your point --
 never share them with anybody or store your codes on a computer, and use
 your master ticket as infrequently as you can to avoid exposure or
 compromise. You can find more security guidance
-[here](https://urbit.org/faq%23custody).
+[here](https://urbit.org/faq#custody).
 
 To transfer an incoming galaxy to a master ticket:
 
@@ -238,11 +238,11 @@ To transfer an incoming galaxy to a master ticket:
     [Bridge](https://bridge.urbit.org) with
     your 
     wallet, and  approve the [incoming
-    transfer](/using/id/using-bridge%23accept-your-transfer) of
+    transfer](/manual/using/id/using-bridge#accept-your-transfer) of
     the galaxy. Note that you must pay a transaction fee.
 -   Once the galaxy has been accepted, go to the 'ID' section in Bridge
     to transfer your key to a  [master
-    ticket](https://urbit.org/faq%23master-ticket).
+    ticket](https://urbit.org/faq#master-ticket).
 -   Download the 'Passport' containing your new private keys; never
     share these documents or store them on a computer.
 -   Approve the transfers to your new addresses; note that this process
@@ -425,7 +425,7 @@ perform it. If you have assigned an address as a spawn
 proxy, you can use that to log into
 Bridge and carry out the transaction.
 Bridge is a browser-based
-[interface](/using/id/using-bridge) for
+[interface](/using/manual/id/using-bridge) for
 interacting with the Azimuth contracts.
 
 In the Bridge main menu, select 'Issue

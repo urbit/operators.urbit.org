@@ -225,7 +225,7 @@ orphaned planets.
 
 Adoption is a simple process, but it's a two-way operation. To adopt a
 planet, they must [escape their original
-sponsor](/manual/id/using-bridge%23escaping-your-sponsor) and
+sponsor](/manual/id/using-bridge#escaping-your-sponsor) and
 set your star's `@p` as their sponsor, which they can do in Bridge. You
 must also accept by logging into Bridge with your ownership or
 management key, then selecting 'Requests' within the 'Residents' menu,
@@ -351,16 +351,16 @@ accept the transfer, you can send ETH to the same address that is
 receiving the star.
 
 Take advantage of your [proxy
-addresses](https://urbit.org/docs/glossary/proxies) to
+addresses](https://developers.urbit.org/reference/glossary/proxies) to
 delegate spawning and management privileges to different addresses than
 your ownership key (see 'Key management' section below). Urbit's [HD
-wallet](https://urbit.org/docs/azimuth/azimuth%23the-urbit-hd-wallet) design
+wallet](https://developers.urbit.org/reference/azimuth/azimuth#the-urbit-hd-wallet) design
 makes it easy to keep your ownership key locked in a box while you
 perform typical operations with subsidiary keys, or re-derive those keys
 if you lose them.
 
 Stars are valuable assets, so consider transferring yours to a [master
-ticket](https://urbit.org/docs/azimuth/azimuth%23master-ticket) (Urbit's
+ticket](https://developers.urbit.org/reference/azimuth/azimuth#master-ticket) (Urbit's
 paper HD wallet), or using a hardware wallet to manage it. Never reveal
 the master ticket code or wallet seed phrase to anything other than
 Bridge or a wallet you trust, or store either on a computer.
@@ -374,10 +374,10 @@ To send your incoming star to a master ticket:
 -   Log into
     [Bridge](https://bridge.urbit.org) with
     your hardware wallet, and [approve the incoming
-    transfer](/manual/id/using-bridge%23accept-your-transfer) of the galaxy. Note that you must pay a transaction fee.
+    transfer](/manual/id/using-bridge#accept-your-transfer) of the galaxy. Note that you must pay a transaction fee.
 -   Once the star has been accepted, go to the 'ID' section in Bridge to
     transfer your key to a [master
-    ticket](https://urbit.org/faq%23master-ticket).
+    ticket](https://urbit.org/faq#master-ticket).
 -   Download the 'Passport' containing your new private keys; never
     share these documents or store them on a computer.
 -   Approve the transfers to your new addresses; note that this process
@@ -394,7 +394,7 @@ wallet as recovery keys
 [Ledger](https://support.ledger.com/hc/en-us/articles/4404382560913-Restore-from-recovery-phrase?support%3Dtrue)).
 If you prefer to purely use a hardware wallet, instructions for a
 [hardware HD
-wallet](https://urbit.org/docs/azimuth/azimuth%23hardware-hd-wallet) analogous
+wallet](https://developers.urbit.org/reference/azimuth/azimuth#hardware-hd-wallet) analogous
 to a master ticket are also available in the docs.
 
 ## Swapping a star for $WSTR
@@ -516,7 +516,7 @@ Urbit's ownership registry lives on the Ethereum blockchain. Ethereum is
 used so that the state of the network is stored and modified through
 distributed consensus, by nodes validating transactions according to
 pre-set rules. These rules are laid out in the
-[Azimuth](https://etherscan.io/address/azimuth.eth%23code) contract,
+[Azimuth](https://etherscan.io/address/azimuth.eth#code) contract,
 which defines the functions of Urbit's
 [PKI](https://urbit.org/blog/pki-maze) and
 how you can interact with it. Like a cryptocurrency, this prevents a
@@ -607,7 +607,7 @@ will be performed by stars.
 
 ### Ames changes
 
-[Ames](https://urbit.org/docs/arvo/ames/ames) is
+[Ames](https://developers.urbit.org/reference/arvo/ames/ames) is
 an end-to-end encrypted protocol that establishes peer-to-peer
 connections when possible. When urbits communicate with each other, they
 perform a lookup for the IP address of the ship they want to talk to, so

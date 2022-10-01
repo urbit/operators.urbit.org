@@ -12,7 +12,7 @@ but it is recommended for on-chain actions you will execute more frequently.
 Setting proxies is a good security practice. For instance, you might keep your
 ownership address in cold storage, while your management proxy is kept in Metamask.
 
-The [Urbit HD Wallet](/docs/glossary/hdwallet) automatically sets proxies for
+The [Urbit HD Wallet](https://developers.urbit.org/reference/glossary/hdwallet) automatically sets proxies for
 your Urbit ID.
 
 ### Types of proxies
@@ -35,7 +35,7 @@ address to be the management proxy.
 - **Voting proxy**
 
   Galaxies only. Galaxies are the part of the [Galactic
-  Senate](/docs/glossary/senate), and this means they can cast votes on new
+  Senate](https://developers.urbit.org/reference/glossary/senate), and this means they can cast votes on new
   proposals including changes to Ecliptic.
 
 ### Transfer proxy
