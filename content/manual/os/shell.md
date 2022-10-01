@@ -99,7 +99,7 @@ arguments.
 ~your-urbit:dojo> +code
 ```
 
-You can change your code to a new randomly generated one by entering `|code %reset`. Please note that this will prevent [Bridge](/docs/glossary/bridge)
+You can change your code to a new randomly generated one by entering `|code %reset`. Please note that this will prevent [Bridge](https://developers.urbit.org/reference/glossary/bridge)
 from being able to derive your code in the future.
 
 #### `+ls`

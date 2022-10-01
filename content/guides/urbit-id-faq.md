@@ -32,7 +32,7 @@ The raw data on most Urbit ID / Azimuth events that have occurred can be found [
 You can also inspect and execute functions in the [azimuth.eth](https://etherscan.io/address/azimuth.eth#code) contract on Etherscan.
 
 ## What are comets and moons?
-In addition to the three classes of identities mentioned above, there are two other kinds of Urbit [ship](/docs/glossary/ship)s that are _not_ registered in the Urbit ID / Azimuth contracts.
+In addition to the three classes of identities mentioned above, there are two other kinds of Urbit [ship](https://developers.urbit.org/reference/glossary/ship)s that are _not_ registered in the Urbit ID / Azimuth contracts.
 
 [Moons](https://developers.urbit.org/reference/glossary/moon) are 64 bits, issued by [planets](https://developers.urbit.org/reference/glossary/planet), and have names like `~doznec-salfun-naptul-habrys`. Moons are meant for connected devices: phones, desktops, smart TVs, digital thermostats, and other IoT devices. Moons are subordinate to their parent planet. A strong analogy here is that ordinary social media sites are somewhat like planets, and your account on them is a moon. Urbit elevates everybody to the level of planet.
 
