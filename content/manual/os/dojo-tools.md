@@ -34,6 +34,12 @@ template = "doc.html"
 [moon]: https://developers.urbit.org/reference/glossary/moon
 [move]: https://developers.urbit.org/reference/glossary/move
 [eyre]: https://developers.urbit.org/reference/glossary/eyre
+[ames]: https://developers.urbit.org/reference/glossary/ames
+[azimuth]: https://developers.urbit.org/reference/glossary/azimuth
+
+Below are the various [generators][generator], [threads][thread] and other tools
+included with the `%base` desk and usable in the [dojo][dojo]. These are
+organized into rough categories for convenience.
 
 ## Apps and updates
 
@@ -504,6 +510,140 @@ See [`+vats`](#vats).
 
 ---
 
+## Azimuth
+
+Tools for managing PKI updates from [Azimuth][azimuth].
+
+### `+azimuth-block`
+
+Print the most recent Ethereum block that has been processed.
+
+This is a good way to check if your ship's somehow got behind on PKI state. If
+the block printed is substantially behind the most recent Ethereum block, it
+indicates a problem. Note it's normal for it to be a little behind.
+
+#### Example
+
+```
+> +azimuth-block
+15.664.748
+```
+
+---
+
+### `:azimuth|kick`
+
+Kick Azimuth.
+
+Restart `%eth-watcher`, resubscribe, re-process snapshot and updates.
+
+#### Example
+
+```
+> :azimuth|kick
+>=
+ship: processing azimuth snapshot (0 points)
+```
+
+---
+
+### `:azimuth|listen`
+
+Add a source for PKI updates for a list of ships.
+
+Sets the source that the public keys for a set of ships should be obtained from.
+This can either be a Gall agent that communicates with an Ethereum node as in
+the case of galaxies, stars, and planets, or a ship, as in the case of moons.
+
+#### Arguments
+
+Either:
+
+```
+(list ship) %ship ship
+```
+
+Or:
+
+```
+(list ship) %app term
+```
+
+The list of ships are those for which you want Azimuth updates from the
+specified source. The source is either a ship (`%ship ~sampel`) or an agent
+(`%app %some-agent`).
+
+#### Example
+
+```
+> :azimuth|listen ~[~sampel ~palnet] %ship ~wet
+>=
+```
+
+---
+
+### `-azimuth-load`
+
+Refetch and load Azimuth snapshot.
+
+#### Example
+
+```
+> -azimuth-load
+ship: loading azimuth snapshot (106.177 points)
+[%eth-watcher 'overwriting existing watchdog on' /azimuth]
+ship: processing azimuth snapshot (106.177 points)
+```
+
+---
+
+### `+azimuth-sources`
+
+List all Azimuth sources.
+
+This will print a
+[`state-eth-node:jael`](https://developers.urbit.org/reference/arvo/jael/data-types#state-eth-node)
+structure. Its contents is mostly other ships who are sources for updates about
+moons, but it will also include `%azimuth`.
+
+#### Example
+
+```
+> +azimuth-sources
+[ top-source-id=0
+  sources={}
+  sources-reverse={}
+  default-source=0
+  ship-sources={}
+  ship-sources-reverse={}
+]
+```
+
+---
+
+### `:azimuth|watch`
+
+Change node URL and network for Azimuth.
+
+#### Arguments
+
+```
+cord ?(%mainnet %ropsten %local %default)
+```
+
+The first argument is the note URL in a cord like
+`'http://eth-mainnet.urbit.org:8545' `. The second argument specifies the
+network.
+
+#### Example
+
+```
+> :azimuth|watch 'http://eth-mainnet.urbit.org:8545' %default
+>=
+```
+
+---
+
 ## CLI Apps
 
 These commands are for managing the dojo and other CLI apps.
@@ -694,6 +834,210 @@ Disconnect from a remote dojo session:
 ## Developer tools
 
 These tools are mostly useful to developers or similarly technical people.
+
+### `+ames-flows`
+
+Print details of [Ames][ames] flows by ship.
+
+#### Arguments
+
+This argument is optional:
+
+```
+@ud
+```
+
+If no argument is provided, it will print details of Ames flows for all ships,
+sorted by the number of flows. If a number n is provided as an argument, it'll
+only print the top n results.
+
+#### Example
+
+All flows:
+
+```
+> +ames-flows
+~[
+  [ ship=~mister-dister-dozzod-dozzod
+    open=[out-open=3 out-closing=0 in=0 nax=0]
+    corked=0
+  ]
+  [ship=~nec open=[out-open=1 out-closing=0 in=0 nax=0] corked=0]
+  [ ship=~dister-dozzod-dozzod
+    open=[out-open=1 out-closing=1 in=0 nax=0]
+    corked=0
+  ]
+  [ ship=~lander-dister-dozzod-dozzod
+    open=[out-open=1 out-closing=0 in=0 nax=0]
+    corked=0
+  ]
+]
+```
+
+Top 2 ships:
+
+```
+> +ames-flows 2
+~[
+  [ ship=~mister-dister-dozzod-dozzod
+    open=[out-open=3 out-closing=0 in=0 nax=0]
+    corked=0
+  ]
+  [ship=~nec open=[out-open=1 out-closing=0 in=0 nax=0] corked=0]
+]
+```
+
+---
+
+### `|ames-prod`
+
+Reset congestion control; re-send packets immediately.
+
+Ames uses a backoff algorithm for congestion control. This can be inconvenient
+when debugging in certain cases, you may have to wait a couple of minutes before
+an unacknowledged packet is re-sent. This generator resets congestion control,
+causing at least one pending packet to be immediately re-sent for each flow.
+
+#### Arguments
+
+```
+ship ship ship ...
+```
+
+If no argument is given, congestion control will be reset for all flows.
+Otherwise, you can specify a number of `ship`s, and congestion control will only
+be reset for flows to those ships.
+
+#### Example
+
+```
+> |ames-prod
+>=
+
+> |ames-prod ~bus ~wex
+>=
+```
+
+---
+
+### `|ames-sift`
+
+Filter Ames debug printing by ship.
+
+This filters the output controlled by [`|ames-verb`](#ames-verb).
+
+#### Arguments
+
+```
+ship ship ship ....
+```
+
+If no argument is given, filtering is disabled. Otherwise, Ames debug printing
+will be filter to only include the specified ships.
+
+#### Example
+
+Enable filtering:
+
+```
+> |ames-sift ~nec ~bus
+>=
+```
+
+Disable filtering:
+
+```
+> |ames-sift
+>=
+```
+
+---
+
+### `+ames-timers`
+
+Print Ames message-pump timers by ship.
+
+#### Arguments
+
+```
+@ud
+```
+
+If no argument is provided, it will print details of Ames timers for all ships,
+sorted by the number of timers. If a number n is provided as an argument, it'll
+only print the top n results.
+
+#### Example
+
+Print all the Ames timers for all ships:
+
+```
+> +ames-timers
+~[
+  [~.~mister-dister-dozzod-dozzod 3]
+  [~.~dister-dozzod-dozzod 2]
+  [~.~lander-dister-dozzod-dozzod 1]
+]
+```
+
+Print the top two ships:
+
+```
+> +ames-timers 2
+~[[~.~mister-dister-dozzod-dozzod 3] [~.~dister-dozzod-dozzod 2]]
+```
+
+---
+
+### `|ames-verb`
+
+Enable verbose Ames debug printing.
+
+#### Arguments
+
+```
+verb verb verb...
+```
+
+A `verb:ames` is one of `%snd %rcv %odd %msg %ges %for %rot`. Each one enables
+printing of different kinds of events. You can enable as many as you want at one
+time. If `|ames-verb` is given no argument, it disables all Ames debug printing.
+
+For details of the meaning of these `verb`s, see its entry in the [Ames Data
+Types
+documentation](https://developers.urbit.org/reference/arvo/ames/data-types#verb).
+
+#### Example
+
+```
+> |ames-verb %msg
+>=
+
+> |hi ~nec
+>=
+ames: ~nec: plea [[~zod 1] [~nec 1] bone=[0 %g /ge/hood]]
+
+> |ames-verb
+>=
+```
+
+---
+
+### `|ames-wake`
+
+Clean up Ames timers.
+
+Set timers for [Ames][ames] flows that lack them, cancel timers for Ames flows
+that have them but shouldn't.
+
+#### Example
+
+```
+> |ames-wake
+>=
+```
+
+---
 
 ### `+brass`
 
@@ -892,6 +1236,95 @@ This is only used with an `:agent`, not by itself.
 > :graph-store +dbug [%state '(~(got by graphs) ~zod %dm-inbox)']
 >=
 >   [p={} q=[~ %graph-validator-dm]]
+```
+
+---
+
+### `|gall-sear`
+
+Clear pending `move` queue from a ship.
+
+#### Arguments
+
+```
+ship
+```
+
+The ship from which queued moves should be cleared.
+
+#### Example
+
+```
+> |gall-sear ~nec
+>=
+```
+
+---
+
+### `|gall-sift`
+
+Set Gall verbosity by agent.
+
+This filters the debug output toggled by [`|gall-verb`](#gall-verb).
+
+#### Arguments
+
+```
+%agent1 %agent2 %agent3....
+```
+
+If agents are specified, debug prints will be filtered to only those agents. If
+no arguments are given, filtering will be disabled.
+
+#### Example
+
+Filter to just these agents:
+
+```
+> |gall-sift %graph-store %dojo
+>=
+```
+
+Disable filtering:
+
+```
+> |gall-sift
+>=
+```
+
+---
+
+### `|gall-verb`
+
+Toggle Gall debug printing.
+
+#### Arguments
+
+```
+%odd
+```
+
+If the `%odd` argument is provided, Gall will print debug information about
+errors like duplicate `%watch` acks, subscriptions closing due to an agent
+crashing on a `%fact`, etc.
+
+If no argument is given, such debug printing will be disabled.
+
+#### Example
+
+Turn on error messages:
+
+```
+> |gall-verb %odd
+>=
+```
+
+Turn off error messages:
+
+```
+hi ~nec successful
+> |gall-verb
+>=
 ```
 
 ---
@@ -2458,6 +2891,91 @@ Rekey to a specific `life` and with a specific public key:
 
 ---
 
+## Spider
+
+Tools for interacting with [threads][thread] and Spider.
+
+### `:spider|kill`
+
+Kill all running threads.
+
+#### Example
+
+```
+> :spider|kill
+>=
+```
+
+---
+
+### `:spider|poke`
+
+Poke a running thread.
+
+#### Arguments
+
+```
+@ta mark vase
+```
+
+The `@ta` is a thread ID of a running thread. The `mark` and `vase` are the data
+to poke the thread with.
+
+---
+
+### `:spider|start`
+
+Start a thread.
+
+#### Arguments
+
+```
+term vase
+```
+
+The `term` is mandatory, it's the name of a thread in `/ted` in the current
+desk. The `vase` is optional, it's the start arguments for the thread if needed.
+
+Note this tool looks for the thread in the *current desk*, so you'll have to
+change desk with `=dir` if you want to run one elsewhere.
+
+#### Example
+
+```
+> :spider|start %hi !>([~ our "foo"])
+>=
+< ~zod: foo
+```
+
+---
+
+### `:spider|stop`
+
+Stop a running thread.
+
+#### Arguments
+
+```
+@ta
+```
+
+The `@ta` is a thread ID of a running thread.
+
+---
+
+### `+spider/tree`
+
+List all currently running threads.
+
+#### Example
+
+```
+> +spider/tree
+/eth-watcher--0v2j.5is08.v2ukg.8h6mr.evgt4.o86mf.p3ujf.l2teu.v6q3v.uk1fm.shrog.0pc5o.82tq1.skve4.22nu8.gkr9d.j4tvd.k8bdg.43cgs.rjcvr.eb6lv
+```
+
+---
+
 ## System
 
 System information and management tools.
@@ -2655,6 +3173,37 @@ The argument is a [cord][cord] containing the origin to reject.
   }
   rejected={~~http~3a.~2f.~2f.foo~.com}
 ]
+```
+
+---
+
+### `-dns-address`
+
+Request a `<ship>.arvo.network` subdomain and configure SSL.
+
+Note this only works for stars and planets. Note your ship must be accessible on
+port 80.
+
+If successful, you'll be able to access your ship's web interface at
+`https://<ship>.arvo.network`.
+
+#### Arguments
+
+```
+[%if @if]
+```
+
+The `@if` is a *public* IPv4 address in the format `.x.x.x.x` like
+`.192.168.1.254`.
+
+#### Example
+
+```
+> -dns-address [%if .150.230.14.135]
+dns: request for DNS sent to ~deg
+dns: awaiting response from ~deg
+dns: confirmed access via ralnup-ribsyr.arvo.network
+0
 ```
 
 ---
