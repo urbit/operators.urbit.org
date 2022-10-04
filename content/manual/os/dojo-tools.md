@@ -763,6 +763,9 @@ ship
 
 Connect a local or remote CLI app.
 
+Note a ship's moons can automatically link its dojo, but other ships require
+explicit permission with [`:dojo|allow-remote-login`](#dojoallow-remote-login).
+
 #### Arguments
 
 ```
