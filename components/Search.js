@@ -90,10 +90,13 @@ class Search extends Component {
       const urbitOrgSearch = fetch(this.urbitOrgSearch(query))
         .then((res) => res.json())
         .then((res) => {
-          return res.results.map((item) => ({
+          return [...res.glossary.map((item) => ({
+            type: "GLOSSARY_RESULT",
+            content: item
+          })), ...res.results.map((item) => ({
             type: "URBIT_ORG_RESULT",
             content: item,
-          }));
+          }))];
         });
 
       const devSearch = fetch(this.devSearch(query))
