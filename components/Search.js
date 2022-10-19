@@ -40,6 +40,11 @@ class Search extends Component {
   }
 
   onSelect(item) {
+    this.setState({
+      query: "",
+      results: [],
+    });
+
     if (item.url) {
       this.props.router.push(`${item.url}${item?.slug ? item.slug : ""}`);
       return this.props.closeSearch();
@@ -48,13 +53,6 @@ class Search extends Component {
       this.props.router.push(item.slug);
       return this.props.closeSearch();
     }
-
-    this.setState({
-      query: "",
-      results: [],
-    });
-
-    this.props.closeSearch();
   }
 
   onInputValueChange = debounce(async (query) => {
