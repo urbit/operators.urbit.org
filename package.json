@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "npm run prebuild && next dev",
     "build": "next build",
-    "prebuild": "npm run cache-posts && npm run manual-tree",
+    "prebuild": "npm run cache-posts && npm run glossary && npm run manual-tree",
     "cache-posts": "node lib/cache.js",
+    "glossary": "node lib/buildGlossary.js",
     "manual-tree": "node lib/buildPageTree manual weight",
     "export": "npm run next build && next export",
     "start": "next start"

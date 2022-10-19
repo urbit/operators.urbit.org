@@ -2,6 +2,756 @@
 title = "Dojo Tools"
 weight = 9
 template = "doc.html"
+
+[glossaryEntry."Print out the status of Gall agents on a desk"]
+name = "Print out the status of Gall agents on a desk"
+symbol = "+agents"
+usage = "Dojo"
+slug = "#agents"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Try to apply a kernel update"]
+name = "Try to apply a kernel update"
+symbol = "|bump"
+usage = "Dojo"
+slug = "#bump"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Install a desk, starting its agents and listening for updates"]
+name = "Install a desk, starting its agents and listening for updates"
+symbol = "|install"
+usage = "Dojo"
+slug = "#install"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Shut down an agent and permanently delete its state"]
+name = "Shut down an agent and permanently delete its state"
+symbol = "|nuke"
+usage = "Dojo"
+slug = "#nuke"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Set the source for kernel updates (%base desk)"]
+name = "Set the source for kernel updates (%base desk)"
+symbol = "|ota"
+usage = "Dojo"
+slug = "#ota"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Pause updates on a desk"]
+name = "Pause updates on a desk"
+symbol = "|pause"
+usage = "Dojo"
+slug = "#pause"
+desc = "Dojo utility included in the Base desk."
+
+[glossaryEntry."Adjust the state of a desk"]
+name = "Adjust the state of a desk"
+symbol = "|rein"
+usage = "Dojo"
+slug = "#rein"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Resume updates on a desk"]
+name = "Resume updates on a desk"
+symbol = "|resume"
+usage = "Dojo"
+slug = "#resume"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Revive all agents on a desk, migrating archived states"]
+name = "Revive all agents on a desk, migrating archived states"
+symbol = "|revive"
+usage = "Dojo"
+slug = "#revive"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print kelvin version and manifest"]
+name = "Print kelvin version and manifest"
+symbol = "+show-vat"
+usage = "Dojo"
+slug = "#show-vat"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Start an agent"]
+name = "Start an agent"
+symbol = "|start"
+usage = "Dojo"
+slug = "#start"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Shut down all agents on a desk, archiving their states"]
+name = "Shut down all agents on a desk, archiving their states"
+symbol = "|suspend"
+usage = "Dojo"
+slug = "#suspend"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Uninstall a desk, suspending its agents and ignoring updates"]
+name = "Uninstall a desk, suspending its agents and ignoring updates"
+symbol = "|uninstall"
+usage = "Dojo"
+slug = "#uninstall"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print out the status of a single installed desk"]
+name = "Print out the status of a single installed desk"
+symbol = "+vat"
+usage = "Dojo"
+slug = "#vat"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print out the status of each installed desk"]
+name = "Print out the status of each installed desk"
+symbol = "+trouble"
+usage = "Dojo"
+slug = "#trouble"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print the most recent Ethereum block that has been processed"]
+name = "Print the most recent Ethereum block that has been processed"
+symbol = "+azimuth-block"
+usage = "Dojo"
+slug = "#azimuth-block"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Restart %eth-watcher, resubscribe, re-process snapshot and updates"]
+name = "Restart %eth-watcher, resubscribe, re-process snapshot and updates"
+symbol = ":azimuth|kick"
+usage = "Dojo"
+slug = "#azimuthkick"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Add a source for PKI updates for a list of ships"]
+name = "Add a source for PKI updates for a list of ships"
+symbol = ":azimuth|listen"
+usage = "Dojo"
+slug = "#azimuthlisten"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Refetch and load Azimuth snapshot"]
+name = "Refetch and load Azimuth snapshot"
+symbol = "-azimuth-load"
+usage = "Dojo"
+slug = "#-azimuth-load"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."List all Azimuth sources"]
+name = "List all Azimuth sources"
+symbol = "+azimuth-source"
+usage = "Dojo"
+slug = "#azimuth-sources"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Change node URL and network for Azimuth"]
+name = "Change node URL and network for Azimuth"
+symbol = ":azimuth|watch"
+usage = "Dojo"
+slug = "#azimuthwatch"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Show which ships you've allowed remote access to your dojo"]
+name = "Show which ships you've allowed remote access to your dojo"
+symbol = ":dojo|acl"
+usage = "Dojo"
+slug = "#dojoacl"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Allow a ship to |link your dojo"]
+name = "Allow a ship to |link your dojo"
+symbol = ":dojo|allow-remote-login"
+usage = "Dojo"
+slug = "#dojoallow-remote-login"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Clear the dojo's subject"]
+name = "Clear the dojo's subject"
+symbol = ":dojo|wipe"
+usage = "Dojo"
+slug = "#dojowipe"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Revoke permission for a remote ship to |link your dojo"]
+name = "Revoke permission for a remote ship to |link your dojo"
+symbol = ":dojo|revoke-remote-login"
+usage = "Dojo"
+slug = "#dojorevoke-remote-login"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Connect a local or remote CLI app"]
+name = "Connect a local or remote CLI app"
+symbol = "|link"
+usage = "Dojo"
+slug = "#link"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Disconnect a local or remote CLI app"]
+name = "Disconnect a local or remote CLI app"
+symbol = "|unlink"
+usage = "Dojo"
+slug = "#unlink"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print details of Ames flows by ship"]
+name = "Print details of Ames flows by ship"
+symbol = "+ames-flows"
+usage = "Dojo"
+slug = "#ames-flows"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Reset Ames congestion control; re-send packets immediately"]
+name = "Reset Ames congestion control; re-send packets immediately"
+symbol = "|ames-prod"
+usage = "Dojo"
+slug = "#ames-prod"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Filter Ames debug printing by ship"]
+name = "Filter Ames debug printing by ship"
+symbol = "|ames-sift"
+usage = "Dojo"
+slug = "#ames-sift"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print Ames messag-pump timers by ship"]
+name = "Print Ames messag-pump timers by ship"
+symbol = "+ames-timers"
+usage = "Dojo"
+slug = "#ames-timers"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Enable verbose Ames debug printing"]
+name = "Enable verbose Ames debug printing"
+symbol = "|ames-verb"
+usage = "Dojo"
+slug = "#ames-verb"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Clean up Ames timers"]
+name = "Clean up Ames timers"
+symbol = "|ames-wake"
+usage = "Dojo"
+slug = "#ames-wake"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Build a brass pill"]
+name = "Build a brass pill"
+symbol = "+brass"
+usage = "Dojo"
+slug = "#brass"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Build a static mark conversion gate"]
+name = "Build a static mark conversion gate"
+symbol = "-build-cast"
+usage = "Dojo"
+slug = "#-build-cast"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Build a Hoon file"]
+name = "Build a Hoon file"
+symbol = "-build-file"
+usage = "Dojo"
+slug = "#-build-file"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Build a dynamic mark core"]
+name = "Build a dynamic mark core"
+symbol = "-build-mark"
+usage = "Dojo"
+slug = "#-build-mark"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Build a static mark core"]
+name = "Build a static mark core"
+symbol = "-build-nave"
+usage = "Dojo"
+slug = "#-build-nave"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Build a dynamic mark conversion gate"]
+name = "Build a dynamic mark conversion gate"
+symbol = "-build-tube"
+usage = "Dojo"
+slug = "#-build-tube"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Query the state or bowl of a running agent"]
+name = "Query the state or bowl of a running agent"
+symbol = "+dbug"
+usage = "Dojo"
+slug = "#dbug"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Clear pending Gall move queue from a ship"]
+name = "Clear pending Gall move queue from a ship"
+symbol = "|gall-sear"
+usage = "Dojo"
+slug = "#gall-sear"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Set Gall verbosity by agent"]
+name = "Set Gall verbosity by agent"
+symbol = "|gall-sift"
+usage = "Dojo"
+slug = "#gall-sift"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Toggle Gall debug printing"]
+name = "Toggle Gall debug printing"
+symbol = "|gall-verb"
+usage = "Dojo"
+slug = "#gall-verb"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Pass a task to a vane"]
+name = "Pass a task to a vane"
+symbol = "|pass"
+usage = "Dojo"
+slug = "#pass"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Read a file, local or remote"]
+name = "Read a file, local or remote"
+symbol = "-read"
+usage = "Dojo"
+slug = "#-read"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Bind a generator to a URL path"]
+name = "Bind a generator to a URL path"
+symbol = "|serve"
+usage = "Dojo"
+slug = "#serve"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Build a solid pill"]
+name = "Build a solid pill"
+symbol = "+solid"
+usage = "Dojo"
+slug = "#solid"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Run tests for a library"]
+name = "Run tests for a library"
+symbol = "-test"
+usage = "Dojo"
+slug = "#-test"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print out currently running Behn timers"]
+name = "Print out currently running Behn timers"
+symbol = "+timers"
+usage = "Dojo"
+slug = "#timers"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Read a file at the given location and print its contents in the dojo"]
+name = "Read a file at the given location and print its contents in the dojo"
+symbol = "+cat"
+usage = "Dojo"
+slug = "#cat"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Copy a file"]
+name = "Copy a file"
+symbol = "|cp"
+usage = "Dojo"
+slug = "#cp"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Change working directory"]
+name = "Change working directory"
+symbol = "=dir"
+usage = "Dojo"
+slug = "#dir"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."List files and directories at the specified location"]
+name = "List files and directories at the specified location"
+symbol = "+ls"
+usage = "Dojo"
+slug = "#ls"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Move a file from one location to another"]
+name = "Move a file from one location to another"
+symbol = "+mv"
+usage = "Dojo"
+slug = "#mv"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Delete a file"]
+name = "Delete a file"
+symbol = "|rm"
+usage = "Dojo"
+slug = "#rm"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Display all files in the given directory and its sub-directories"]
+name = "Display all files in the given directory and its sub-directories"
+symbol = "+tree"
+usage = "Dojo"
+slug = "#tree"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Enable automatic commits for a mounted desk"]
+name = "Enable automatic commits for a mounted desk"
+symbol = "|autocommit"
+usage = "Dojo"
+slug = "#autocommit"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Cancel automatic commits for all mounted desks"]
+name = "Cancel automatic commits for all mounted desks"
+symbol = "|cancel-autocommit"
+usage = "Dojo"
+slug = "#cancel-autocommit"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Commit changes to a mounted desk"]
+name = "Commit changes to a mounted desk"
+symbol = "|commit"
+usage = "Dojo"
+slug = "#commit"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Perform an octopus merge"]
+name = "Perform an octopus merge"
+symbol = "|fuse"
+usage = "Dojo"
+slug = "#fuse"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print tracked fuse sources for a desk"]
+name = "Print tracked fuse sources for a desk"
+symbol = "|fuse-list"
+usage = "Dojo"
+slug = "#fuse-list"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Add a label to a desk revision"]
+name = "Add a label to a desk revision"
+symbol = "|label"
+usage = "Dojo"
+slug = "#label"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Merge one desk into another"]
+name = "Merge one desk into another"
+symbol = "|merge"
+usage = "Dojo"
+slug = "#merge"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Mount a desk or directory to the host filesystem"]
+name = "Mount a desk or directory to the host filesystem"
+symbol = "|mount"
+usage = "Dojo"
+slug = "#mount"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Add a tombstone policy rule"]
+name = "Add a tombstone policy rule"
+symbol = "|norm"
+usage = "Dojo"
+slug = "#norm"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print tombstone policyies for all desk"]
+name = "Print tombstone policyies for all desk"
+symbol = "+norms"
+usage = "Dojo"
+slug = "#norms"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Apply tombstoning policies; collect garbage"]
+name = "Apply tombstoning policies; collect garbage"
+symbol = "|pick"
+usage = "Dojo"
+slug = "#pick"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Make a desk, directory or file private (prevent remote ships from reading it)"]
+name = "Make a desk, directory or file private (prevent remote ships from reading it)"
+symbol = "|private"
+usage = "Dojo"
+slug = "#private"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Make a desk, directory or file publicly readable (allow remote ships to read it)"]
+name = "Make a desk, directory or file publicly readable (allow remote ships to read it)"
+symbol = "|public"
+usage = "Dojo"
+slug = "#public"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Create a new story file (commit message log) for a desk"]
+name = "Create a new story file (commit message log) for a desk"
+symbol = "|story-init"
+usage = "Dojo"
+slug = "#story-init"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print out a desk's story (commit messages), unordered"]
+name = "Print out a desk's story (commit messages), unordered"
+symbol = "+story-list"
+usage = "Dojo"
+slug = "#story-list"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print out a desk's story (commit messages) in order"]
+name = "Print out a desk's story (commit messages) in order"
+symbol = "+story-read"
+usage = "Dojo"
+slug = "#story-read"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Remove commit message(s) for a given commit from a desk's story"]
+name = "Remove commit message(s) for a given commit from a desk's story"
+symbol = "|story-remove"
+usage = "Dojo"
+slug = "#story-remove"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Add a commit message to a desk's story"]
+name = "Add a commit message to a desk's story"
+symbol = "|story-write"
+usage = "Dojo"
+slug = "#story-write"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Continuously merge int local desk from another local or remote desk"]
+name = "Continuously merge int local desk from another local or remote desk"
+symbol = "|sync"
+usage = "Dojo"
+slug = "#sync"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."List currently active desk syncs"]
+name = "List currently active desk syncs"
+symbol = "|syncs"
+usage = "Dojo"
+slug = "#syncs"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Tombstone a file at a particular revision"]
+name = "Tombstone a file at a particular revision"
+symbol = "|tomb"
+usage = "Dojo"
+slug = "#tomb"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Unmount a previously mounted desk or directory"]
+name = "Unmount a previously mounted desk or directory"
+symbol = "|unmount"
+usage = "Dojo"
+slug = "#unmount"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Stop syncing a desk with another"]
+name = "Stop syncing a desk with another"
+symbol = "|unsync"
+usage = "Dojo"
+slug = "#unsync"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Hello, world"]
+name = "Hello, world"
+symbol = "+hello"
+usage = "Dojo"
+slug = "#hello"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Ping another ship with an optional message"]
+name = "Ping another ship with an optional message"
+symbol = "|hi"
+usage = "Dojo"
+slug = "#hi"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print out the sponsor of this ship"]
+name = "Print out the sponsor of this ship"
+symbol = "+sponsor"
+usage = "Dojo"
+slug = "#sponsor"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print the life and rift for a ship"]
+name = "Print the life and rift for a ship"
+symbol = "+keys"
+usage = "Dojo"
+slug = "#keys"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Spawn a new moon"]
+name = "Spawn a new moon"
+symbol = "|moon"
+usage = "Dojo"
+slug = "#moon"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Breach (factory reset) a moon"]
+name = "Breach (factory reset) a moon"
+symbol = "|moon-breach"
+usage = "Dojo"
+slug = "#moon-breach"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Change the keys of a moon"]
+name = "Change the keys of a moon"
+symbol = "|moon-cycle-keys"
+usage = "Dojo"
+slug = "#moon-cycle-keys"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Kill all running threads"]
+name = "Kill all running threads"
+symbol = ":spider|kill"
+usage = "Dojo"
+slug = "#spiderkill"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Poke a running thread"]
+name = "Poke a running thread"
+symbol = ":spider|poke"
+usage = "Dojo"
+slug = "#spiderpoke"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Start a thread"]
+name = "Start a thread"
+symbol = ":spider|start"
+usage = "Dojo"
+slug = "#spiderstart"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Stop a running thread"]
+name = "Stop a running thread"
+symbol = ":spider|stop"
+usage = "Dojo"
+slug = "#spiderstop"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."List all currently running threads"]
+name = "List all currently running threads"
+symbol = "+spider/tree"
+usage = "Dojo"
+slug = "#spidertree"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print memory reports periodically"]
+name = "Print memory reports periodically"
+symbol = "|automass"
+usage = "Dojo"
+slug = "#automass"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Cancel periodic memory reports (enabled by |automass)"]
+name = "Cancel periodic memory reports (enabled by |automass)"
+symbol = "|cancel-automass"
+usage = "Dojo"
+slug = "#cancel-automass"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print out your web login code"]
+name = "Print out your web login code"
+symbol = "+code"
+usage = "Dojo"
+slug = "#code"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Change your web login code"]
+name = "Change your web login code"
+symbol = "|code"
+usage = "Dojo"
+slug = "#code"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Approve a CORS origin"]
+name = "Approve a CORS origin"
+symbol = "|cors-approve"
+usage = "Dojo"
+slug = "#cors-approve"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print approved, rejected and requested CORS origins"]
+name = "Print approved, rejected and requested CORS origins"
+symbol = "+cors-registry"
+usage = "Dojo"
+slug = "#cors-registry"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Reject a CORS origin"]
+name = "Reject a CORS origin"
+symbol = "|cors-reject"
+usage = "Dojo"
+slug = "#cors-reject"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Requests a <ship>.arvo.network subdomain and configure SSL"]
+name = "Requests a <ship>.arvo.network subdomain and configure SSL"
+symbol = "-dns-address"
+usage = "Dojo"
+slug = "#-dns-address"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Shut down this ship"]
+name = "Shut down this ship"
+symbol = "|exit"
+usage = "Dojo"
+slug = "#exit"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Adjust vane error verbosity"]
+name = "Adjust vane error verbosity"
+symbol = "|knob"
+usage = "Dojo"
+slug = "#knob"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Print a memory report"]
+name = "Print a memory report"
+symbol = "|mass"
+usage = "Dojo"
+slug = "#mass"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Deduplicate memory"]
+name = "Deduplicate memory"
+symbol = "|meld"
+usage = "Dojo"
+slug = "#meld"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Defragment memory"]
+name = "Defragment memory"
+symbol = "|pack"
+usage = "Dojo"
+slug = "#pack"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Rotate private keys"]
+name = "Rotate private keys"
+symbol = "|rekey"
+usage = "Dojo"
+slug = "#rekey"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Toggle kernel event tracing verbose mode"]
+name = "Toggle kernel event tracing verbose mode"
+symbol = "|verb"
+usage = "Dojo"
+slug = "#verb"
+desc = "Dojo utility included in the %base desk."
+
+[glossaryEntry."Trim kernel state"]
+name = "Trim kernel state"
+symbol = "|trim"
+usage = "Dojo"
+slug = "#trim"
+desc = "Dojo utility included in the %base desk."
+
 +++
 
 [path]: https://developers.urbit.org/reference/glossary/path
