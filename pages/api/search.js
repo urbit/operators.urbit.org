@@ -1,6 +1,5 @@
 import { index } from "../../cache/data";
 import { glossary } from "../../cache/glossary";
-const levenSort = require("leven-sort");
 
 export default (req, res) => {
   const results = index.filter(
@@ -31,16 +30,8 @@ export default (req, res) => {
       entry.symbol.includes(req.query.q)
     );
   });
-  const sortedEntries = levenSort(entries, req.query.q, ["symbol"]);
 
-
-  const sorted = levenSort(results, req.q, [
-    "title",
-    "slug",
-    "parent",
-    "headings",
-  ]);
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify({ results: sorted, glossary: sortedEntries }));
+  res.end(JSON.stringify({ results, glossary: entries }));
 };
