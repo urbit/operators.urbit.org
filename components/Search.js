@@ -4,7 +4,6 @@ import debounce from "lodash.debounce";
 import Downshift from "downshift";
 import ob from "urbit-ob";
 import Sigil from "../components/Sigil";
-import { map } from "lodash";
 
 class Search extends Component {
   constructor(props) {
