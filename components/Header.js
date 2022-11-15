@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import MenuTray from "./MenuTray";
+import { MenuTray } from "@urbit/foundation-design-system";
 import classnames from "classnames";
 
 function ActiveLink({ children, href, className, currentPath }) {
