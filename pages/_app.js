@@ -2,7 +2,7 @@ import { init } from "@socialgouv/matomo-next";
 
 import { useState, useEffect } from "react";
 import { configure, GlobalHotKeys } from "react-hotkeys";
-import Search from "../components/Search";
+import { Search } from "@urbit/foundation-design-system"
 import Head from "next/head";
 import "@urbit/foundation-design-system/styles/globals.css";
 import "@urbit/foundation-design-system/styles/markdown.css";
@@ -49,7 +49,7 @@ function MyApp({ Component, pageProps }) {
   configure({
     // ignoreTags: [],
     ignoreTags: ["input", "select", "textarea"],
-    ignoreEventsCondition: function () {},
+    ignoreEventsCondition: function () { },
   });
 
   useEffect(() => {
@@ -89,6 +89,8 @@ function MyApp({ Component, pageProps }) {
         toggleSearch={toggleSearch}
         closeSearch={closeSearch}
         openSearch={openSearch}
+        order={["ops", "org", "dev", "roadmap"]}
+        ourSite="https://operators.urbit.org"
       />
       <Component
         {...pageProps}
