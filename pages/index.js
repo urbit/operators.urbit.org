@@ -147,6 +147,7 @@ export default function Home({
             <GuideCard guide={sellingPlanets} />
             <GuideCard guide={urbitSecurity} />
           </TwoUp>
+
         </Section>
 
         {/* <Section>

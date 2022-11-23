@@ -2,9 +2,9 @@ export default function Meta(post) {
   const author = post?.extra?.author || "Urbit";
   const title = post?.title ? `${post.title} - ` : "";
   const description =
-    post?.description || "Urbit is a personal server built from scratch.";
+    post?.description || "A series of guides and reference material for assisting you in the usage and operations of your urbit.";
   const image =
-    post?.extra?.image || "https://media.urbit.org/logo/urbit-logo-card.png";
+    post?.extra?.image || "https://storage.googleapis.com/media.urbit.org/site/opengraph/operators.png";
   return (
     <>
       <link rel="icon" type="image/png" href="/images/favicon.ico" />
