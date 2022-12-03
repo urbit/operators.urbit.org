@@ -336,8 +336,8 @@ rm urbit
 
 {% tab label="If you have a key file" %}
 
-In the previous section you ssh'd into the server and configured Caddy. In the
-same ssh session, start tmux:
+In the previous section you ssh'd into the server. In the same ssh session,
+start tmux:
 
 ```bash {% copy=true}
 tmux
