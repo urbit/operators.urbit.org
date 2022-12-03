@@ -118,12 +118,9 @@ EOF
 curl -L https://urbit.org/install/linux64/latest | tar xzk --strip=1 -C /home/urbit/
 chown urbit:urbit /home/urbit/urbit
 
-# install necessary packages
-apt install -y debian-keyring debian-archive-keyring apt-transport-https
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
+# install tmux
 apt -y update
-apt install -y caddy tmux
+apt install -y tmux
 
 # reboot
 systemctl reboot
@@ -150,34 +147,7 @@ Leave as the default.
 
 Hit this button to create the droplet.
 
-## 2. Get domain
-
-To access your ship easily from any device, it's necessary to have a domain
-name. You can either buy one from a domain registrar like
-[gandi.net](https://www.gandi.net/), [Namecheap](https://www.namecheap.com),
-etc, or you can get a free subdomain from a site like
-[freedns.afraid.org](https://freedns.afraid.org/).
-
-In this guide, we'll walk through the second free option, but if you'd prefer
-your own, you just need to add an A Record pointing to your droplet's public IP
-address.
-
-Go to [freedns.afraid.org](https://freedns.afraid.org/) and sign up. Once done,
-log in and select the "Subdomains" option in the menu on the left. Choose to
-add a new one, and you'll be presented with a screen like so:
-
-![afraid.org subdomain add](https://media.urbit.org/operators/manual/running/hosting/afraid-domain-add.png)
-
-You can put anything in the "Subdomain" field, but typically you'd put your
-planet name. You can choose whichever domain option you'd like. In the
-"Destination" field, you'll need to put the public IP address of your droplet,
-which you can get from the dashboard on Digital Ocean.
-
-Once you hit "Save", the configuration is complete:
-
-![afraid.org subdomain created](https://media.urbit.org/operators/manual/running/hosting/afraid-domain-add.png)
-
-## 3. Prepare for upload
+## 2. Prepare for upload
 
 {% callout %}
 
@@ -221,12 +191,12 @@ your archived planet so that you can use it in the next step.
 
 {% /tabs %}
 
-## 4. Connect to the server
+## 3. Connect to the server
 
 To make connecting simple, you can add an alias to `~/.ssh/config` on your local
 machine. Open `~/.ssh/config` in an editor (you may need to create it if the
 file doesn't exist), and add the following to the bottom of the file (replacing
-the ship name and IP address with your own):
+the ship name with your own and the IP address with that of your droplet):
 
 ``` {% copy=true %}
 Host riclen-tinlyr
@@ -317,24 +287,13 @@ afterwards you should also delete that file for security.
 
 {% /tabs %}
 
-#### Finish server configuration
-
 Once you've either uploaded your pier or uploaded your key file as the case may
 be, you can connect to your server:
 
 ```bash {% copy=true %}
 ssh riclen-tinlyr
 ```
-
-You'll be taken to the shell on your server. In order to complete the domain
-name setup, you need to edit the config file of the `caddy` reverse-proxy
-web-server. Run the following two commands in the droplet's shell (replacing the
-domain with the one you chose previously):
-
-```bash {% copy=true %}
-echo -e "riclen-tinlyr.crabdance.com \n  reverse_proxy 127.0.0.1:8080" | sudo tee /etc/caddy/Caddyfile > /dev/null
-sudo systemctl restart caddy
-```
+You'll be taken to the shell on your server.
 
 ## 5. Boot your ship
 
@@ -342,9 +301,8 @@ sudo systemctl restart caddy
 
 {% tab label="If you have an existing pier" %}
 
-In the previous section you ssh'd into the server and configured Caddy. In the
-same ssh session, extract the pier archive you previously uploaded, then delete
-the archive:
+In the previous section you ssh'd into the server. In the same ssh session,
+extract the pier archive you previously uploaded, then delete the archive:
 
 ```bash {% copy=true %}
 tar xvzf riclen-tinlyr.tar.gz && rm riclen-tinlyr.tar.gz
@@ -374,34 +332,12 @@ separate binary:
 rm urbit
 ```
 
-Now you can boot your ship, specifying the Ames UDP port which was configured in
-the firewall by the setup script:
-
-```bash {% copy=true %}
-./riclen-tinlyr/.run --http-port 8080 -p 34543
-```
-
-It'll take a few moments to boot, and then your ship should be running like
-normal and you'll be at the usual Dojo prompt. If you haven't previously noted
-your web login code, you'll need to run `+code` in the Dojo and copy it. Then,
-you can disconnect from the tmux session by hitting `CTRL+b d` (that is, you
-hit `CTRL+b`, release it, and then hit `d`). This will disconnect you from
-tmux and take you back to the usual shell, but it'll keep running in the
-background. If you want to get back to the Dojo again, you can reattach the
-tmux session with:
-
-```bash {% copy=true %}
-tmux a
-```
-
-Finally, you can disconnect from the ssh session completely by hitting `CTRL+d`.
-
 {% /tab %}
 
 {% tab label="If you have a key file" %}
 
-In the previous section you ssh'd into the server and configured Caddy. In the same
-ssh session, start tmux:
+In the previous section you ssh'd into the server and configured Caddy. In the
+same ssh session, start tmux:
 
 ```bash {% copy=true}
 tmux
@@ -431,23 +367,103 @@ to delete it after first boot:
 ```bash {% copy=true %}
 rm riclen-tinlyr-1.key
 ```
-Now you can start your ship back up again with the following:
+
+{% /tab %}
+
+{% /tabs %}
+
+Run the following to allow the runtime to bind ports 80 and 443:
 
 ```bash {% copy=true %}
-./riclen-tinlyr/.run --http-port 8080 -p 34543
+sudo setcap 'cap_net_bind_service=+ep' riclen-tinlyr/.run
 ```
 
-After a few moments it'll be back at the Dojo prompt again. In order to login to
-the web interface, you need to get the web login code. Run the following in the
-Dojo:
+Now you can start your ship up with the following:
 
-``` {% copy-true %}
+```bash {% copy=true %}
+./riclen-tinlyr/.run -p 34543
+```
+
+After a few moments it'll show the Dojo prompt like `~riclen-tinlyr:dojo>`.
+
+## 6. Get a domain
+
+To make accessing the web interface convenient, you should request an
+`arvo.network` domain name. To do so, run the following command in the Dojo,
+replacing the IP address with your droplet's:
+
+``` {% copy=true %}
+-dns-address [%if .161.35.148.247]
+```
+
+This will request a subdomain of your ship like `riclen-tinlyr.arvo.network`.
+
+The domain should be registered almost instantly, but sometimes it takes a while
+for it to propagate to other DNS servers. You might therefore see the following:
+
+```
+> -dns-address [%if .161.35.148.247]
+dns: request for DNS sent to ~deg
+dns: awaiting response from ~deg
+http: fail (13, 504): unknown node or service
+http: fail (14, 504): unknown node or service
+http: fail (15, 504): unknown node or service
+http: fail (16, 504): unknown node or service
+http: fail (17, 504): unknown node or service
+dns: unable to access via riclen-tinlyr.arvo.network
+XX confirm port 80
+XX check via nslookup
+0
+```
+
+If that happens, wait five or ten minutes and then try again. You should
+eventually see:
+
+```
+> -dns-address [%if .161.35.148.247]
+dns: request for DNS sent to ~deg
+dns: awaiting response from ~deg
+[%key iter=0 width=2.047]
+[%key iter=1 width=2.047]
+[%key iter=2 width=2.047]
+[%key iter=3 width=2.047]
+acme: requesting an https certificate for riclen-tinlyr.arvo.network
+dns: confirmed access via riclen-tinlyr.arvo.network
+0
+acme: received https certificate for riclen-tinlyr.arvo.network
+http: restarting servers to apply configuration
+http: web interface live on https://localhost:443
+http: web interface live on http://localhost:80
+http: loopback live on http://localhost:12321
+```
+
+That means the domain has been registered and an SSL certificate has been
+installed, so you can access the web interface securely with HTTPS.
+
+## 7. Log in to Landscape
+
+In order to login to the web interface, you need to get the web login code. Run
+the following in the Dojo:
+
+``` {% copy=true %}
 +code
 ```
 
 It'll spit out something like `ropnys-batwyd-nossyt-mapwet`. That's your web
 login code, you can copy that and save it in a password manager or similar. Note
 that the web login code is separate from the master ticket.
+
+The server configuration should now be complete, and you can access Landscape in
+the browser. Navigate to the domain you configured previously, in this case
+`riclen-tinlyr.arvo.network`. You should see the Landscape login screen:
+
+![landscape login screen](https://media.urbit.org/operators/manual/running/hosting/landscape-login.png)
+
+Enter the web login code and you'll be taken to your ship's homescreen. Your
+ship is now running in the cloud, and you can access it from any device by
+visiting its URL.
+
+## 8. Disconnect
 
 You can now disconnect from the tmux session by hitting `CTRL+b d` (that is, you
 hit `CTRL+b`, release it, and then hit `d`). You'll be taken back to the
@@ -460,30 +476,7 @@ tmux a
 
 Finally, you can disconnect from the ssh session completely by hitting `CTRL+d`.
 
-{% /tab %}
-
-{% /tabs %}
-
-## 6. Log in to Landscape
-
-The server configuration should now be complete, and you can access Landscape in
-the browser. Navigate to the domain you configured previously, in this case
-`riclen-tinlyr.crabdance.com`. You should see the Landscape login screen:
-
-![landscape login screen](https://media.urbit.org/operators/manual/running/hosting/landscape-login.png)
-
-Before logging in, check that the URL in the browser begins with `https`, and
-that it has a lock icon or similar next to it. This means Caddy has successfully
-configured its SSL certificates. If there's no lock and you're at `http://...`
-(without the `s`), Caddy has not yet setup the certificates. You may need to
-give it some time and try again. Otherwise, enter the web login code you
-previously got with the `+code` command in the Dojo, and you'll be taken to your
-ship's homescreen.
-
-Your ship is now running in the cloud, and you can access it from any device by
-visiting its URL.
-
-## 7. Cleanup
+## 9. Cleanup
 
 If you booted a new ship by uploading a key file, it's a good idea to now delete
 the key file on your local machine.
