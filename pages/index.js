@@ -14,6 +14,13 @@ import {
 } from "@urbit/foundation-design-system";
 
 function GuideCard({ guide, className }) {
+
+  const post = {
+    title: "Urbit Operators",
+    description: "Learn best practices for running your own urbit and hosting digital communities.",
+    image: "https://storage.googleapis.com/media.urbit.org/site/opengraph/operators.png"
+  };
+
   return (
     <div
       className={"bg-wall-100 rounded-xl cursor-pointer h-full " + className}
