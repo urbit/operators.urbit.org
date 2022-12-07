@@ -4,10 +4,29 @@ export default function Meta(post) {
   const description =
     post?.description || "A series of guides and reference material for assisting you in the usage and operations of your urbit.";
   const image =
-    post?.extra?.image || "https://storage.googleapis.com/media.urbit.org/site/opengraph/operators.png";
+    post?.extra?.image || "https://storage.googleapis.com/media.urbit.org/site/opengraph/sig-white.png";
   return (
     <>
       <link rel="icon" type="image/png" href="/images/favicon.ico" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/images/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/images/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/images/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/images/site.webmanifest" />
+
       <meta
         name="twitter:card"
         content="summary_large_image"
