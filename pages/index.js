@@ -12,6 +12,8 @@ import {
   TwoUp,
   getPostBySlug,
 } from "@urbit/foundation-design-system";
+import Meta from "../components/Meta";
+
 
 function GuideCard({ guide, className }) {
 
@@ -22,24 +24,33 @@ function GuideCard({ guide, className }) {
   };
 
   return (
-    <div
-      className={"bg-wall-100 rounded-xl cursor-pointer h-full " + className}
-    >
-      <div className="p-8 measure flex justify-between flex-col">
-        <div>
-          <h4 className="mb-4">{guide.title}</h4>
-          <p>{guide.description}</p>
+    <>
+
+    <Head>
+      <title>Urbit Operators</title>
+      {Meta(post, false, true)}
+    </Head>
+
+
+      <div
+        className={"bg-wall-100 rounded-xl cursor-pointer h-full " + className}
+      >
+        <div className="p-8 measure flex justify-between flex-col">
+          <div>
+            <h4 className="mb-4">{guide.title}</h4>
+            <p>{guide.description}</p>
+          </div>
+          <Link href={`/guides/${guide.slug}`}>
+            <a
+              passHref
+              className="bg-green-400 text-white rounded-lg flex justify-center p-3 w-20 mt-4"
+            >
+              Read
+            </a>
+          </Link>
         </div>
-        <Link href={`/guides/${guide.slug}`}>
-          <a
-            passHref
-            className="bg-green-400 text-white rounded-lg flex justify-center p-3 w-20 mt-4"
-          >
-            Read
-          </a>
-        </Link>
       </div>
-    </div>
+    </>
   );
 }
 
