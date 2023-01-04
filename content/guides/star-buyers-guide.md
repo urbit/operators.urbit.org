@@ -97,7 +97,7 @@ Keep in mind that while stars are positioned to serve as this type of infrastruc
 
 ### What is the best way to get a star?
 
-We recommend [Urbitex](https://urbitex.io), a marketplace dedicated to Urbit address space.  Read our guide to [buying a star with Urbitex](?id=buying-a-star).
+We recommend [Urbitex](https://urbitex.io), a marketplace dedicated to Urbit address space.  Read our guide to [buying a star with Urbitex](/guides/star-buyers-guide?id=buying-a-star).
 
 {% /div %}
 
@@ -155,7 +155,7 @@ You’re now a star owner.  You can simply hold onto it as an investment and sel
 
 - Read our guide to [running a star](/guides/running-a-star)
 - Read our guide on [layer 2 for stars](/guides/layer-2-for-stars)
-- Read our guide to [sell a star on Urbitex](?id=selling-a-star)
+- Read our guide to [sell a star on Urbitex](/guides/star-buyers-guide?id=selling-a-star)
 
 {% /div %}
 
