@@ -14,13 +14,14 @@ ship's [pier](https://urbit.org/docs/glossary/pier), handles events, and runs
 the Nock virtual machine that performs your ship's computations.
 
 Before version 1.9, Vere was split into two separate binaries: The `urbit`
-"king" responsible for I/O and event persistence, and the `urbit-worker` "serf"
-responsible for computations and state persistence. As of version 1.9, these
-have been merged into a single `urbit` (or `urbit.exe`) binary, though under the
-hood there's still two separate processes. The alternative king written in
-Haskell, `urbit-king`, has also been deprecated, so there's now only one binary.
+"king"/"urth" responsible for I/O and event persistence, and the `urbit-worker`
+"serf"/"mars" responsible for computations and state persistence. As of version
+1.9, these have been merged into a single `urbit` (or `urbit.exe`) binary,
+though under the hood there's still two separate processes. The alternative king
+written in Haskell, `urbit-king`, has also been deprecated, so there's now only
+one binary.
 
-Version 1.9 has introduced a couple of new features. The first is the concept of
+Version 1.9 introduced a couple of new features. The first is the concept of
 "docking". When a new ship is booted, Vere will automatically copy itself into
 the pier, at `[pier]/.bin/[pace]/vere-v[version]-[architecture]`. It will also
 create a link to this file at `[pier]/.run`. This means that after the initial
@@ -197,6 +198,29 @@ command.
 Note the auto-dock behavior when booting new ships can be disabled with the
 `--no-dock` option.
 
+### `eval`
+
+Evaluate a hoon expression without booting a ship.
+
+The expression to evaluate is given in a string via stdin, and the result is
+pretty-printed to the terminal. Note you do not need to boot an actual ship to
+run this, the runtime can do it itself.
+
+- Undocked: `echo [expression] | urbit eval`
+- Docked: `echo [expression] | [pier]/.run eval`
+
+This will work like:
+
+```
+> echo "(turn (limo 1 2 3 4 5 ~) succ)" | urbit eval
+loom: mapped 2048MB
+lite: arvo formula 11a9e7fe
+lite: core 38d4ad4d
+lite: final state 38d4ad4d
+eval:
+~[2 3 4 5 6]
+```
+
 ### `grab`
 
 Measure memory usage analysis of a ship. The result will be printed to the
@@ -290,13 +314,23 @@ previously with `cram` or `-n`.
 Download a binary. `DIR` is an output directory (it must already exist) and `ARGS` are:
 
 - `-a, --arch ARCH` - architecture, `ARCH` may be one of `x86_64-linux`,
-  `x86_64-darwin`, and `x86_64-windows`, though more may be added in the future.
+  `x86_64-darwin`, `x86_64-windows` and `aarch64-linux`, though more may be
+  added in the future.
 - `-v, --version VER` - version number, `VER` is e.g. `1.9`.
 - `-p, --pace` - release channel, e.g. `live`.
 
 Example usage:
 
 - Undocked: `urbit vere -a x86_64-linux -v 1.9 -p live .`
+
+### `vile`
+
+Export keyfile.
+
+The private keys of ship in the specified pier will be printed to the terminal.
+
+- Undocked: `urbit vile [pier]`
+- Docked: `[pier]/.run vile`
 
 ### `serf ARGS`
 
@@ -470,6 +504,20 @@ work as normal.
 - Undocked: `urbit -L [pier]`
 - Docked: `[pier]/.run -L`
 
+### `--loom SIZE`
+
+Specify loom size (maximum memory usage).
+
+The size is specified in exponents of 2. The default is 32 (2GB), minimum is 20
+(1MB), and maximum is 32 (4GB).
+
+- Undocked: `urbit --loom [size] [pier]`
+- Docked: `[pier]/.run --loom [size]`
+
+This can also be used with utilities like [`pack`](#pack) and [`meld`](#meld).
+Note it must be specified *after* the utility like `urbit pack --loom 32
+~/piers/zod `.
+
 ### `-n, --replay-to NUMBER`
 
 Replay up to the specified event `NUMBER`.
@@ -567,6 +615,18 @@ it was run.
 Boot a new ship, using the pill fetched from `URL` rather than the default one.
 
 - Undocked: `urbit -w sampel-palnet -k /path/to/my.key -u http://example.com/the.pill`
+
+### `--urth-loom SIZE`
+
+Specify the loom size (maximum memory usage) of the "king"/"urth" process.
+
+The size is specified in exponents of 2. This is something you're unlikely to
+need to use as the "king"/"urth" process doesn't have a persistent state and
+doesn't need much memory. The [`--loom`](#--loom-size) option, which sets the
+"serf"/"mars" memory size, is much more useful.
+
+- Undocked: `urbit --urth-loom [size] [pier]`
+- Docked: `[pier]/.run --urth-loom [size]`
 
 ### `-v, --verbose`
 
