@@ -158,38 +158,10 @@ move it to the cloud. If you don't, you can skip this step.
 
 {% /callout %}
 
-{% tabs %}
-
-{% tab label="If you're running from the command line" %}
-
 In the Dojo, use either `"CTRL + D"` or `|exit` to shut down your ship.
 
 Archive your pier by running `tar cvzf riclen-tinlyr.tar.gz ~/path/to/your/pier`
 (substitute your own ship name and pier location).
-
-{% /tab %}
-
-{% tab label="If you're using Port" %}
-
-Shut down your local ship and export it:
-
-In port, first click `"Home"` in the bottom left corner of the home page.
-
-![landscape
-screenshot](https://media.urbit.org/operators/manual/running/hosting/landscape-screenshot.png)
-
-Then, click `"Manage"` next to the planet you want to upload to the cloud.
-![port manage
-screenshot](https://media.urbit.org/operators/manual/running/hosting/port-manage-screenshot.jpg)
-
-Finally, click `"Eject"`, and make note of the location in which you export
-your archived planet so that you can use it in the next step.
-
-![port eject screenshot](https://media.urbit.org/operators/manual/running/hosting/port-eject-screenshot.jpg)
-  
-{% /tab %}
-
-{% /tabs %}
 
 ## 3. Connect to the server
 

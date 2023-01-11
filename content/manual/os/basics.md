@@ -12,8 +12,6 @@ This document deals with:
 - Running an Urbit ship with the ordinary runtime [from the command line](https://urbit.org/getting-started/cli).
 - Basic setup, configuration and usage in Urbit's shell called the `dojo`.
 
-If you're looking for information on using the GUI application [Port](https://urbit.org/getting-started/desktop), see the [Port guide](/manual/running/port) instead.
-
 ## Shutdown
 
 You can turn your urbit off with `Ctrl-d` from the Chat or Dojo prompts.

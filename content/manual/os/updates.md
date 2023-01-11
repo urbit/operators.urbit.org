@@ -6,12 +6,11 @@ weight = 2
 +++
 
 The OS/kernel in Urbit is called Arvo. Arvo is run inside a virtual machine
-called Vere - this is the `urbit` binary you execute in the terminal (or is run
-in the background by Port). You can also install a number of userspace
-applications such as Groups, Bitcoin, Studio, Pals, etc. Each of these
-layers—Vere, Arvo and apps—receive updates. In this guide, we'll look at how to
-deal with these updates, the meaning of the update notifications you'll get in
-Landscape, and how these layers depend on each other.
+called Vere - this is the `urbit` binary you execute in the terminal. You can
+also install a number of userspace applications such as Groups, Bitcoin, Studio,
+Pals, etc. Each of these layers—Vere, Arvo and apps—receive updates. In this
+guide, we'll look at how to deal with these updates, the meaning of the update
+notifications you'll get in Landscape, and how these layers depend on each other.
 
 ## Quick overview
 
@@ -26,8 +25,7 @@ Landscape, and how these layers depend on each other.
 * The runtime aka `urbit` binary
 * `v1.10`
 * Nothing
-* Vere is typically backwards-compatible with older Arvo versions. If Vere is
-  managed by Port, it is updated automatically. If Vere is run stand-alone, it
+* Vere is typically backwards-compatible with older Arvo versions. Vere
   can be updated by either running its `next` command, or by downloading a new
   version and swapping them out. The ship must be shut down before performing
   either of these actions.
@@ -115,11 +113,6 @@ to update the runtime. See the [runtime updates](#runtime-updates) section below
 for how to do this.
 
 ## Runtime updates
-
-If you're running your ship in Port, Port should notify you when a runtime
-update is available, and you simply need to click it to apply the update. If
-you're running the `urbit` binary directly in the terminal, you will need to
-manually intervene. We'll look at the latter case here.
 
 As of version 1.9, the runtime has a built-in update mechanism. First, shut your
 ship down. Then, run either `urbit next /path/to/your/pier` or `./your/pier/.run

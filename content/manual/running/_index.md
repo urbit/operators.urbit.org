@@ -10,10 +10,6 @@ Urbit can be run in a variety of contexts. Our [Getting Started
 Guide](https://urbit.org/getting-started/) covers how to run an Urbit locally on your
 computer; this section covers alternative ways of running Urbit.
 
-### [Port](/manual/running/port)
-
-This document covers the basic features of the Urbit GUI application Port.
-
 ### [Cloud Hosting](/manual/running/hosting)
 
 This guide covers the provisioning and setup of a cloud server in Digital Ocean

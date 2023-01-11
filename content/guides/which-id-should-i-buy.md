@@ -105,6 +105,6 @@ Moons are kind of like the IoT of Urbit. Someday moons are for your fleet of far
 - Spawns: N/A
 - Purpose: Bot
 
-Comets are for bots or for trying out Urbit. These are free identities that anyone can spin up to get on the network. Spin one up today and get on the network for free [using Port](https://urbit.org/getting-started). Because comets are free, many groups or other Urbit IDs might block communications with them. 
+Comets are for bots or for trying out Urbit. These are free identities that anyone can spin up to get on the network. Spin one up today and get on the network for free [following this guide](https://urbit.org/getting-started). Because comets are free, many groups or other Urbit IDs might block communications with them. 
 
 Comets don’t have an OTA provider by default. So they really are for demo-mode.
