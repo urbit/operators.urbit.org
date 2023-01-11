@@ -4,10 +4,6 @@ template = "doc.html"
 weight = 0
 +++
 
-Note: This guide is about the CLI-based runtime executable. If you're running
-the desktop client Port, see the [separate guide for
-that](/manual/running/port).
-
 The Urbit runtime is named Vere. It's the binary executable you use to run your
 ship (`urbit` on Linux and MacOS, `urbit.exe` on Windows). Vere manages your
 ship's [pier](https://urbit.org/docs/glossary/pier), handles events, and runs
