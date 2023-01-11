@@ -73,15 +73,7 @@ The first time you boot, the key from the first half of the keyfile is used; but
 
 ### Running your planet
 
-Once you’ve activated your planet and downloaded your keyfile, you can use it to boot your ship immediately.
-
-If you’re running your planet on a local PC:
-
-1. Extract the zipped file you downloaded from Bridge.
-2. Download [Port](https://urbit.org/getting-started#port) and run the installer.
-3. Click ‘Boot menu’, and select ‘Planet’.
-4. Enter a friendly name, the `@p` of your planet, and click ‘Browse’ to navigate to the keyfile you downloaded.
-5. Click ‘Continue’ to boot your planet.
+Once you’ve activated your planet and downloaded your keyfile, you can use it to [boot your ship immediately](https://urbit.org/getting-started/cli).
 
 Treat your planet like the precious object it is. Do not share your landscape login code or master key with anybody. Never run it in two places at the same time. This will knock it out of sequence with the network, and cause it to become ‘brain damaged’, unable to communicate with the outside world. Don’t delete the directory that contains your asset’s data. If you are shutting down your ship for a while, keep the data folder somewhere safe, and you can pick up where you left off in the future.
 
