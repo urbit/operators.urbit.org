@@ -21,7 +21,7 @@ you shouldn't have to worry about this: you can simply think of your "master
 ticket" as the password to your Urbit ID. If you're operating a star or galaxy,
 the Urbit HD Wallet allows you to implement a multi-tier key custody scheme.
 
-If you're interested, you can read the spec here: [Urbit HD Wallet Spec (UP 8)](https://github.com/urbit/proposals/blob/master/008-urbit-hd-wallet).
+If you're interested, you can read the spec here: [Urbit HD Wallet Spec (UP 8)](https://github.com/urbit/proposals/blob/master/008-urbit-hd-wallet.md).
 
 ### What is a master ticket? {% #master-ticket %}
 
@@ -59,7 +59,7 @@ of an Ethereum wallet and are yours alone. An ownership key pair is derived from
 an ownership seed and, likewise, the various proxy key pairs are generated from
 their respective proxy seeds.
 
-For detailed information see the [Urbit HD Wallet Spec (UP 8)](https://github.com/urbit/proposals/blob/master/008-urbit-hd-wallet).
+For detailed information see the [Urbit HD Wallet Spec (UP 8)](https://github.com/urbit/proposals/blob/master/008-urbit-hd-wallet.md).
 
 ### What does it mean to “set public keys”? {% #set-public-keys %}
 
