@@ -115,7 +115,7 @@ PasswordAuthentication no
 EOF
 
 # fetch and extract urbit binary
-curl -L https://urbit.org/install/linux64/latest | tar xzk --strip=1 -C /home/urbit/
+curl -L https://urbit.org/install/linux-x86_64/latest | tar xzk --transform='s/.*/urbit/g' -C /home/urbit/
 chown urbit:urbit /home/urbit/urbit
 
 # install tmux
