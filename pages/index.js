@@ -99,27 +99,13 @@ export default function Home({
         {
           // Hero Statement
         }
-        <Section className="pb-72">
+        <Section className="pb-36">
           {/* Hero statement */}
           <div className="flex flex-col space-y-4">
             <h1 className="max-w-prose">
-              Learn best practices for running your own urbit and hosting
-              digital communities
+              Learn about the network and best practices for running your urbit.
             </h1>
           </div>
-        </Section>
-
-        <Section>
-          <h2 className="m-0 p-0 mr-4" id="urbit-ids">
-            Urbit IDs
-          </h2>
-          <TwoUp className="mt-8">
-            <GuideCard guide={inspectId} />
-            <GuideCard guide={whichId} />
-          </TwoUp>
-          <OneUp>
-            <GuideCard guide={urbitidFaq} />
-          </OneUp>
         </Section>
 
         <Section>
@@ -146,6 +132,21 @@ export default function Home({
             </div>
           </div>
         </Section>
+
+
+        <Section>
+          <h2 className="m-0 p-0 mr-4" id="urbit-ids">
+            Urbit IDs
+          </h2>
+          <TwoUp className="mt-8">
+            <GuideCard guide={inspectId} />
+            <GuideCard guide={whichId} />
+          </TwoUp>
+          <OneUp>
+            <GuideCard guide={urbitidFaq} />
+          </OneUp>
+        </Section>
+
 
         <Section>
           <h2 className="m-0 p-0 mr-4">Star Buyer's Guide</h2>

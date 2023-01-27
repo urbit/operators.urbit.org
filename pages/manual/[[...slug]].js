@@ -9,8 +9,6 @@ import ManualTree from "../../cache/manual.json";
 
 const breadcrumbs = (posts, paths) => {
   const results = [
-    <Link href="/">Urbit</Link>,
-    <span className="px-1">/</span>,
     <Link href="/manual">Operator's Manual</Link>,
   ];
   let thisLink = "/manual";

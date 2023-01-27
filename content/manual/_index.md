@@ -6,7 +6,7 @@ template = "sections/docs/chapters.html"
 
 Welcome to the Operator's Manual for the Urbit project. This documentation is
 maintained by [Tlon](https://tlon.io) and the Urbit community in a public
-[Github repository](https://github.com/urbit/urbit.org). Issues and
+[Github repository](https://github.com/urbit/operators.urbit.org). Issues and
 contributions are welcome.
 
 This documentation provides a series of guides and reference material for
