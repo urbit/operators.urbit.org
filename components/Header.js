@@ -44,24 +44,18 @@ export default function Header(props) {
         <ActiveLink
           currentPath={currentPath}
           className="mr-4 type-ui"
-          href="/#urbit-ids"
-        >
-          Urbit IDs
-        </ActiveLink>
-        <ActiveLink
-          currentPath={currentPath}
-          className="mr-4 type-ui"
           href="/guides/star-buyers-guide"
         >
           Star Buyer's Guide
         </ActiveLink>
         <ActiveLink
           currentPath={currentPath}
-          className="type-ui"
-          href="/#node-operation"
+          className="mr-4 type-ui"
+          href="/guides"
         >
-          Node Operation
+          Additional Guides
         </ActiveLink>
+
       </nav>
       <MenuTray isOpen={isOpen} setTray={setTray} search={props.search}>
         <Link href="/" passHref>
@@ -90,9 +84,9 @@ export default function Header(props) {
         <ActiveLink
           currentPath={currentPath}
           className="mt-2 type-ui"
-          href="/#urbit-ids"
+          href="/manual"
         >
-          Urbit IDs
+          Manual
         </ActiveLink>
 
         <ActiveLink
@@ -105,9 +99,9 @@ export default function Header(props) {
         <ActiveLink
           currentPath={currentPath}
           className="mt-2 type-ui"
-          href="/#node-operation"
+          href="/guides"
         >
-          Node Operation
+          Additional Guides
         </ActiveLink>
       </MenuTray>
     </header>
