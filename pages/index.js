@@ -156,7 +156,7 @@ export default function Home({search, starBuyers, highlights}) {
               <p>
                 Learn more about common troubleshooting issues, Urbit ID, running stars and galaxies, and more.
               </p>
-              <Link passHref href="/manual">
+              <Link passHref href="/guides">
                 <a className="button-lg bg-green-400 text-white w-40">
                   View Guides
                 </a>
