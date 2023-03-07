@@ -151,12 +151,18 @@ urbit dock /path/to/pier
 Afterwards, you'll be able to just do `/path/to/pier/.run` and can delete the
 separate `urbit` binary.
 
+If you see an error message that the link cannot be created, check that
+your file system allows hardlinks and you have permissions set to do so.
+(ExFAT file systems, used on some external hard drives, cannot create
+hardlinks.)
+
 ### Update binary
 
 From binary version 1.9 onwards, there is a mechanism to update the binary
-without having to go and download it yourself. Simply run `urbit next /path/to/pier` or `/path/to/pier/.run next` if docked. It will check if any
-newer binaries are available for your release channel and if there are, it'll
-automatically download the new one and install it in the pier.
+without having to go and download it yourself. Simply run
+`urbit next /path/to/pier` or `/path/to/pier/.run next` if docked. It will
+check if any newer binaries are available for your release channel and if
+there are, it'll automatically download the new one and install it in the pier.
 
 ## Utilities
 
