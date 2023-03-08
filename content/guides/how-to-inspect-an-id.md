@@ -13,17 +13,9 @@ Throughout this guide we’ll be making use of the [Urbit Network Explorer](http
 
 When evaluating a planet you’ll want to consider the following:
 
-- Whether the planet has been spawned
 - Whether the planet has been booted
 - Whether the planet has an online sponsor
 
-### Spawn status
-
-A planet that has not been spawned cannot be acquired—if someone is attempting to sell you an unspawned planet they’re not to be trusted. 
-
-Here’s an example of an unspawned planet: https://network.urbit.org/~sampel-palnet
-
-Note the absence of a **Spawned** event in the **Azimuth Event Stream** box at the right side of the screen.
 
 ### Booted or unbooted
 
