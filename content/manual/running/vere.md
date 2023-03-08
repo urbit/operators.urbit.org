@@ -151,6 +151,11 @@ urbit dock /path/to/pier
 Afterwards, you'll be able to just do `/path/to/pier/.run` and can delete the
 separate `urbit` binary.
 
+If you see an error message that the link cannot be created, check that
+your file system allows hardlinks and you have permissions set to do so.
+(ExFAT file systems, used on some external hard drives, cannot create
+hardlinks.)
+
 ### Update binary
 
 From binary version 1.9 onwards, there is a mechanism to update the binary
