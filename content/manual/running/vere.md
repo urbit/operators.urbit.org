@@ -159,10 +159,53 @@ hardlinks.)
 ### Update binary
 
 From binary version 1.9 onwards, there is a mechanism to update the binary
-without having to go and download it yourself. Simply run
-`urbit next /path/to/pier` or `/path/to/pier/.run next` if docked. It will
-check if any newer binaries are available for your release channel and if
-there are, it'll automatically download the new one and install it in the pier.
+without having to go and download it yourself. Simply run `urbit next
+/path/to/pier` or `/path/to/pier/.run next` if docked. It will check if any
+newer binaries are available for your release channel and if there are, it'll
+automatically download the new one and install it in the pier.
+
+### Truncate event log
+
+The event log of a ship is a totally ordered list of every single Arvo event
+that ship has undergone. The state of a ship is a pure function of the event
+log. In the event a ship's state checkpoint is corrupted, it can be rebuilt by
+replaying all the events in the log. In practice, event logs become large and
+unwieldy over time. They can reach many GB in size, and when they're very large
+it takes an impractically long time to replay them.
+
+To reduce the size of the event log, the binary includes a [`chop`](#chop)
+utility. Chop wipes old events, and replaces them with a single event loading
+the whole current state of the ship. This *drastically* reduces the size of the
+log - typically down to less than a couple of GB from any larger size. Note this
+will irreversibly delete the old events, but most people don't need them anyway.
+
+To `chop` an event log, first shut down your ship with `ctrl+d` or `|exit` in
+the Dojo. Next, run `urbit chop /path/to/pier` or `/path/to/pier/.run chop` if
+it's docked. You'll get an output that looks something like this:
+
+```
+loom: mapped 2048MB
+boot: protected loom
+live: loaded: MB/140.541.952
+boot: installed 652 jets
+loom: image backup complete
+chop: event log truncation complete
+      event log backup written to ~/piers/zod/.urb/log/chop/data_1-449.mdb.bak
+      WARNING: ENSURE YOU CAN RESTART YOUR SHIP BEFORE DELETING YOUR EVENT LOG BACKUP FILE!
+      if you can't, restore your log by running:
+      `mv ~/piers/zod/.urb/log/chop/data_1-449.mdb.bak ~/piers/zod/.urb/log/data.mdb` then try again
+```
+
+At this point the event log has been truncated but a backup has been saved, so
+the size of the pier hasn't yet been reduced. Before deleting the backup, try
+booting your ship and make sure it runs fine. **IT IS VERY IMPORTANT TO CHECK
+THIS**. Assuming your ship boots fine, delete the backup in
+`/path/to/pier/.urb/log/chop/data_XXXXX.mdb.bak`.
+
+If your ship failed to boot, you can restore the backup by moving it to
+`/path/to/pier/.urb/log/data.mdb` as described in Vere's print-out above.
+
+---
 
 ## Utilities
 
@@ -170,6 +213,24 @@ These utilities are not used to run ships, but perform operations on piers,
 print information about piers, or otherwise do useful things. Note the ship must
 be stopped to run any of these utilities on a pier. Some of these are utilities
 of the previously separate `urbit-worker`.
+
+### `chop` 
+
+Truncate the event log. Old events will be deleted and replaced with the current
+state of the ship. This can significantly reduce the size of the pier, but you
+won't be able to replay all events from the beginning (this shouldn't matter
+though).
+
+**You must shut down your ship before running this.**
+
+- Undocked: `urbit chop [pier]`
+- Docked: `[pier]/.run chop`
+
+This will save a backup of the event log to
+`/path/to/pier/.urb/log/chop/data.XXXXX.mdb.bak` when complete. Make sure your
+ship starts up again before deleting that backup file. If your ship fails to
+boot after running `chop`, move that `.bak` file back to
+`/path/to/pier/.urb/log/data.mdb` and try booting again.
 
 ### `cram`
 
