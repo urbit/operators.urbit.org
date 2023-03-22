@@ -571,8 +571,8 @@ work as normal.
 
 Specify loom size (maximum memory usage).
 
-The size is specified in exponents of 2. The default is 32 (2GB), minimum is 20
-(1MB), and maximum is 32 (4GB).
+The size is specified in exponents of 2. The default is 31 (2GB), minimum is 20
+(1MB), and maximum is 33 (8GB).
 
 - Undocked: `urbit --loom [size] [pier]`
 - Docked: `[pier]/.run --loom [size]`
