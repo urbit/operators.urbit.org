@@ -1732,7 +1732,8 @@ the case may be) will be dropped.
 
 {% callout %}
 
-Note that whick `%deny` is ordinary blacklist blocking, `%allow` means *any* ships not on the list will be blocked.
+Note that while `%deny` is ordinary blacklist blocking, `%allow` means *any*
+ships not on the list will be blocked.
 
 Note also that this generator totally overrides existing snub settings - it
 doesn't just add or remove ships from an existing list.
