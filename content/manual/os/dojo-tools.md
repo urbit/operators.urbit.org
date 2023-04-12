@@ -213,6 +213,13 @@ usage = "Dojo"
 slug = "#ames-sift"
 desc = "Dojo utility included in the %base desk."
 
+[glossaryEntry."Whitelist/blacklist ships in Ames"]
+name = "Whitelist/blacklist ships in Ames"
+symbol = "|ames-snub"
+usage = "Dojo"
+slug = "#ames-snub"
+desc = "Dojo utility included in the %base desk."
+
 [glossaryEntry."Print Ames message-pump timers by ship"]
 name = "Print Ames message-pump timers by ship"
 symbol = "+ames-timers"
@@ -1701,6 +1708,51 @@ Disable filtering:
 
 ```
 > |ames-sift
+>=
+```
+
+---
+
+### `|ames-snub`
+
+Blacklist/whitelist ships in Ames.
+
+All packets from either the blacklisted ships or all non-whitelisted ships (as
+the case may be) will be dropped.
+
+#### Arguments
+
+```
+?(%allow %deny) ship ship ship ship ....
+```
+
+(Either `%allow` or `%deny` then a list of ships.)
+
+- `%allow` or `%deny` set whether the following ships are a whitelist or blacklist.
+
+{% callout %}
+
+Note that while `%deny` is ordinary blacklist blocking, `%allow` means *any*
+ships not on the list will be blocked.
+
+Note also that this generator totally overrides existing snub settings - it
+doesn't just add or remove ships from an existing list.
+
+{% /callout %}
+
+#### Example
+
+Create a blocklist:
+
+```
+> |ames-snub %deny ~wet ~sampel ~sampel-palnet
+>=
+```
+
+Create a whitelist (and therefore block everyone else):
+
+```
+> |ames-snub %allow ~wet ~sampel ~sampel-palnet
 >=
 ```
 
