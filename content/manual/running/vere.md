@@ -164,6 +164,33 @@ without having to go and download it yourself. Simply run `urbit next
 newer binaries are available for your release channel and if there are, it'll
 automatically download the new one and install it in the pier.
 
+### Set memory size
+
+Vere includes the [`--loom`](#--loom-size) option, which allows you to set the
+size of the *loom* (the memory area where the current ship state and
+computation state are stored). This is specified in exponents of two, so 1GB is
+`30` (2^30=~1GB), 2GB is `31` (2^31=~2GB), 4GB is `32` (2^32=~4GB), and 8GB is
+`33` (2^33=~8GB).
+
+The default loom size is 2GB (`31`), and maximum is currently 8GB (`33`). It
+can be set much lower, but below 2GB you'll likely have problems with running
+out of memory.
+
+Note the specified memory size must be entirely available. If it isn't (for
+example, you specify `33` (8GB) but only have 6GB available), it will fail to
+boot. The best approach in that scenario is to allocate some swap space to make
+up the difference. Indeed, on memory-constrained systems, it's almost always
+preferable to use swap rather than set the loom very low and crash your ship
+when it runs out of memory.
+
+Note also that setting the loom size above the 2GB default will allow the
+persistent state of your ship to grow larger than 2GB. If that happens, you
+won't be able to use the default size anymore, and will have to set a larger
+`--loom` everytime you boot it, unless you can reduce it back below 2GB with
+tools like [`pack`](#pack) and [`meld`](#meld).
+
+See the [`--loom`](#--loom-size) entry for further usage details.
+
 ### Truncate event log
 
 The event log of a ship is a totally ordered list of every single Arvo event
