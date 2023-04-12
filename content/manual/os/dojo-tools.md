@@ -220,8 +220,8 @@ usage = "Dojo"
 slug = "#ames-snub"
 desc = "Dojo utility included in the %base desk."
 
-[glossaryEntry."Print Ames messag-pump timers by ship"]
-name = "Print Ames messag-pump timers by ship"
+[glossaryEntry."Print Ames message-pump timers by ship"]
+name = "Print Ames message-pump timers by ship"
 symbol = "+ames-timers"
 usage = "Dojo"
 slug = "#ames-timers"
