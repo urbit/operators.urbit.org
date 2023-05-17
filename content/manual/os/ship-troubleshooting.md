@@ -80,7 +80,7 @@ in the Help channel in the Urbit Community group at `~bitbet-bolbel/urbit-commun
 
 ### Reset `+code`
 
-**WARNING:** Do not reset your +code if you are using a hosted ship. You will be locked out. Please contact your hosting provider for more information.
+**WARNING:** Do not reset your +code if you are using a hosted ship. You may be locked out. If the ship is Tlon hosted, you won't see the output, however you may access your new access key via the hosting dashboard. Please contact your hosting provider for more information if you are not Tlon hosted.
 
 You login to Landscape using the camel-case phrase obtained from dojo by
 entering `+code`. For security reasons you may wish to change this code
