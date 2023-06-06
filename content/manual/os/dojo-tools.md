@@ -1595,6 +1595,41 @@ Disconnect from a remote dojo session:
 
 These tools are mostly useful to developers or similarly technical people.
 
+### `.`
+
+Noun to jamfile. The noun is given to `+jam` and then written to
+`pier/.urb/put/filename.ext` using a `%sag` `%blit`, saving it as a jamfile.
+
+#### Arguments
+
+```
+path noun
+```
+
+#### Example
+
+This command is often used for writing pills to disk - see e.g.
+[`+solid`](#solid).
+
+```
+> .solid/pill +solid %base
+```
+
+You can also jam arbitrary nouns, e.g.
+
+```
+> .decrement/atom [8 [1 0] 8 [1 6 [5 [0 7] 4 0 6] [0 6] 9 2 [0 2] [4 0 6] 0 7] 9 2 0 1]
+```
+
+This is the Nock formula for decrement. If you copy it from
+`/pier/.urb/put/decrement.atom` to `pier/base` then you can run it by
+scrying it from Clay and running `+cue` to reobtain the formula. 
+
+```
+> .*(100 (cue .^(@ %cx %/decrement/atom)))
+99
+```
+
 ### `+ames-flows`
 
 Print details of [Ames][ames] flows by ship.
