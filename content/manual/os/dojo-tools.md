@@ -759,6 +759,13 @@ usage = "Dojo"
 slug = "#trim"
 desc = "Dojo utility included in the %base desk."
 
+[glossaryEntry."Make a jamfile and write to disk"]
+name = "Make a jamfile and write to disk"
+symbol = "."
+usage = "Dojo"
+slug = "#."
+desc = "Dojo utility included in dojo.hoon"
+
 +++
 
 [path]: https://developers.urbit.org/reference/glossary/path
@@ -1597,13 +1604,13 @@ These tools are mostly useful to developers or similarly technical people.
 
 ### `.`
 
-Noun to jamfile. The noun is given to `+jam` and then written to
-`pier/.urb/put/filename.ext` using a `%sag` `%blit`, saving it as a jamfile.
+Make a jamfile and write to disk. A noun is jammed and then written to
+`pier/.urb/put/path/extension` using a `%sag` `%blit`, saving it as a jamfile.
 
 #### Arguments
 
 ```
-path noun
+path/extension noun
 ```
 
 #### Example
