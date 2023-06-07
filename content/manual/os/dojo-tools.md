@@ -759,6 +759,14 @@ usage = "Dojo"
 slug = "#trim"
 desc = "Dojo utility included in the %base desk."
 
+[glossaryEntry."Write atom to disk in binary"]
+name = "Write atom to disk in binary"
+symbol = "@"
+usage = "Dojo"
+slug = "#@"
+desc = "Dojo utility included in dojo.hoon"
+
+
 +++
 
 [path]: https://developers.urbit.org/reference/glossary/path
