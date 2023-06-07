@@ -1595,6 +1595,25 @@ Disconnect from a remote dojo session:
 
 These tools are mostly useful to developers or similarly technical people.
 
+### `@`
+
+Write atom to a file in binary.
+
+#### Arguments
+
+```
+path @
+```
+
+#### Example
+
+```
+> `@test/atom 123`
+```
+
+will create a file called `test.atom` in `pier/.urb/put/test.atom`. The contents
+of this file is a binary representation of the atom, `1111011`.
+
 ### `+ames-flows`
 
 Print details of [Ames][ames] flows by ship.
