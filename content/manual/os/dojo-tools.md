@@ -759,13 +759,19 @@ usage = "Dojo"
 slug = "#trim"
 desc = "Dojo utility included in the %base desk."
 
+[glossaryEntry."Make a jamfile and write to disk"]
+name = "Make a jamfile and write to disk"
+symbol = "."
+usage = "Dojo"
+slug = "#."
+desc = "Dojo utility included in dojo.hoon"
+
 [glossaryEntry."Write atom to disk in binary"]
 name = "Write atom to disk in binary"
 symbol = "@"
 usage = "Dojo"
 slug = "#@"
 desc = "Dojo utility included in dojo.hoon"
-
 
 +++
 
@@ -1602,6 +1608,41 @@ Disconnect from a remote dojo session:
 ## Developer tools
 
 These tools are mostly useful to developers or similarly technical people.
+
+### `.`
+
+Make a jamfile and write to disk. A noun is jammed and then written to
+`pier/.urb/put/path/extension` using a `%sag` `%blit`, saving it as a jamfile.
+
+#### Arguments
+
+```
+path/extension noun
+```
+
+#### Example
+
+This command is often used for writing pills to disk - see e.g.
+[`+solid`](#solid).
+
+```
+> .solid/pill +solid %base
+```
+
+You can also jam arbitrary nouns, e.g.
+
+```
+> .decrement/atom [8 [1 0] 8 [1 6 [5 [0 7] 4 0 6] [0 6] 9 2 [0 2] [4 0 6] 0 7] 9 2 0 1]
+```
+
+This is the Nock formula for decrement. If you copy it from
+`/pier/.urb/put/decrement.atom` to `pier/base` then you can run it by
+scrying it from Clay and running `+cue` to reobtain the formula. 
+
+```
+> .*(100 (cue .^(@ %cx %/decrement/atom)))
+99
+```
 
 ### `@`
 
