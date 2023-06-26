@@ -1179,26 +1179,42 @@ Desks in Clay which aren't installed will be omitted. See the related
 
 #### Arguments
 
-`desk`
+`desk, =verb ?`
+
+The desk is mandatory while `=verb` is optional and sets verbosity. If `=verb`
+is `|`, the print-out will be brief. If `=verb` is `&` or not specified at all,
+the print-out will be more detailed.
 
 #### Examples
 
+Default verbosity (high):
+
 ```
 > +vat %base
-%base
-  /sys/kelvin:      [%zuse 418]
-  base hash:        ~
-  %cz hash:         0v2.r1lbp.i9jr2.hosbi.rvg16.pqe7u.i3hnp.j7k27.9jsgv.8k7rp.oi98q
-  app status:       running
-  force on:         ~
-  force off:        ~
-  publishing ship:  ~
-  updates:          local
-  source ship:      ~
-  source desk:      ~
-  source aeon:      ~
-  pending updates:  ~
-::
+/sys/kelvin:      [%zuse 414]
+base hash:        0v8.n40h1.hjn8c.e762q.ncgh0.e4gq3.6n3l5.5kt8l.6gtdr.ovbah.u3avd
+%cz hash:         0v8.n40h1.hjn8c.e762q.ncgh0.e4gq3.6n3l5.5kt8l.6gtdr.ovbah.u3avd
+app status:       running
+force on:         ~
+force off:        ~
+publishing ship:  ~
+updates:          local
+source ship:      ~
+source desk:      ~
+source aeon:      ~
+kids desk:        ~
+pending updates:  ~
+```
+
+Low verbosity:
+
+
+```
+> +vat %base, =verb |
+/sys/kelvin:      [%zuse 414]
+app status:       running
+publishing ship:  ~
+pending updates:  ~
 ```
 
 ---
@@ -1207,13 +1223,12 @@ Desks in Clay which aren't installed will be omitted. See the related
 
 Print out the status of each installed desk.
 
-Desks in Clay which aren't installed will be omitted. Also see the related
-[`+vat`](#vat) command, which prints the status of a single desk rather than all
-desks.
+Also see the related [`+vat`](#vat) command, which prints the status of a
+single desk rather than all desks.
 
 Fields:
 
-- `/sys/kelvin` - The version of `%zuse` the desk is compatible with.
+- `/sys/kelvin` - The kernel version(s) the desk is compatible with.
 - `base hash` - The merge base (common ancestor) between the desk and its upstream source.
 - `%cz hash` - The hash of the desk.
 - `app status` - May be `suspended` or `running`.
@@ -1223,48 +1238,132 @@ Fields:
   despite being on the `desk.bill` manifest.
 - `publishing ship` - The original publisher if the source ship is republishing
   the desk.
-- `updates` - May be `local`, `tracking` or `paused`. Local means it will
-  receive updates via commits on the local ship. Tracking means it will receive
+- `updates` - May be `local`, `remote` or `paused`. Local means it will
+  receive updates via commits on the local ship. Remote means it will receive
   updates from the `source ship`. Paused means it will not receive updates.
 - `source desk` - The desk on the `source ship`.
 - `source aeon` - The revision number of the desk on the `source ship`.
-- `pending updates` - Updates waiting to be applied due to incompatibility.
+- `pending updates` - Updates waiting to be applied due to kernel
+  incompatibility.
 
 #### Arguments
 
-None.
+```
+?(%suspended %running %blocking %nonexistent), =verb ?, =show-suspended ?, =show-running ?, =show-blocking ?, =show-nonexistent ?
+```
+
+All arguments are optional.
+
+With no arguments, it prints verbose details for all desks. If the optional
+`=verb` argument is set to `|`, verbosity is reduced.
+
+It may optionally take one of four filters as a primary argument:
+
+- `%suspended`: filter for suspended desks only.
+- `%running`: filter for desks that are installed and running.
+- `%blocking`: filter for desks that are blocking a kernel update due to
+  incompatibility.
+- `%nonexistent`: filter for desks we should have but don't yet.
+
+Alternatively, these filters can be *excluded* from the default output of
+everything by setting one or more of the `=show-*` arguments to `|`.
+
 
 #### Examples
 
+Print everything verbosely (no arguments):
+
 ```
 > +vats
-%base
-  /sys/kelvin:      [%zuse 418]
-  base hash:        ~
-  %cz hash:         0v6.2nqmu.oqm24.ighl6.n0gp9.s8res.feql1.dl8ap.isli3.jk0hu.acrd2
-  app status:       running
-  force on:         ~
-  force off:        ~
-  publishing ship:  ~
-  updates:          tracking
-  source ship:      ~zod
-  source desk:      %base
-  source aeon:      3
+  %base                                                                                        
+  /sys/kelvin:      [%zuse 414]                                                                
+  base hash:        0v8.n40h1.hjn8c.e762q.ncgh0.e4gq3.6n3l5.5kt8l.6gtdr.ovbah.u3avd            
+  %cz hash:         0v8.n40h1.hjn8c.e762q.ncgh0.e4gq3.6n3l5.5kt8l.6gtdr.ovbah.u3avd            
+  app status:       running                                                                    
+  force on:         ~                                                                          
+  force off:        ~                                                                          
+  publishing ship:  ~                                                                          
+  updates:          local                                                                      
+  source ship:      ~                                                                          
+  source desk:      ~                                                                          
+  source aeon:      ~                                                                          
+  kids desk:        ~
   pending updates:  ~
 ::
-%garden
-  /sys/kelvin:      [%zuse 418]
+  %landscape
+  /sys/kelvin:      [%zuse 416] [%zuse 415] [%zuse 414]
   base hash:        ~
-  %cz hash:         0v1e.2h7hs.elq3g.1sdt7.qfga6.ganga.7p95j.aog44.8p5fe.kpr6v.7ai82
+  %cz hash:         0v18.hnfi7.tps9t.0bv04.ikolg.ge98v.6f24v.a65m7.hlicn.rcl98.3skdu
   app status:       running
   force on:         ~
   force off:        ~
-  publishing ship:  ~
-  updates:          tracking
-  source ship:      ~zod
-  source desk:      %garden
-  source aeon:      3
+  publishing ship:  [~ ~lander-dister-dozzod-dozzod]
+  updates:          remote
+  source ship:      ~lander-dister-dozzod-dozzod
+  source desk:      %landscape
+  source aeon:      0
+  kids desk:        ~
   pending updates:  ~
+::
+.......
+```
+
+Print suspended desks:
+
+```
+> +vats %suspended
+  %foo
+  /sys/kelvin:      [%zuse 415]
+  base hash:        0vo.9f28r.java2.qnmqf.b3t1l.65mlu.8qsql.hq0cv.fpmdr.vuo1e.iehht
+  %cz hash:         0vo.9f28r.java2.qnmqf.b3t1l.65mlu.8qsql.hq0cv.fpmdr.vuo1e.iehht
+  app status:       suspended
+  force on:         ~
+  force off:        ~
+  publishing ship:  ~
+  updates:          local
+  source ship:      ~
+  source desk:      ~
+  source aeon:      ~
+  kids desk:        ~
+  pending updates:  ~
+::
+```
+
+Print suspended desks with low verbosity:
+
+```
+> +vats %suspended, =verb |
+  %foo
+  /sys/kelvin:      [%zuse 415]
+  app status:       suspended
+  publishing ship:  ~
+  pending updates:  ~
+::
+```
+
+Print everything with low verbosity except suspended desks and blocking desks:
+
+```
+> +vats, =verb |, =show-blocking |, =show-suspended |
+  %groups
+  /sys/kelvin:      [%zuse 417] [%zuse 416] [%zuse 415] [%zuse 414]
+  app status:       running
+  publishing ship:  [~ ~sogryp-dister-dozzod-dozzod]
+  pending updates:  ~
+::
+  %base
+  /sys/kelvin:      [%zuse 414]
+  app status:       running
+  publishing ship:  ~
+  pending updates:  ~
+::
+  %landscape
+  /sys/kelvin:      [%zuse 416] [%zuse 415] [%zuse 414]
+  app status:       running
+  publishing ship:  [~ ~lander-dister-dozzod-dozzod]
+  pending updates:  ~
+::
+.........
 ```
 
 ---
