@@ -759,6 +759,14 @@ usage = "Dojo"
 slug = "#trim"
 desc = "Dojo utility included in the %base desk."
 
+[glossaryEntry."Write atom to disk in binary"]
+name = "Write atom to disk in binary"
+symbol = "@"
+usage = "Dojo"
+slug = "#@"
+desc = "Dojo utility included in dojo.hoon"
+
+
 +++
 
 [path]: https://developers.urbit.org/reference/glossary/path
@@ -1594,6 +1602,25 @@ Disconnect from a remote dojo session:
 ## Developer tools
 
 These tools are mostly useful to developers or similarly technical people.
+
+### `@`
+
+Write atom to a file in binary.
+
+#### Arguments
+
+```
+path @
+```
+
+#### Example
+
+```
+> `@test/atom 123`
+```
+
+will create a file called `test.atom` in `pier/.urb/put/test.atom`. The contents
+of this file is a binary representation of the atom, `1111011`.
 
 ### `+ames-flows`
 
