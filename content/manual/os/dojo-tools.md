@@ -2893,6 +2893,15 @@ Enable automatic commits for a mounted [desk][desk].
 
 Auto-commits can be disabled with [`|cancel-autocommit`](#cancel-autocommit).
 
+{% callout %}
+
+### WARNING
+
+Autocommit can cause very substantial event-log bloat and quickly eat GBs of
+disk space. **It is advisable not to use this**.
+
+{% /callout %}
+
 #### Arguments
 
 ```
