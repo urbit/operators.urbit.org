@@ -52,13 +52,6 @@ usage = "Dojo"
 slug = "#rein"
 desc = "Dojo utility included in the %base desk."
 
-[glossaryEntry."Resume updates on a desk"]
-name = "Resume updates on a desk"
-symbol = "|resume"
-usage = "Dojo"
-slug = "#resume"
-desc = "Dojo utility included in the %base desk."
-
 [glossaryEntry."Revive all agents on a desk, migrating archived states"]
 name = "Revive all agents on a desk, migrating archived states"
 symbol = "|revive"
@@ -815,7 +808,7 @@ organized into rough categories for convenience.
 ## Apps and updates
 
 These tools are for managing [desks][desk], apps and updates. Install,
-uninstall, suspend, resume, pause updates, etc.
+uninstall, suspend, pause updates, etc.
 
 ### `+agents`
 
@@ -1032,27 +1025,6 @@ Revive a desk:
 
 ```
 |rein %bitcoin
-```
-
----
-
-### `|resume`
-
-Resume updates on a desk.
-
-Start tracking previously [`|pause`](#pause)d updates from a desk's upstream
-source.
-
-#### Arguments
-
-```
-desk
-```
-
-#### Examples
-
-```
-|resume %bitcoin
 ```
 
 ---
