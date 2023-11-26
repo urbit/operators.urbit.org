@@ -2018,7 +2018,7 @@ Export a brass pill containing just the `%base` desk:
 [%user-files 420]
 ```
 
-The pill will now be available in `<pier>/.urb/brass.pill` in the host
+The pill will now be available in `<pier>/.urb/put/brass.pill` in the host
 filesystem.
 
 Export a brass pill with multiple desks:
@@ -2475,7 +2475,7 @@ vane: %khan: ~mosryp-donleg
 [%user-files 420]
 ```
 
-The pill will now be available in `<pier>/.urb/solid.pill` in the host
+The pill will now be available in `<pier>/.urb/put/solid.pill` in the host
 filesystem.
 
 Export a solid pill with multiple desks:
