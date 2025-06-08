@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://docs.urbit.org/",
+      "permanent": true
+    }
+  ]
+}
